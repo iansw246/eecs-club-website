@@ -6,7 +6,6 @@ export default function Contact() {
 	return (
 		<Layout>
 			<div style={{ color: "teal" }}>
-				<Link to="/">Home</Link>
 				<p>Contact here</p>
 			</div>
 		</Layout>

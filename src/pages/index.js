@@ -5,9 +5,6 @@ import Layout from "../components/layout";
 export default function Home({ data }) {
 	return (
 		<Layout>
-			<Link to="/" activeStyle={{ color: "red" }}>
-				Test Link
-			</Link>
 			<h1>Lowell EECS Club</h1>
 			<p>This is inside layout</p>
 			<p>

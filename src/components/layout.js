@@ -2,20 +2,32 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
+
+const SiteContainer = styled.div`
+	margin: 0 auto;
+	max-width: 1024px;
+	padding: 0.25rem 0.5rem;
+`;
+
 const Header = styled.header`
-	margin: 1rem auto;
+	margin: 0.25rem auto;
 	max-width: 1024px;
 	display: flex;
-	align-items: flex-end;
-	background-image
+	align-items: center;
+`;
+
+const LinkList = styled.div`
+	display: flex;
+	align-items: center;
+	flex-flow: row wrap;
 `;
 
 const Logo = styled.img`
 	&:hover {
 		filter: blur(10px);
 	}
-	width: 80px;
-	height: 60px;
+	width: 60px;
+	height: 40px;
 	margin-right: 0.5rem;
 `;
 
@@ -24,28 +36,25 @@ const HeaderLink = styled(Link).attrs((props) => ({
 		color: "red",
 	},
 }))`
-	margin: 0.2rem 0.5rem;
+	margin: 0.2rem 0.25rem;
 	text-decoration: none;
-`;
-
-const ContainerDiv = styled.div`
-	margin: 1rem auto;
-	max-width: 1024px;
-	padding: 1rem;
 `;
 
 export default function Layout(props) {
 	return (
-		<ContainerDiv>
+		<SiteContainer>
 			<Header>
-				<HeaderLink to="/">
+				<Link to="/">
 					<Logo src="https://makezine.com/wp-content/uploads/2016/09/HeroImage.jpg"></Logo>
-				</HeaderLink>
-				<HeaderLink to="/about">About</HeaderLink>
-				<HeaderLink to="/contact/">Contact</HeaderLink>
-				<HeaderLink to="/contact/">Contact</HeaderLink>
+				</Link>
+				<LinkList>
+					<HeaderLink to="/about">About</HeaderLink>
+					<HeaderLink to="/contact/">Contact</HeaderLink>
+					<HeaderLink to="/events/">Workshops/Events</HeaderLink>
+					<HeaderLink to="/error/">This link has way too much stuff</HeaderLink>
+				</LinkList>
 			</Header>
 			{props.children}
-		</ContainerDiv>
+		</SiteContainer>
 	);
 }
