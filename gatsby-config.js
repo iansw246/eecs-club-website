@@ -5,11 +5,15 @@
  */
 
 module.exports = {
-	/* Your site config here */
+	siteMetadata: {
+		title: `Lowell EECS Club`,
+		description: `Lowell EECS Club`,
+	},
 	plugins: [
 		{
 			resolve: `gatsby-plugin-styled-components`,
 			options: {},
 		},
+		`gatsby-plugin-react-helmet`,
 	],
 };
