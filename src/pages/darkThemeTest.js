@@ -1,5 +1,9 @@
 import React from "react"
-import { createGlobalStyle } from "styled-components"
+
+export default function DarkThemeTest() {
+	return (<></>)
+}
+/*import { createGlobalStyle } from "styled-components"
 import { ThemeToggler } from "gatsby-plugin-dark-mode"
 
 const GlobalStyles = createGlobalStyle`
@@ -41,4 +45,4 @@ export default function DarkThemeTest() {
 			</ThemeToggler>
 		</div>
 	);
-}
+}*/
