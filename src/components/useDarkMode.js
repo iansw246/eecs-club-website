@@ -4,11 +4,18 @@ export default function useDarkMode() {
 	const [ theme, setTheme ] = useState(() => {
 		// For server side rendering, render with dark theme
 		// This might cause differences when React is hydrating, so don't change the DOM based on theme, only styles
-		if (typeof(window) === "undefined") return "dark";
-		const theme = window.localStorage.getItem("theme");
+		if (typeof(window) === "undefined") {
+			return "dark";
+		}
+		let theme = window.localStorage.getItem("theme");
 		// If theme key exists, return it. Otherwise, return dark as default.
-		return theme || "dark";
+		if (theme) {
+			return theme;
+		} else {
+			return "dark"
+		}
 	});
+	//const [theme, setTheme] = useState("dark");
 	const toggleTheme = () => {
 		// If theme is light, set to dark
 		if (theme === "light") {
@@ -26,5 +33,5 @@ export default function useDarkMode() {
 		localTheme && setTheme(localTheme);
 	}, []);
 
-	return [ theme, toggleTheme ];
+	return [theme, toggleTheme];
 }
