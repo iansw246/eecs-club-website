@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 export default function useDarkMode() {
-	const [ theme, setTheme ] = useState(() => {
+	const [theme, setTheme] = useState(() => {
 		// For server side rendering, render with dark theme
 		// This might cause differences when React is hydrating, so don't change the DOM based on theme, only styles
 		if (typeof(window) === "undefined") {

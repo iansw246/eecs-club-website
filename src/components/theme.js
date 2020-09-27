@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyles = createGlobalStyle`
+	/* Light theme */
 	body {
 		--textColor: black;
 		--linkColor: purple;
@@ -10,16 +11,15 @@ export const GlobalStyles = createGlobalStyle`
 		--headerBorderBottom: darkblue 2px solid;
 
 		color: var(--textColor);
-
 		margin: 0;
 	}
-
+	/* Dark theme */
 	body.dark {
 		--textColor: white;
 		--linkColor: lightblue;
 		--activeLinkBorder: lightblue 2px solid;
 		--siteBackground: black;
-		--contentBackground: #1e1e1e;
+		--contentBackground: #232327;
 		--headerBorderBottom: lightblue 2px solid;
 	}
 `;

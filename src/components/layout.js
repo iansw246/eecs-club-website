@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Helmet } from "react-helmet"
 import { useStaticQuery, Link, graphql } from "gatsby";
-import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import useDarkMode from "./useDarkMode"
 import { GlobalStyles } from "./theme"
-import { BeginningScriptTag } from "./setThemePageOnLoad"
 
 
 // background-image: url("https://media1.tenor.com/images/d600bc32b6dc1d9f4642f4794cbe6336/tenor.gif")
@@ -18,7 +17,6 @@ const SiteBackground = styled.div`
 
 const SiteContainer = styled.div`
 	margin: 0 auto;
-	min-height: 100vh;
 	max-width: 1024px;
 	padding: 0.25rem 0.5rem;
 	background: var(--contentBackground);
@@ -85,9 +83,7 @@ export default function Layout(props) {
 		`
 	);
 
-	console.log(`Theme: ${theme}`);
 	const bodyClass = theme === "dark" ? "dark" : "";
-	console.log(`Body class: ${bodyClass}`);
 
 	return (
 		<>
