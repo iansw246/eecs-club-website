@@ -67,7 +67,6 @@ const HeaderLink = styled(Link).attrs(() => ({
 const SiteBody = styled.div`
 `;
 
-// Maybe should move theme selection from ThemeProvider to inside Layout, before return
 export default function Layout(props) {
 	const [theme, toggleTheme] = useDarkMode();
 	const data = useStaticQuery(
