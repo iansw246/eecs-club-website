@@ -14,6 +14,14 @@ module.exports = {
 			resolve: `gatsby-plugin-styled-components`,
 			options: {},
 		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				path: `${__dirname}/content/workshops/`,
+				name: `workshops`,
+			},
+		},
+		`gatsby-transformer-remark`,
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-netlify-cms`,
 	],

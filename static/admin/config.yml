@@ -6,13 +6,11 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: 'events'
-    label: 'Events'
-    folder: 'content/events'
+  - name: 'workshops'
+    label: 'Workshops'
+    folder: 'content/Workshops'
     create: true
     slug: 'index'
-    media_folder: ''
-    public_folder: ''
     path: '{{title}}/index'
     editor:
       preview: false

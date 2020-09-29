@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components"
 import Layout from "../components/layout";
-import { ThemedA } from "../components/styledA"
+import { ThemedA } from "../components/themedA"
 
 const NoBulletUl = styled.ul`
     list-style-type: none;

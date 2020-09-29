@@ -4,6 +4,7 @@ export const GlobalStyles = createGlobalStyle`
 	/* Light theme */
 	body {
 		--textColor: black;
+		--secondaryTextColor: darkslategray;
 		--linkColor: purple;
 		--activeLinkBorder: darkblue 2px solid;
 		--siteBackground: white;
@@ -16,6 +17,7 @@ export const GlobalStyles = createGlobalStyle`
 	/* Dark theme */
 	body.dark {
 		--textColor: white;
+		--secondaryTextColor: lightgrey;
 		--linkColor: lightblue;
 		--activeLinkBorder: lightblue 2px solid;
 		--siteBackground: black;
