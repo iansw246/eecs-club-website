@@ -5,10 +5,11 @@ export const GlobalStyles = createGlobalStyle`
 	body {
 		--textColor: black;
 		--secondaryTextColor: darkslategray;
-		--linkColor: purple;
+		--linkColor: #6a006a;
 		--activeLinkBorder: darkblue 2px solid;
 		--siteBackground: white;
 		--contentBackground: lightgrey;
+		--altBackground: blue;
 		--headerBorderBottom: darkblue 2px solid;
 
 		color: var(--textColor);
@@ -22,6 +23,7 @@ export const GlobalStyles = createGlobalStyle`
 		--activeLinkBorder: lightblue 2px solid;
 		--siteBackground: black;
 		--contentBackground: #232327;
+		--altBackground: blue; 
 		--headerBorderBottom: lightblue 2px solid;
 	}
 `;

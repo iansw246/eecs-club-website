@@ -5,13 +5,15 @@ import { ThemedA } from "../components/themedA"
 
 const NoBulletUl = styled.ul`
     list-style-type: none;
+	padding: 0;
+	margin-left: 0
 `;
 
 export default function Contact() {
 	return (
 		<Layout>
 			<div>
-				<h2>Contact</h2>
+				<h1>Contact</h1>
                 <NoBulletUl>
                     <li>Email: <ThemedA href="mailto:lowelleecs@gmail.com">lowelleecs@gmail.com</ThemedA></li>
                     <li>Discord: <ThemedA href="https://discord.com">Insert Discord Link Here</ThemedA></li>

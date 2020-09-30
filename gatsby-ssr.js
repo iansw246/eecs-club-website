@@ -4,7 +4,6 @@ const BeginningScriptTag = () => {
 	// Used for theme
 	const codeToRunOnClient = "(" + (function() {
 		var theme = window.localStorage.getItem("theme");
-		console.log(theme);
 		switch (theme) {
 			case "light":
 				document.body.className = "";

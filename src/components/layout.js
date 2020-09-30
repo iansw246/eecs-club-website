@@ -21,7 +21,7 @@ const SiteContainer = styled.div`
 	padding: 0.25rem 0.5rem;
 	background: var(--contentBackground);
 	border: black solid 1px;
-	border-radius: 10px;
+	/*border-radius: 10px;*/
 
 	transition: background-color 0.1s ease-in;
 `;
@@ -29,23 +29,49 @@ const SiteContainer = styled.div`
 const Header = styled.header`
 	margin: 0.25rem auto;
 	max-width: 1024px;
-	${""/*Logo on left in-line with links: 
-	display: flex;*/}
 	border-bottom: var(--headerBorderBottom);
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+	justify-items: center;
 `;
 
 const LinkList = styled.nav`
+	grid-row-start: 2;
+	grid-column-start: 1;
+	grid-column-end: 4;
+
 	display: flex;
 	align-items: baseline;
 	justify-content: center;
 	flex-flow: row wrap;
+	
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2px;
 `;
 
-const Logo = styled.img`
+const LogoLink = styled(Link)`
+	grid-column-start: 2;
 	width: 100px;
 	height: 40px;
-	margin: 0.2rem auto;
-	display: block;
+	margin-top: 0.2rem;
+	margin-bottom: 0.2rem;
+`;
+
+const ThemeToggle = styled.button`
+	margin-left: auto;
+
+	background: var(--siteBackground);
+	color: var(--textColor);
+	border: 2px solid black;
+	border-radius: 5px;
+	padding: 0 0.2rem;
+	height: 2rem;
+	transition: background-color 0.1s ease-in;
+
+	&:hover {
+		background: var(--contentBackground);
+	}
 `;
 
 const HeaderLink = styled(Link).attrs(() => ({
@@ -58,8 +84,7 @@ const HeaderLink = styled(Link).attrs(() => ({
 	&, &:visited {
 		color: var(--linkColor);
 	}
-	padding-top: 2px;
-	box-sizing: border-box;
+	border-top: 2px solid transparent;
 	margin: 0.2rem 0.25rem;
 	text-decoration: none;
 `;
@@ -104,19 +129,19 @@ export default function Layout(props) {
 			<SiteBackground>
 				<SiteContainer>
 					<Header>
-						<Link to="/">
-							<Logo alt="EECS Club Logo" src="/eecs-website-icon-placeholder.svg" />
-						</Link>
+						<LogoLink to="/">
+							<img height="40px" widht="100px" alt="EECS Club Logo" src="/eecs-website-icon-placeholder.svg" />
+						</LogoLink>
+						<ThemeToggle onClick={toggleTheme}>Toggle Theme</ThemeToggle>
 						<LinkList>
 							<HeaderLink to="/">Home</HeaderLink>
 							<HeaderLink to="/contact/">Contact</HeaderLink>
 							<HeaderLink to="/events/">Workshops/Events</HeaderLink>
-							<HeaderLink to="/error/">This link has way too much stuff</HeaderLink>
+							<HeaderLink to="/error/">Link to page that doesn't exist</HeaderLink>
 						</LinkList>
 					</Header>
 					<SiteBody>
 						{props.children}
-						<button onClick={toggleTheme}>Toggle Theme</button>
 					</SiteBody>
 				</SiteContainer>
 			</SiteBackground>

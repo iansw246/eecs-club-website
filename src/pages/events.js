@@ -5,6 +5,11 @@ import Layout from "../components/layout";
 
 const Post = styled.div`
 	margin: 1rem 1rem;
+	transition: background-color 0.1s ease-in;
+
+	&:hover {
+		background: var(--altBackground);
+	}
 `;
 
 const PostLink = styled(Link)`
@@ -20,26 +25,24 @@ const PostDate = styled.span`
 	color: var(--secondaryTextColor);
 `;
 
-const PostExcerpt = styled.p`
+const PostDescription = styled.p`
 	margin-top: 0.2rem;
 `;
 
 export default function Events({ data }) {
-	console.log(data.allMarkdownRemark);
 	return (
 		<Layout>
 			<h1>Events and Workshops</h1>
 			{data.allMarkdownRemark.edges.map(({ node }) => (
-				<Post key={node.id}>
-					<PostTitle>
-						<PostLink to={node.fields.slug}>
-							{node.frontmatter.title} <PostDate>- {node.frontmatter.date}</PostDate>
+					<Post key={node.id}>
+						<PostLink key={node.id} to={node.fields.slug}>
+							<PostTitle key={node.id}>
+									{node.frontmatter.title} <PostDate key={node.id}>- {node.frontmatter.date}</PostDate>
+							</PostTitle>
+							<PostDescription>{node.frontmatter.description}</PostDescription>
 						</PostLink>
-					</PostTitle>
-					<PostExcerpt>{node.excerpt}</PostExcerpt>
-				</Post>
-			))}
-			<p>Work in progress</p>
+					</Post>
+				))}
 		</Layout>
 	);
 }
@@ -54,10 +57,10 @@ export const query = graphql`
 						description
 						title
 					}
-					excerpt
 					fields {
 						slug
 					}
+					id
 				}
 			}
 			totalCount
