@@ -21,6 +21,12 @@ module.exports = {
 				name: `workshops`,
 			},
 		},
+		{
+			resolve: `gatsby-plugin-typography`,
+			options: {
+				pathToConfigModule: `src/utils/typography`,
+			}
+		},
 		`gatsby-transformer-remark`,
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-netlify-cms`,
