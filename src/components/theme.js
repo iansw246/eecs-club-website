@@ -25,5 +25,12 @@ export const GlobalStyles = createGlobalStyle`
 		--contentBackground: #232327;
 		--altBackground: blue; 
 		--headerBorderBottom: lightblue 2px solid;
+
+		--textColor: white;
+		--background: black;
+		--accent: #0f4c75;
+		--backgroundAlt: 1b262c;
+		${'' /* --accent: #3282b8; */}
+		--accentAlt: #bbe1fa;
 	}
 `;
