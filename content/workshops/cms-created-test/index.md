@@ -39,10 +39,10 @@ Here's some testing. Use this to figure out styles.
 3. *Numbered List item in italics*
 4. ***Numbered List in italics and bold***
 
-![Arrow.png]( "Arrow.png")
+![Arrow.png](/img/uploads/star.png "Arrow.png")
 
 Another Image
 
-![Star](1.jpg "You're a star. This one to be precise, so this isn't much of a compliment. ")
+![Star]( "You're a star. This one to be precise, so this isn't much of a compliment. ")
 
 ![Math test]( "Here's a picture of my Calculus test.")
