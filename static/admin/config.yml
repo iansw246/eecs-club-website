@@ -8,7 +8,7 @@ public_folder: /img
 collections:
   - name: 'workshops'
     label: 'Workshops'
-    folder: 'content/Workshops'
+    folder: 'content/workshops'
     create: true
     slug: 'index'
     path: '{{title}}/index'
