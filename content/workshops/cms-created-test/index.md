@@ -15,6 +15,8 @@ Here's some testing. Use this to figure out styles.
 
 **[Here's a bold link](https://www.example.com)**
 
+***[Here's a bold and italicized link](https://www.example.com)***
+
 # Heading 1
 
 ## Heading 2

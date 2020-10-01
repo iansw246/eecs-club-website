@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet"
 import { useStaticQuery, Link, graphql } from "gatsby";
 import styled from "styled-components";
 import useDarkMode from "./useDarkMode"
+import { rhythm, scale } from "../utils/typography"
 import { GlobalStyles } from "./theme"
 
 
@@ -20,8 +21,8 @@ const SiteContainer = styled.div`
 	max-width: 1024px;
 	padding: 0.25rem 0.5rem;
 	background: var(--contentBackground);
-	border: black solid 1px;
-	/*border-radius: 10px;*/
+	/*border: black solid 1px;*/
+	border-radius: 10px;
 
 	transition: background-color 0.1s ease-in;
 `;
@@ -60,13 +61,16 @@ const LogoLink = styled(Link)`
 
 const ThemeToggle = styled.button`
 	margin-left: auto;
+	/* Center vertically */
+	align-self: center;
 
+	${scale(-0.3)}
 	background: var(--siteBackground);
 	color: var(--textColor);
 	border: 2px solid black;
 	border-radius: 5px;
 	padding: 0 0.2rem;
-	height: 2rem;
+	height: ${rhythm(1.2)};
 	transition: background-color 0.1s ease-in;
 
 	&:hover {
@@ -85,7 +89,7 @@ const HeaderLink = styled(Link).attrs(() => ({
 		color: var(--linkColor);
 	}
 	border-top: 2px solid transparent;
-	margin: 0.2rem 0.25rem;
+	margin: ${rhythm(0.1)} ${rhythm(0.3)};
 	text-decoration: none;
 `;
 

@@ -21,3 +21,16 @@ collections:
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: 'pages'
+    label: 'Page'
+    folder: 'src/pages'
+    media_folder: /static/img/uploads
+    public_folder: /img/uploads
+    create: true
+    slug: 'index'
+    path: '{{title}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
