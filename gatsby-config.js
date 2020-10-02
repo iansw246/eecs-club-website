@@ -28,12 +28,7 @@ module.exports = {
 				name: `pages`,
 			},
 		},
-		{
-			resolve: `gatsby-plugin-typography`,
-			options: {
-				pathToConfigModule: `src/utils/typography`,
-			}
-		},
+		`gatsby-plugin-sass`,
 		`gatsby-transformer-remark`,
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-netlify-cms`,
