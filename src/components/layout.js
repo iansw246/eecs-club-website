@@ -30,6 +30,12 @@ const SiteBackground = styled.div`
 		top: 0;
 		left: 0; right: 0;
 	}
+	/* On large devices, background image should be smaller.*/
+	@media only screen and (min-width: 768px) {
+		&:before {
+			background-size: 50%;
+		}
+	}
 	${'' /* min-height: 100vh; */}
 	width: 100%;
 	overflow: auto;
@@ -55,6 +61,9 @@ const HeaderInner = styled.div`
 	min-height: 100%;
 	max-width: 1024px;
 	margin: 0 auto;
+	padding: ${rhythm(0.1)};
+	padding-left: inherit;
+	padding-right: inherit;
 
 	display: grid;
 	grid-template-columns: 1fr auto 1fr;
@@ -97,7 +106,7 @@ const HeaderLink = styled(Link).attrs(() => ({
 		color: var(--linkColor);
 	}
 	border: 2px solid transparent;
-	margin: ${rhythm(0.1)} ${rhythm(0.3)};
+	margin: 0 ${rhythm(0.3)};
 	text-decoration: none;
 
 	&:hover {
@@ -135,7 +144,7 @@ const ThemeToggle = styled.button`
 	transition: background-color 0.1s ease-in;
 
 	&:hover {
-		background: var(--contentBackground);
+		background: rgba(0, 0, 0, 0.25);
 	}
 `;
 
