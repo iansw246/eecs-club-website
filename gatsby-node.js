@@ -26,6 +26,11 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 				name: `slug`,
 				value: slug,
 			});
+			createNodeField({
+				node,
+				name: `mainPage`,
+				value: true,
+			})
 		}
 	}
 }

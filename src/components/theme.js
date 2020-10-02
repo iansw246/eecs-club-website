@@ -12,6 +12,8 @@ export const GlobalStyles = createGlobalStyle`
 		--altBackground: blue;
 		--headerBorderBottom: darkblue 2px solid;
 
+		--siteBackgroundImage: url("/EECS_Logo_Background_Light.png");
+
 		color: var(--textColor);
 		margin: 0;
 	}
@@ -25,6 +27,8 @@ export const GlobalStyles = createGlobalStyle`
 		--contentBackground: #232327;
 		--altBackground: blue; 
 		--headerBorderBottom: lightblue 2px solid;
+
+		--siteBackgroundImage: url("/EECS_Logo_Background_Dark.png");
 
 		--textColor: white;
 		--background: black;

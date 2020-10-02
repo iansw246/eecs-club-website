@@ -15,7 +15,7 @@ const Post = styled.div`
 const PostLink = styled(Link)`
 	text-decoration: none;
 	color: var(--linkColor);
-`
+`;
 
 const PostTitle = styled.h3`
 	margin-bottom: 0.2rem;
@@ -34,22 +34,26 @@ export default function Events({ data }) {
 		<Layout>
 			<h1>Events and Workshops</h1>
 			{data.allMarkdownRemark.edges.map(({ node }) => (
-					<Post key={node.id}>
-						<PostLink key={node.id} to={node.fields.slug}>
-							<PostTitle key={node.id}>
-									{node.frontmatter.title} <PostDate key={node.id}>- {node.frontmatter.date}</PostDate>
-							</PostTitle>
-							<PostDescription>{node.frontmatter.description}</PostDescription>
-						</PostLink>
-					</Post>
-				))}
+				<Post key={node.id}>
+					<PostLink key={node.id} to={node.fields.slug}>
+						<PostTitle key={node.id}>
+							{node.frontmatter.title}{" "}
+							<PostDate key={node.id}>- {node.frontmatter.date}</PostDate>
+						</PostTitle>
+						<PostDescription>{node.frontmatter.description}</PostDescription>
+					</PostLink>
+				</Post>
+			))}
 		</Layout>
 	);
 }
 
 export const query = graphql`
 	{
-		allMarkdownRemark(sort: { order: DESC, fields: frontmatter___date }) {
+		allMarkdownRemark(
+			sort: { order: DESC, fields: frontmatter___date }
+			filter: { fields: { mainPage: { ne: true } } }
+		) {
 			edges {
 				node {
 					frontmatter {

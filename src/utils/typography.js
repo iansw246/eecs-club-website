@@ -7,8 +7,11 @@ judahTheme.overrideStyles = ({ rhythm }, options) => ({
 	},
 	"a" : {
 		color: "var(--linkColor)"
-	}
-})
+	},
+	"html" : {
+		overflowY: "auto",
+	},
+});
 
 const typography = new Typography(judahTheme);
 

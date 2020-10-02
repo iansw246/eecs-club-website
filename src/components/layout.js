@@ -11,6 +11,8 @@ import { GlobalStyles } from "./theme"
 
 // TODO:
 // Get proper backgroudn image with proper transparency (I just used magic want in Paint.NET)
+// Maybe SVG Backgrounds?
+// Maybe different background for mobile?
 
 
 const SiteBackground = styled.div`
@@ -18,19 +20,13 @@ const SiteBackground = styled.div`
 		content: "";
 		position: fixed;
 		z-index: -1;
-		background-image: url("/EECS_Logo_-_Dark cropped.png");
-		background-size: cover;
-		filter: opacity(0.1);
-		width: 100%; height: 100%;
-		left: 0; right: 0;
-	}
-	&:after {
-		content: "";
-		position: fixed;
-		z-index: -2;
+		background-image: var(--siteBackgroundImage);
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
 		background-color: var(--siteBackground);
 		transition: background-color 0.1s ease-in;
-		width: 100%; height: 100%;
+		width: 100%; height: 100vh;
 		top: 0;
 		left: 0; right: 0;
 	}
@@ -45,9 +41,7 @@ const SiteContainer = styled.div`
 	max-width: 1024px;
 	padding: 0.25rem 0.5rem;
 	background: var(--contentBackground);
-	/*border: black solid 1px;*/
 	border-radius: 10px;
-
 	transition: background-color 0.1s ease-in;
 `;
 
@@ -112,10 +106,7 @@ const HeaderLink = styled(Link).attrs(() => ({
 `;
 
 const LogoLink = styled(Link)`
-	@media only screen and (min-width: 768px) {
-		grid-column-start: 1
-	}
-	grid-column-start: 2;
+	grid-column-start: 1;
 `;
 
 const Logo = styled.img`
@@ -129,20 +120,17 @@ const ThemeToggle = styled.button`
 	margin-top: ${rhythm(0.1)};
 	margin-bottom: ${rhythm(0.1)};
 	/* "Float" right */
-	margin-left: auto;
 	margin-right: ${rhythm(0.1)};
 	/* Center vertically */
 	align-self: center;
 	grid-column-start: 3;
 
-	${scale(-0.3)}
-	${'' /* background: var(--siteBackground); */}
+	${scale(-0.4)}
 	background: none;
 	color: var(--textColor);
-	${'' /* border: 2px solid black; */}
-	border: 1px slid var(--siteBackground);
+	border: hidden;
 	border-radius: 5px;
-	padding: 0 0.2rem;
+	padding: 0 ${rhythm(0.2)};
 	height: ${rhythm(1.2)};
 	transition: background-color 0.1s ease-in;
 
@@ -154,8 +142,8 @@ const ThemeToggle = styled.button`
 const SiteContent = styled.main`
 	max-width: 1024px;
 	margin: 0 auto;
-	padding-left: ${rhythm(0.15)};
-	padding-right: ${rhythm(0.15)};
+	padding-left: ${rhythm(0.3)};
+	padding-right: ${rhythm(0.3)};
 `;
 
 export default function Layout(props) {
@@ -177,9 +165,6 @@ export default function Layout(props) {
 
 	return (
 		<>
-			{/* TODO: implement head and metadata. https://metatags.io/
-			<Helmet></Helmet>
-			*/}
 			<Helmet
 				bodyAttributes={{
 					class: bodyClass,
