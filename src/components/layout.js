@@ -37,6 +37,8 @@ const Logo = styled.img`
 	width: 32px;
 	height: 32px;
 	margin-right: 0.5rem;
+	margin-top: auto;
+	margin-bottom: auto;
 	filter: invert(100%);
 `;
 
@@ -50,7 +52,7 @@ const FAIconStyled = styled(FontAwesomeIcon)`
 const FooterStyled = styled(Container).attrs((props) => ({
 	as: "footer",
 	fluid: true,
-	className: "mt-auto py-1", //margin-top: auto, padding-top/bottom: 1
+	className: `${props.sticky && "mt-auto"} py-1`, //margin-top: auto, padding-top/bottom: 1
 }))`
 	background-color: #191919;
 `;
@@ -61,7 +63,15 @@ const FAIconLink = (props) => (
 	</Nav.Link>
 );
 
-export default function Layout({ children }) {
+export const CenteredMainContent = ({ children }) => (
+	<Container as="main" className="text-light" fluid="lg">
+		{children}
+	</Container>
+);
+
+// stickyFooter: boolean: whether the footer will have margin-top to put itself at bottom of page when page content is short. 
+// Layout contains a min-full height flex div wrapping everything, Helmet tags, top navbar, and footera
+export default function Layout({ children, stickyFooter = true}) {
 	const data = useStaticQuery(
 		graphql`
 			query {
@@ -76,7 +86,7 @@ export default function Layout({ children }) {
 	);
 
 	return (
-		<Container className="d-flex flex-column px-0" fluid>
+		<Container className="d-flex flex-column px-0 min-vh-100" fluid>
 			<Helmet>
 				{/*Primary tags */}
 				<title>Lowell EECS Club</title>
@@ -107,17 +117,12 @@ export default function Layout({ children }) {
 						</Navbar.Collapse>
 					</Container>
 			</Navbar>
-			<Container as="main" className="text-light" fluid="lg">
-				{children}
-			</Container>
-			<FooterStyled>
+			{children}
+			<FooterStyled sticky={stickyFooter}>
 				<Container fluid="lg" className="text-muted">
 					<Row>
 						<Nav>
 							<Nav.Item><Nav.Link as={Link} to="/">Home</Nav.Link></Nav.Item>
-							<Nav.Item><Nav.Link as={Link} to="/links">Links</Nav.Link></Nav.Item>
-							<Nav.Item><Nav.Link as={Link} to="/events">Workshops</Nav.Link></Nav.Item>
-							<Nav.Item><Nav.Link as={Link} to="/contact">Contact</Nav.Link></Nav.Item>
 						</Nav>
 						<Nav className="ml-auto">
 							<Nav.Item>
@@ -128,7 +133,8 @@ export default function Layout({ children }) {
 							</Nav.Item>
 						</Nav>
 					</Row>
-					<small>Lowell EECS Club</small>
+					<small>Lowell EECS Club {"  -   "}</small>
+					<small>Last updated {(new Date()).toLocaleDateString("en-US")}</small>
 				</Container>
 			</FooterStyled>
 		</Container>
