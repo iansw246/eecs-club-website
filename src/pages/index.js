@@ -8,7 +8,7 @@ const CoverMainContainer = styled(Container).attrs(props => ({
 	className: "text-light text-center my-auto",
 	fluid: true,
 }))`
-	background-image: url("EECS_Logo_Black_text_cropped.png");
+	background-image: url("");
 	/*background-image: url("/eecs logo bitmap trace.svg");*/
 	background-position: center;
 	background-size: contain;
