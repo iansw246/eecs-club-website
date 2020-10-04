@@ -9,11 +9,11 @@ import Col from "react-bootstrap/Col";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faDiscord, faInstagram } from "@fortawesome/free-brands-svg-icons"
-import useDarkMode from "./useDarkMode";
-
+import styled from "styled-components";
 
 
 import "../styles/global.scss";
+
 
 
 // background-image: url("https://media1.tenor.com/images/d600bc32b6dc1d9f4642f4794cbe6336/tenor.gif")
@@ -33,14 +33,35 @@ const NavRouterLink = (props) => (
 		}} />
 );
 
+const Logo = styled.img`
+	width: 32px;
+	height: 32px;
+	margin-right: 0.5rem;
+	filter: invert(100%);
+`;
+
+const FAIconStyled = styled(FontAwesomeIcon)`
+	&& {
+		height: 1.7rem;
+		width: 1.7rem;
+	}
+`;
+
+const FooterStyled = styled(Container).attrs((props) => ({
+	as: "footer",
+	fluid: true,
+	className: "mt-auto py-1", //margin-top: auto, padding-top/bottom: 1
+}))`
+	background-color: #191919;
+`;
+
 const FAIconLink = (props) => (
-	<Nav.Link href={props.href} className="text-light">
-		<FontAwesomeIcon icon={props.icon} style={{height: "2rem", width: "2rem"}}/>
+	<Nav.Link aria-label={props["aria-label"]} href={props.href} className="text-light">
+		<FAIconStyled icon={props.icon}/>
 	</Nav.Link>
-)
+);
 
 export default function Layout({ children }) {
-	const [theme, toggleTheme] = useDarkMode();
 	const data = useStaticQuery(
 		graphql`
 			query {
@@ -70,10 +91,10 @@ export default function Layout({ children }) {
 				/> */}
 			</Helmet>
 			
-			<Navbar bg="dark" variant="dark" fluid expand="sm" className="shadow-sm fixed-navbar">
+			<Navbar id="primary-navbar" bg="dark" variant="dark" expand="sm" className="shadow-sm" sticky="top">
 					<Container fluid="lg">
 						<Navbar.Brand as={Link} to="/" style={{display: "flex"}}>
-							<img src="/eecs logo bitmap trace optmized.svg" width="32px" height="32px" style={{marginRight: "0.5rem", filter: "invert(100%)"}}/>EECS Club
+							<Logo src="/eecs logo bitmap trace optmized.svg" />EECS Club
 						</Navbar.Brand>
 						<Navbar.Toggle aria-controls="responsive-navbar-nav"/>
 						<Navbar.Collapse id="responsive-navbar-nav">
@@ -89,10 +110,10 @@ export default function Layout({ children }) {
 			<Container as="main" className="text-light" fluid="lg">
 				{children}
 			</Container>
-			<Container as="footer" fluid className="mt-auto py-1" style={{backgroundColor: "#191919"}}>
+			<FooterStyled>
 				<Container fluid="lg" className="text-muted">
 					<Row>
-						<Nav style={{alignContent: "center"}}>
+						<Nav>
 							<Nav.Item><Nav.Link as={Link} to="/">Home</Nav.Link></Nav.Item>
 							<Nav.Item><Nav.Link as={Link} to="/links">Links</Nav.Link></Nav.Item>
 							<Nav.Item><Nav.Link as={Link} to="/events">Workshops</Nav.Link></Nav.Item>
@@ -100,16 +121,16 @@ export default function Layout({ children }) {
 						</Nav>
 						<Nav className="ml-auto">
 							<Nav.Item>
-								<FAIconLink href="https://discord.com" icon={faDiscord} />
+								<FAIconLink aria-label="EECS Discord Server" href="https://discord.com" icon={faDiscord} />
 							</Nav.Item>
 							<Nav.Item>
-								<FAIconLink href="https://instagram.com" icon={faInstagram} />
+								<FAIconLink aria-label="EECS Instagram Account" href="https://instagram.com" icon={faInstagram} />
 							</Nav.Item>
 						</Nav>
 					</Row>
 					<small>Lowell EECS Club</small>
 				</Container>
-			</Container>
+			</FooterStyled>
 		</Container>
 	);
 }
