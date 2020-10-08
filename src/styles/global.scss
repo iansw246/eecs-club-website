@@ -1,6 +1,22 @@
+// Boostrap overrides
 $font-size-base: 1.2rem;
 
-$body-bg: #242424;
+$primary: #3093ff;
+// $primary-darken: darken($primary, 10%);
+// $theme-colors: (
+// 	"primary-darken": $primary-darken
+// );
+$body-bg: #1d1d1d;
+//$light: #00eeff; // May want to make text slightly darker to reduce constrast
+
+// $link-visited-color: darken($primary, 20%);
+
+$navbar-dark-color: rgba(#ffffff, 0.8);
+$navbar-dark-hover-color: rgba(#ffffff, 1);
+
+// a:visited {
+// 	color: $link-visited-color;
+// }
 
 body {
 	min-height: 100vh;
@@ -10,4 +26,5 @@ footer {
 	background-color: #202020;
 }
 
-@import "~bootstrap/scss/bootstrap";
+
+@import "~bootstrap/scss/bootstrap"

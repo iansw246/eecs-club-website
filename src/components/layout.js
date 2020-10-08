@@ -57,20 +57,28 @@ const FooterStyled = styled(Container).attrs((props) => ({
 	background-color: #191919;
 `;
 
+const FooterNavLink = styled(Nav.Link)``;
+
 const FAIconLink = (props) => (
-	<Nav.Link aria-label={props["aria-label"]} href={props.href} className="text-light">
+	<Nav.Link
+		aria-label={props["aria-label"]}
+		href={props.href}
+		className="text-light"
+		target={props.target}
+		rel={props.target === "_blank" ? "noopener noreferrer" : null} // Possible phishing vulnerability if target="_blank" and these rel properties aren't set
+	>
 		<FAIconStyled icon={props.icon}/>
 	</Nav.Link>
 );
 
-export const CenteredMainContent = ({ children }) => (
-	<Container as="main" className="text-light" fluid="lg">
+export const CenteredMainContainer = ({ children }) => (
+	<Container className="text-light" fluid="lg" as="main">
 		{children}
 	</Container>
 );
 
 // stickyFooter: boolean: whether the footer will have margin-top to put itself at bottom of page when page content is short. 
-// Layout contains a min-full height flex div wrapping everything, Helmet tags, top navbar, and footera
+// Layout contains Helmet tags, top navbar, and footera
 export default function Layout({ children, stickyFooter = true}) {
 	const data = useStaticQuery(
 		graphql`
@@ -86,7 +94,7 @@ export default function Layout({ children, stickyFooter = true}) {
 	);
 
 	return (
-		<Container className="d-flex flex-column px-0 min-vh-100" fluid>
+		<Container className="d-flex flex-column px-0 min-vh-100" style={{backgroundImage: `url("/img/cover-background.svg")`, backgroundPosition: "center"}} fluid>
 			<Helmet>
 				{/*Primary tags */}
 				<title>Lowell EECS Club</title>
@@ -101,10 +109,10 @@ export default function Layout({ children, stickyFooter = true}) {
 				/> */}
 			</Helmet>
 			
-			<Navbar id="primary-navbar" bg="dark" variant="dark" expand="sm" className="shadow-sm" sticky="top">
+			<Navbar id="primary-navbar" variant="dark" expand="sm" className="shadow-sm bg-primary" sticky="top">
 					<Container fluid="lg">
 						<Navbar.Brand as={Link} to="/" style={{display: "flex"}}>
-							<Logo src="/eecs logo bitmap trace optmized.svg" />EECS Club
+							<Logo src="/eecs logo bitmap trace optimized.svg" />EECS Club
 						</Navbar.Brand>
 						<Navbar.Toggle aria-controls="responsive-navbar-nav"/>
 						<Navbar.Collapse id="responsive-navbar-nav">
@@ -122,18 +130,18 @@ export default function Layout({ children, stickyFooter = true}) {
 				<Container fluid="lg" className="text-muted">
 					<Row>
 						<Nav>
-							<Nav.Item><Nav.Link as={Link} to="/">Home</Nav.Link></Nav.Item>
+							<Nav.Item><FooterNavLink as={Link} to="/">Home</FooterNavLink></Nav.Item>
 						</Nav>
 						<Nav className="ml-auto">
 							<Nav.Item>
-								<FAIconLink aria-label="EECS Discord Server" href="https://discord.com" icon={faDiscord} />
+								<FAIconLink aria-label="EECS Discord Server" href="https://discord.com" icon={faDiscord} target="_blank"/>
 							</Nav.Item>
 							<Nav.Item>
-								<FAIconLink aria-label="EECS Instagram Account" href="https://instagram.com" icon={faInstagram} />
+								<FAIconLink aria-label="EECS Instagram Account" href="https://instagram.com" icon={faInstagram} target="_blank"/>
 							</Nav.Item>
 						</Nav>
 					</Row>
-					<small>Lowell EECS Club {"  -   "}</small>
+					<small>Lowell EECS Club {" - "}</small>
 					<small>Last updated {(new Date()).toLocaleDateString("en-US")}</small>
 				</Container>
 			</FooterStyled>
