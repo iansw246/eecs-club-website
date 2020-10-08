@@ -1,7 +1,7 @@
 import React from "react"
 import { Carousel } from "react-bootstrap"
 
-export default function ProjectsCarousel() {
+export default function ProjectsShowcase() {
 	return (
 		<Carousel>
 			<Carousel.Item>

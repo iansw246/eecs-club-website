@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components"
 import Layout, { CenteredMainContainer } from "../components/layout";
+import ProjectsShowcase from "../components/projectsShowcase"
 import { Jumbotron, Container, Button } from "react-bootstrap";
 
 
@@ -75,16 +76,18 @@ const pageDesigns = {
 	),
 	cover: () => (
 		<Layout stickyFooter={false}>
-			<CoverMainContainer >
+			<CoverMainContainer>
+				{/* div for spacing, makes top space smaller than bottom */}
 				<div style={{flexGrow: 2}} ></div>
-				<CoverLogo src="/eecs logo bitmap trace optimized.svg"></CoverLogo>
-				<Container>
+				<Container className="mb-5">
+					<CoverLogo src="/eecs logo bitmap trace optimized.svg"></CoverLogo>
 					<h1>Lowell EECS Club</h1>
 					<p>Learn electrical engineering & computer science while making exciting projects</p>
 					<p>Meetings every Fridays from 3:30 to 4:30 pm</p>
 					<Button className="m-2" href="" variant="primary">Join mailing list</Button>
 					<Button className="m-2" href="" variant="primary">Join our Discord</Button>
 				</Container>
+				{/* div for spacing, makes top space smaller than bottom */}
 				<div style={{flexGrow: 6}} ></div>
 			</CoverMainContainer>
 		</Layout>

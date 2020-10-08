@@ -94,7 +94,7 @@ export default function Layout({ children, stickyFooter = true}) {
 	);
 
 	return (
-		<Container className="d-flex flex-column px-0 min-vh-100" style={{backgroundImage: `url("/img/cover-background.svg")`, backgroundPosition: "center"}} fluid>
+		<Container className="d-flex flex-column px-0 min-vh-100" style={{backgroundImage: `url("/img/cover-background-edit.svg")`, backgroundPosition: "center"}} fluid>
 			<Helmet>
 				{/*Primary tags */}
 				<title>Lowell EECS Club</title>
@@ -116,10 +116,11 @@ export default function Layout({ children, stickyFooter = true}) {
 						</Navbar.Brand>
 						<Navbar.Toggle aria-controls="responsive-navbar-nav"/>
 						<Navbar.Collapse id="responsive-navbar-nav">
-							<Nav className="text-primary">
+							<Nav className="text-primary font-weight-bold">
 								<Nav.Item><NavRouterLink to="/">Home</NavRouterLink></Nav.Item>
+								<Nav.Item><NavRouterLink to="/about">About</NavRouterLink></Nav.Item>
 								<Nav.Item><NavRouterLink to="/links">Links</NavRouterLink></Nav.Item>
-								<Nav.Item><NavRouterLink to="/events">Workshops</NavRouterLink></Nav.Item>
+								{/* <Nav.Item><NavRouterLink to="/events">Workshops</NavRouterLink></Nav.Item> */}
 								<Nav.Item><NavRouterLink to="/contact">Contact</NavRouterLink></Nav.Item>
 							</Nav>
 						</Navbar.Collapse>
@@ -128,7 +129,7 @@ export default function Layout({ children, stickyFooter = true}) {
 			{children}
 			<FooterStyled sticky={stickyFooter}>
 				<Container fluid="lg" className="text-muted">
-					<Row>
+					<Row className="mx-0">
 						<Nav>
 							<Nav.Item><FooterNavLink as={Link} to="/">Home</FooterNavLink></Nav.Item>
 						</Nav>
