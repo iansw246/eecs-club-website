@@ -10,7 +10,6 @@ const CoverMainContainer = styled(Container).attrs(props => ({
 	fluid: true,
 	as: "main",
 }))`
-	background-image: url("");
 	/*background-image: url("/eecs logo bitmap trace.svg");*/
 	background-position: center;
 	background-size: contain;
@@ -20,6 +19,7 @@ const CoverMainContainer = styled(Container).attrs(props => ({
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-items: center;
 `;
 
 const CoverLogo = styled.img`
@@ -32,6 +32,12 @@ const CoverLogo = styled.img`
 		width: 8rem
 	}
 	filter: invert(1);
+`;
+
+const ScrollDownArrow = styled.img.attrs(() => ({
+	src: "/img/scroll-down-arrow.svg",
+}))`
+	width: 5rem;
 `;
 
 const pageDesigns = {
@@ -77,18 +83,25 @@ const pageDesigns = {
 	cover: () => (
 		<Layout stickyFooter={false}>
 			<CoverMainContainer>
-				{/* div for spacing, makes top space smaller than bottom */}
-				<div style={{flexGrow: 2}} ></div>
-				<Container className="mb-5">
-					<CoverLogo src="/eecs logo bitmap trace optimized.svg"></CoverLogo>
-					<h1>Lowell EECS Club</h1>
-					<p>Learn electrical engineering & computer science while making exciting projects</p>
-					<p>Meetings every Fridays from 3:30 to 4:30 pm</p>
-					<Button className="m-2" href="" variant="primary">Join mailing list</Button>
-					<Button className="m-2" href="" variant="primary">Join our Discord</Button>
+				<Container className="d-flex flex-column" style={{minHeight: "88vh"}}>
+					{/* div for spacing, makes top space smaller than bottom */}
+					<div style={{flexGrow: 2}} ></div>
+					<Container>
+						<CoverLogo src="/eecs logo bitmap trace optimized.svg"></CoverLogo>
+						<h1>Lowell EECS Club</h1>
+						<p>Learn electrical engineering & computer science while making exciting projects</p>
+						<p>Meetings every Fridays from 3:30 to 4:30 pm</p>
+						<Button className="m-2" href="" variant="primary">Join mailing list</Button>
+						<Button className="m-2" href="" variant="primary">Join our Discord</Button>
+					</Container>
+					{/* div for spacing, makes top space smaller than bottom */}
+					<div style={{flexGrow: 6}} ></div>
 				</Container>
-				{/* div for spacing, makes top space smaller than bottom */}
-				<div style={{flexGrow: 6}} ></div>
+				<a href="#projects"><ScrollDownArrow/></a>
+				<h1 className="my-5" id="projects">Projects</h1>
+				<Container>
+					<ProjectsShowcase />
+				</Container>
 			</CoverMainContainer>
 		</Layout>
 	),
