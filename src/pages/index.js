@@ -114,24 +114,28 @@ export default function Home({ data }) {
 	const Page = pageDesigns[pageDesignKey];
 
 	return (
-		<>
-			<div className="bg-light" style={{
-				position: "fixed",
-				right: 0,
-				top: 75,
-			}}>
-			{
-				// Design selection radio buttons
-				allDesignKeys.map((design) => (
-
-					<div key={design[0]}>
-						<input id={design[0]} name="page-design" type="radio" onChange={() => setPageDesign(design[0])} checked={pageDesignKey === design[0]}/>
-						<label htmlFor={design[0]}>{design[0]}</label>
-					</div>
-				))
-			}
-			</div>
-			<Page />
-		</>
+		<Layout stickyFooter={false}>
+			<CoverMainContainer>
+				<Container className="d-flex flex-column" style={{minHeight: "88vh"}}>
+					{/* div for spacing, makes top space smaller than bottom */}
+					<div style={{flexGrow: 2}} ></div>
+					<Container>
+						<CoverLogo src="/eecs logo bitmap trace optimized.svg"></CoverLogo>
+						<h1>Lowell EECS Club</h1>
+						<p>Learn electrical engineering & computer science while making exciting projects</p>
+						<p>Meetings every Fridays from 3:30 to 4:30 pm</p>
+						<Button className="m-2" href="" variant="primary">Join mailing list</Button>
+						<Button className="m-2" href="" variant="primary">Join our Discord</Button>
+					</Container>
+					{/* div for spacing, makes top space smaller than bottom */}
+					<div style={{flexGrow: 6}} ></div>
+				</Container>
+				<a href="#projects"><ScrollDownArrow/></a>
+				<h1 className="my-5" id="projects">Projects</h1>
+				<Container>
+					<ProjectsShowcase />
+				</Container>
+			</CoverMainContainer>
+		</Layout>
 	);
 }

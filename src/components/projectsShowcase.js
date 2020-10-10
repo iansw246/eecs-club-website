@@ -13,7 +13,7 @@ const CarouselContentContainer = styled(Container)`
 
 const ProjectImage = styled.img`
 	flex-grow: 3;
-	${'' /* min-width: 200px; */}
+	width: 50%;
 	max-width: 500px;
 `;
 
