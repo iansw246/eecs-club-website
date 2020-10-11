@@ -18,6 +18,51 @@
   <defs
      id="defs2">
     <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect862"
+       is_visible="true"
+       lpeversion="1"
+       satellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0.26458333,0,1 @ F,0,0,1,0,0.26458333,0,1 | F,0,0,1,0,0.26458333,0,1 @ F,0,0,1,0,0.26458333,0,1 @ F,0,0,1,0,0.26458333,0,1 @ F,0,0,1,0,0.26458333,0,1"
+       unit="px"
+       method="auto"
+       mode="F"
+       radius="1"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="copy_rotate"
+       starting_point="0,0"
+       origin="7.65,5.66"
+       id="path-effect858"
+       is_visible="true"
+       lpeversion="1"
+       method="normal"
+       num_copies="2"
+       starting_angle="0"
+       rotation_angle="180"
+       gap="-0.01"
+       copies_to_360="true"
+       mirror_copies="false"
+       split_items="false" />
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="3.1624293,5.56"
+       end_point="10.458887,5.5639284"
+       center_point="6.8106582,5.7022034"
+       id="path-effect856"
+       is_visible="true"
+       lpeversion="1"
+       mode="free"
+       discard_orig_path="false"
+       fuse_paths="false"
+       oposite_fuse="false"
+       split_items="false" />
+    <inkscape:path-effect
        effect="mirror_symmetry"
        start_point="11.951257,10.35"
        end_point="8.0155799,10.349706"
@@ -155,9 +200,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="11.313709"
-     inkscape:cx="29.556842"
-     inkscape:cy="31.21289"
+     inkscape:zoom="8.0000005"
+     inkscape:cx="43.116497"
+     inkscape:cy="43.664157"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -258,21 +303,10 @@
        transform="rotate(180,7.8265475,6.7819642)"
        style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">
       <path
-         id="path6667"
+         id="path860"
          style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         d="M 7.6530957,5.5639284 V 2.4434887 A 0.48222297,0.48222297 118.75244 0 1 7.8762551,2.0367639 L 8.9180181,1.3732126 M 8.7623691,0.56286417 c 0.085038,-0.27178806 0.2995853,-0.48633859 0.5713714,-0.57138121 0.1389303,-0.04347171 0.3822377,-0.04347133 0.521161,-4.41e-6 0.2717875,0.08503812 0.4863385,0.29958538 0.5713815,0.57137141 0.04347,0.13893038 0.04347,0.3822377 4e-6,0.52116104 -0.08504,0.271788 -0.299585,0.4863385 -0.5713713,0.5713812 -0.1389303,0.043472 -0.3822377,0.043471 -0.521161,4.5e-6 C 9.0619666,1.5703586 8.8474161,1.3558113 8.7623735,1.0840253 8.7189018,0.94509486 8.7189022,0.70178754 8.7623691,0.56286417 Z"
-         sodipodi:nodetypes="cccsssss"
-         inkscape:path-effect="#path-effect6681"
-         inkscape:original-d="M 7.6530957,5.5639284 V 2.1789054 L 8.9180181,1.3732126 M 8.7227502,0.8234376 c -10e-8,-0.48135923 0.3902187,-0.87157802 0.8715779,-0.871578 0.4813589,-2e-8 0.8715779,0.39021877 0.8715779,0.871578 0,0.4813592 -0.390219,0.871578 -0.8715779,0.871578 -0.4813592,0 -0.871578,-0.3902188 -0.8715779,-0.871578 z" />
-      <use
-         x="0"
-         y="0"
-         xlink:href="#path6667"
-         id="use6679"
-         transform="rotate(-180,7.6530957,5.5639284)"
-         width="100%"
-         height="100%"
-         style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+         d="M 6.3881722,9.754644 7.4299354,9.0910927 C 7.5689344,9.0025572 7.6530948,8.8491686 7.6530948,8.6843679 l 5e-7,-3.1204396 4e-7,-3.1204396 c 0,-0.1648007 0.08416,-0.3181893 0.2231594,-0.4067248 L 8.9180181,1.3732126 M 6.5438212,10.564992 c -0.085038,0.271788 -0.2995853,0.486339 -0.5713714,0.571382 -0.1389303,0.04347 -0.3822377,0.04347 -0.521161,4e-6 -0.2717879,-0.08504 -0.4863384,-0.299585 -0.5713811,-0.571371 -0.043472,-0.138931 -0.043471,-0.382238 -4.5e-6,-0.521161 0.085038,-0.2717884 0.2995855,-0.4863389 0.5713714,-0.5713816 0.1389303,-0.043472 0.3822377,-0.043471 0.521161,-4.5e-6 0.2717881,0.085038 0.4863386,0.2995854 0.5713812,0.5713711 0.043472,0.138931 0.043471,0.382238 4.4e-6,0.521161 z M 8.7623691,0.56286417 c 0.085038,-0.27178806 0.2995853,-0.48633859 0.5713714,-0.57138121 0.1389303,-0.04347171 0.3822377,-0.04347133 0.521161,-4.41e-6 0.2717875,0.08503812 0.4863385,0.29958538 0.5713815,0.57137141 0.04347,0.13893038 0.04347,0.3822377 4e-6,0.52116104 -0.08504,0.271788 -0.299585,0.4863385 -0.5713713,0.5713812 -0.1389303,0.043472 -0.3822377,0.043471 -0.521161,4.5e-6 C 9.0619666,1.5703586 8.8474161,1.3558113 8.7623735,1.0840253 8.7189018,0.94509486 8.7189022,0.70178754 8.7623691,0.56286417 Z"
+         sodipodi:nodetypes="csscsscsscsssssssssscssss" />
     </g>
     <use
        x="0"
