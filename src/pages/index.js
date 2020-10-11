@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components"
-import Layout, { CenteredMainContainer } from "../components/layout";
+import Layout, { CenteredContainer } from "../components/layout";
 import ProjectsShowcase from "../components/projectsShowcase"
 import { Jumbotron, Container, Button } from "react-bootstrap";
+import DebugOptionsBox from "../components/debugOptionsBox"
 
 
 const CoverMainContainer = styled(Container).attrs(props => ({
@@ -42,14 +43,21 @@ const ScrollDownArrow = styled.img.attrs(() => ({
 
 
 export default function Home({ data }) {
+	const [fullScreenCover, toggleFullScreenCover] = useState(false);
+
 	return (
 		<Layout stickyFooter={false}>
+			<DebugOptionsBox>
+				<input type="checkbox" id="fullScreenCover" name="fullScreenCover" onChange={() => toggleFullScreenCover(!fullScreenCover)} />
+				<label htmlFor="fullScreenCover">Full screen cover</label>
+			</DebugOptionsBox>
+
 			<CoverMainContainer>
-				<Container className="d-flex flex-column" style={{minHeight: "88vh"}}>
+				<Container className="d-flex flex-column" style={fullScreenCover ? {minHeight: "88vh"} : {marginTop: "2rem", marginBottom: "8rem"}}>
 					{/* div for spacing, makes top space smaller than bottom */}
-					<div style={{flexGrow: 2}} ></div>
+					{fullScreenCover ? <div style={{flexGrow: 2}} ></div> : null}
 					<Container>
-						<CoverLogo src="/eecs logo bitmap trace optimized.svg"></CoverLogo>
+						<CoverLogo src="/eecs-logo-UNOPTMIZED.svg"></CoverLogo>
 						<h1>Lowell EECS Club</h1>
 						<p>Learn electrical engineering & computer science while making exciting projects</p>
 						<p>Meetings every Fridays from 3:30 to 4:30 pm</p>
@@ -57,10 +65,10 @@ export default function Home({ data }) {
 						<Button className="m-2" href="" variant="primary">Join our Discord</Button>
 					</Container>
 					{/* div for spacing, makes top space smaller than bottom */}
-					<div style={{flexGrow: 6}} ></div>
+					{fullScreenCover ? <div style={{flexGrow: 6}} ></div> : null}
 				</Container>
-				<a href="#projects" aria-label="Scroll to projects"><ScrollDownArrow/></a>
-				<h1 className="my-5" id="projects">Projects</h1>
+				{fullScreenCover ? <a href="#projects" aria-label="Scroll to projects"><ScrollDownArrow/></a> : null}
+				<h2 className="my-5" id="projects">Projects</h2>
 				<Container>
 					<ProjectsShowcase />
 				</Container>

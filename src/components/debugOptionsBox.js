@@ -6,6 +6,7 @@ export default function DebugOptionsBox({ children }) {
 			position: "fixed",
 			right: 0,
 			top: 75,
+			zIndex: 2,
 		}}>
 		{children}
 		</div>

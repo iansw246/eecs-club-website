@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import Container from "react-bootstrap/Container"
-import Layout, { CenteredMainContainer } from "../components/layout"
+import Layout, { CenteredContainer } from "../components/layout"
 import BoardMemberShowcase, { MemberRow } from "../components/boardMemberShowcase"
 import DebugOptionsBox from "../components/debugOptionsBox"
 
@@ -62,29 +62,39 @@ export default function About() {
 					))
 				}
 			</DebugOptionsBox>
-			{
-				useImageBanner ? (
-					<Container fluid style={{backgroundImage: `url("/img/eecsphoto2-maxwell-xu.jpg")`, backgroundSize: "cover"}}>
-						<Container fluid="lg">
+			<main>
+				{
+					useImageBanner ? (
+						<Container fluid style={{backgroundImage: `url("/img/eecsphoto2-maxwell-xu.jpg")`, backgroundSize: "cover"}}>
+							<Container fluid="lg">
+								<h1>About</h1>
+							</Container>
+						</Container>		
+					) : (
+						<Container className="text-light" fluid="lg">
 							<h1>About</h1>
 						</Container>
-					</Container>		
-				) : (
-					<Container className="text-light" fluid="lg">
-						<h1>About</h1>
-					</Container>
-				)
-			}
-			<CenteredMainContainer>
-				<p>
-					Lowell Electrical Engineering & Computer Science (EECS) Club is a student-run club at Lowell High School in San Francisco.
-					Learn and teach EECS	
-					Our mission is provide Lowell students exposure to EECS 
-					We explore various topics in EECS, creating you how to solder, make colorful animated RGB displays, animated LED cubes, robots, and many other things.
-					We hope to see you there
-				</p>
-				<Page />
-			</CenteredMainContainer>
+					)
+				}
+				<CenteredContainer>
+				{/*
+					Audience: Primarily Lowell students. Secondarily: Parents and the general public
+					Make club interesting to students
+				*/}
+					<p>
+						Lowell Electrical Engineering & Computer Science (EECS) Club is a student-run club at Lowell High School in San Francisco, California.
+						Learn and teach EECS
+
+						Our mission is provide Lowell students exposure to EECS and teach them core concepts in the field.
+						Regardless of experience, 
+						Through 
+
+						We explore various topics in EECS, creating you how to solder, make colorful animated RGB displays, animated LED cubes, robots, and many other things.
+						We hope to see you there
+					</p>
+					<Page />
+				</CenteredContainer>
+			</main>
 		</Layout>
 	)
 }

@@ -1,11 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, Link, graphql } from "gatsby";
-import Container from "react-bootstrap/Container";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Container, Navbar, Nav, Row, Col} from "react-bootstrap";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faDiscord, faInstagram } from "@fortawesome/free-brands-svg-icons"
@@ -71,9 +67,9 @@ const FAIconLink = (props) => (
 	</Nav.Link>
 );
 
-export const CenteredMainContainer = ({ children }) => (
-	<Container className="text-light" fluid="lg" as="main">
-		{children}
+export const CenteredContainer = (props) => (
+	<Container className="text-light" fluid="lg" {...props}>
+		{props.children}
 	</Container>
 );
 
@@ -112,7 +108,7 @@ export default function Layout({ children, stickyFooter = true}) {
 			<Navbar id="primary-navbar" variant="dark" expand="sm" className="shadow-sm bg-primary" sticky="top">
 					<Container fluid="lg">
 						<Navbar.Brand as={Link} to="/" style={{display: "flex"}}>
-							<Logo src="/eecs logo bitmap trace optimized.svg" />EECS Club
+							<Logo src="/eecs-logo-UNOPTMIZED.svg" />EECS Club
 						</Navbar.Brand>
 						<Navbar.Toggle aria-controls="responsive-navbar-nav"/>
 						<Navbar.Collapse id="responsive-navbar-nav">

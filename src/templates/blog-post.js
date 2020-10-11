@@ -1,16 +1,16 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Layout, { CenteredMainContainer } from "../components/layout";
+import Layout, { CenteredContainer } from "../components/layout";
 
 export default function BlogPost({ data }) {
 	const post = data.markdownRemark;
 	return (
 		<Layout>
-			<CenteredMainContainer>
+			<CenteredContainer as="main">
 				<h1>{post.frontmatter.title}</h1>
 				<h3>{post.frontmatter.date}</h3>
 				<div dangerouslySetInnerHTML={{__html: post.html}} />
-			</CenteredMainContainer>
+			</CenteredContainer>
 		</Layout>
 	);
 }

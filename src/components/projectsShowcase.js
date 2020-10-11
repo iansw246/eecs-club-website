@@ -19,6 +19,7 @@ const ProjectImage = styled.img`
 
 const ProjectText = styled.div`
 	flex: 1;
+	min-height: 10rem;
 	min-width: 200px;
 	margin-left: 0.75rem;
 	margin-right: 0.75rem;
