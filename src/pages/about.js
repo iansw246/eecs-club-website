@@ -13,25 +13,25 @@ const pageDesigns = {
 			<MemberRow
 					name="Bob"
 					title="VP of Bob"
-					imageSrc="/img/uploads/star.png"
+					imageSrc="/img/uploads/pg4.jpg"
 					description="Bob is such a bob he even the VP of Bob wow such cool."
 			/>
 			<MemberRow
 					name="Bob"
 					title="VP of Bob"
-					imageSrc="/img/uploads/star.png"
+					imageSrc="/img/uploads/pg4.jpg"
 					description="Bob is such a bob he even the VP of Bob wow such cool."
 			/>
 			<MemberRow
 					name="Bob"
 					title="VP of Bob"
-					imageSrc="/img/uploads/star.png"
+					imageSrc="/img/uploads/pg4.jpg"
 					description="Bob is such a bob he even the VP of Bob wow such cool."
 			/>
 			<MemberRow
 					name="Bob"
 					title="VP of Bob"
-					imageSrc="/img/uploads/star.png"
+					imageSrc="/img/uploads/pg4.jpg"
 					description="Bob is such a bob he even the VP of Bob wow such cool."
 			/>
 		</>
@@ -44,7 +44,7 @@ export default function About() {
 	const [useImageBanner, setImageBanner] = useState(false);
 	const [pageDesign, setPageDesign] = useState(pageDesignEntries[0][0]);
 
-	const Page = pageDesigns[pageDesign];
+	const BoardMembers = pageDesigns[pageDesign];
 
 	return (
 		<Layout>
@@ -86,13 +86,19 @@ export default function About() {
 						Learn and teach EECS
 
 						Our mission is provide Lowell students exposure to EECS and teach them core concepts in the field.
-						Regardless of experience, 
+						
+						From soldering to coding, 
+
+						Everyone is welcome, regardless of experience. 
 						Through 
+
+						We meet every Friday from 3:30 to 4:30 pm. Due to the pandemic, 
 
 						We explore various topics in EECS, creating you how to solder, make colorful animated RGB displays, animated LED cubes, robots, and many other things.
 						We hope to see you there
 					</p>
-					<Page />
+					<h2>Board Members</h2>
+					<BoardMembers />
 				</CenteredContainer>
 			</main>
 		</Layout>

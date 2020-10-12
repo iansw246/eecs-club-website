@@ -2,16 +2,14 @@
 $font-size-base: 1.2rem;
 
 $primary: #3093ff;
-// $primary-darken: darken($primary, 10%);
-// $theme-colors: (
-// 	"primary-darken": $primary-darken
-// );
+$secondary: #0056b3;
+
 $body-bg: #1d1d1d;
 //$light: #00eeff; // May want to make text slightly darker to reduce constrast
 
 // $link-visited-color: darken($primary, 20%);
 
-$navbar-dark-color: rgba(#ffffff, 0.8);
+$navbar-dark-color: rgba(#ffffff, 0.9);
 $navbar-dark-hover-color: rgba(#ffffff, 1);
 
 // a:visited {
@@ -26,5 +24,4 @@ footer {
 	background-color: #202020;
 }
 
-
-@import "~bootstrap/scss/bootstrap"
+@import "~bootstrap/scss/bootstrap";

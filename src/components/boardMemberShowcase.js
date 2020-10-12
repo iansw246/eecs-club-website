@@ -59,8 +59,8 @@ export const MemberRow = ({ name, title, description, imageSrc }) => (
 	<CarouselContentContainer>
 		<ProjectImage src={imageSrc} width={300} />
 		<ProjectText>
-			<h2>{name}</h2>
-			<h4>{title}</h4>
+			<h3>{name}</h3>
+			<h5>{title}</h5>
 			<p>{description}</p>
 		</ProjectText>
 	</CarouselContentContainer>
@@ -72,43 +72,43 @@ export default function BoardMemberShowcase() {
 			<MemberBox
 				name="Bob"
 				title="VP of Bob"
-				imageSrc="/img/uploads/star.png"
+				imageSrc="/img/uploads/pg4.jpg"
 				description="Bob is such a bob he even the VP of Bob wow such cool."
 			/>
 			<MemberBox
 				name="Bob"
 				title="VP of Bob"
-				imageSrc="/img/uploads/star.png"
+				imageSrc="/img/uploads/pg4.jpg"
 				description="Bob is such a bob he even the VP of Bob wow such cool."
 			/>
 			<MemberBox
 				name="Bob"
 				title="VP of Bob"
-				imageSrc="/img/uploads/star.png"
+				imageSrc="/img/uploads/pg4.jpg"
 				description="Bob is such a bob he even the VP of Bob wow such cool."
 			/>
 			<MemberBox
 				name="Bob"
 				title="VP of Bob"
-				imageSrc="/img/uploads/star.png"
+				imageSrc="/img/uploads/pg4.jpg"
 				description="Bob is such a bob he even the VP of Bob wow such cool."
 			/>
 			<MemberBox
 				name="Bob"
 				title="VP of Bob"
-				imageSrc="/img/uploads/star.png"
+				imageSrc="/img/uploads/pg4.jpg"
 				description="Bob is such a bob he even the VP of Bob wow such cool."
 			/>
 			<MemberBox
 				name="Bob"
 				title="VP of Bob"
-				imageSrc="/img/uploads/star.png"
+				imageSrc="/img/uploads/pg4.jpg"
 				description="Bob is such a bob he even the VP of Bob wow such cool."
 			/>
 			<MemberBox
 				name="Bob"
 				title="VP of Bob"
-				imageSrc="/img/uploads/star.png"
+				imageSrc="/img/uploads/pg4.jpg"
 				description="Bob is such a bob he even the VP of Bob wow such cool."
 			/>
 		</MemberBoxesHolder>

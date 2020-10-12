@@ -58,6 +58,7 @@ const FooterNavLink = styled(Nav.Link)``;
 const FAIconLink = (props) => (
 	<Nav.Link
 		aria-label={props["aria-label"]}
+		title={props.title}
 		href={props.href}
 		className="text-light"
 		target={props.target}
@@ -90,7 +91,7 @@ export default function Layout({ children, stickyFooter = true}) {
 	);
 
 	return (
-		<Container className="d-flex flex-column px-0 min-vh-100" style={{backgroundImage: `url("/img/cover-background-edit.svg")`, backgroundPosition: "center"}} fluid>
+		<Container className="d-flex flex-column px-0 min-vh-100" style={{backgroundImage: `url("/img/cover-background-edit-UNOPTIMIZED.svg")`, backgroundPosition: "center top"}} fluid>
 			<Helmet>
 				{/*Primary tags */}
 				<title>Lowell EECS Club</title>
@@ -104,15 +105,15 @@ export default function Layout({ children, stickyFooter = true}) {
 					crossorigin="anonymous"
 				/> */}
 			</Helmet>
-			
-			<Navbar id="primary-navbar" variant="dark" expand="sm" className="shadow-sm bg-primary" sticky="top">
+			{/* Ideally, would use sticky, but my Android has some glitches while scrolling. Assumming others have this minor yet annoying issue*/}
+			<Navbar id="primary-navbar" variant="dark" expand="sm" className="shadow-sm bg-secondary position-fixed w-100" style={{zIndex: 1}}>
 					<Container fluid="lg">
 						<Navbar.Brand as={Link} to="/" style={{display: "flex"}}>
 							<Logo src="/eecs-logo-UNOPTMIZED.svg" />EECS Club
 						</Navbar.Brand>
 						<Navbar.Toggle aria-controls="responsive-navbar-nav"/>
 						<Navbar.Collapse id="responsive-navbar-nav">
-							<Nav className="text-primary font-weight-bold">
+							<Nav className="text-primary">
 								<Nav.Item><NavRouterLink to="/">Home</NavRouterLink></Nav.Item>
 								<Nav.Item><NavRouterLink to="/about">About</NavRouterLink></Nav.Item>
 								<Nav.Item><NavRouterLink to="/links">Links</NavRouterLink></Nav.Item>
@@ -122,6 +123,8 @@ export default function Layout({ children, stickyFooter = true}) {
 						</Navbar.Collapse>
 					</Container>
 			</Navbar>
+			{/* Space so children not underneath navbar */}
+			<div style={{marginTop: "4rem"}}></div>
 			{children}
 			<FooterStyled sticky={stickyFooter}>
 				<Container fluid="lg" className="text-muted">
@@ -131,10 +134,10 @@ export default function Layout({ children, stickyFooter = true}) {
 						</Nav>
 						<Nav className="ml-auto">
 							<Nav.Item>
-								<FAIconLink aria-label="EECS Discord Server" href="https://discord.com" icon={faDiscord} target="_blank"/>
+								<FAIconLink title="EECS Club Discord Server" aria-label="EECS Club Discord Server" href="https://discord.com" icon={faDiscord} target="_blank"/>
 							</Nav.Item>
 							<Nav.Item>
-								<FAIconLink aria-label="EECS Instagram Account" href="https://instagram.com" icon={faInstagram} target="_blank"/>
+								<FAIconLink title="EECS Club Instagram Account" aria-label="EECS Club Instagram Account" href="https://instagram.com" icon={faInstagram} target="_blank"/>
 							</Nav.Item>
 						</Nav>
 					</Row>

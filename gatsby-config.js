@@ -7,7 +7,7 @@
 module.exports = {
 	siteMetadata: {
 		title: `Lowell EECS Club`,
-		description: `EECS Club at Lowell High School`,
+		description: `Website of EECS Club at Lowell High School`,
 	},
 	plugins: [
 		{
