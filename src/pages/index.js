@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components"
 import Layout, { CenteredContainer } from "../components/layout";
 import ProjectsShowcase from "../components/projectsShowcase"
-import { Jumbotron, Container, Button } from "react-bootstrap";
-import DebugOptionsBox, { DebugOptions } from "../components/debugOptionsBox"
+import { Container, Button } from "react-bootstrap";
+import DebugOptionsBox from "../components/debugOptionsBox"
 
 
 const CoverMainContainer = styled(Container).attrs(props => ({

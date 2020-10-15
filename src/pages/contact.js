@@ -43,7 +43,9 @@ export default function Contact({ data }) {
 					</Form.Group>
 				</FormStyled>
                 <NoBulletUl>
-                    <li>Email: <a href={links.email}>lowelleecs@gmail.com</a></li>
+                    {/* I've read that emails will get scraped and filled with spam, so some captcha/javascript obfuscating should be used.
+						Or just a form.	
+					<li>Email: <a href={links.email}>lowelleecs@gmail.com</a></li> */}
                     <li>Discord: <a href={links.discord}>Insert Discord Link Here</a></li>
                     <li>Instagram: <a href={links.instagram}>Insert Instagram Link Here</a></li>
                 </NoBulletUl>
