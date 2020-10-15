@@ -6,7 +6,7 @@ const BetterLink = (props) => (
 	<a href={props.href}>{props.linkText}</a>
 );
 
-export default class Link extends React.Component {
+export default class BetterLink extends React.Component {
 	static id = "betterLink";
 	static label = "Better Link";
 	static fields = [{
