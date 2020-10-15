@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import Container from "react-bootstrap/Container"
+import { Link } from "gatsby"
 import Layout, { CenteredContainer } from "../components/layout"
 import BoardMemberShowcase, { MemberRow, HorizontalBlockShowcase } from "../components/boardMemberShowcase"
 import DebugOptionsBox from "../components/debugOptionsBox"
@@ -46,7 +47,7 @@ export default function About() {
 
 	const [useImageBanner, setImageBanner] = useState(false);
 
-	const defaultBoardMemberDesign = "horizontalBlocks";
+	const defaultBoardMemberDesign = "blocks";
 	const defaultDesignInvalid = pageDesigns[defaultBoardMemberDesign] === null;
 
 	if (defaultDesignInvalid) {
@@ -97,6 +98,8 @@ export default function About() {
 						
 						We teach important concepts and skills such as soldering, C++ coding, and circuity through hands-on projects
 						creating colorful RGB displays, animated LED cubes, four-legged robots, and much more.
+						<mark>In addition, we have guest speakers from various companies discuss the field and their work.
+						If you would like to present, visit our <Link to="/contact/">contact page.</Link></mark>
 
 						We welcome all Lowell students regardless of experience. Our workshops will prepare you to make the coolest projects in no time.
 

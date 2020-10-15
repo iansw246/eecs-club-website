@@ -156,9 +156,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="4"
-     inkscape:cx="44.030128"
-     inkscape:cy="109.18137"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="220.65736"
+     inkscape:cy="128.40421"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -2255,5 +2255,22 @@
        d="m 42.641752,52.897484 c 1.356396,0.795127 2.54541,1.682763 3.941652,2.276652 1.856842,0.789805 5.816821,1.676142 5.816821,1.676142 l 0.01938,-2.671772 c 0,0 -2.701321,-1.630548 -2.833611,-1.564398 -0.11802,0.05901 -2.684234,-0.985054 -3.411157,-0.932397 l -1.540061,0.111559 c 0,0 -2.197968,0.883727 -1.993018,1.104214 z"
        id="path4207"
        sodipodi:nodetypes="csccsscsc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;fill:#ff1010;fill-opacity:0.645161;stroke:none;stroke-width:0.264583"
+       x="40.556702"
+       y="-11.21378"
+       id="text1069"
+       transform="rotate(68.118782)"><tspan
+         sodipodi:role="line"
+         id="tspan1067"
+         x="40.556702"
+         y="-11.21378"
+         style="text-align:center;text-anchor:middle;fill:#ff1010;fill-opacity:0.645161;stroke-width:0.264583">Placeholder</tspan><tspan
+         sodipodi:role="line"
+         x="40.556702"
+         y="2.0153446"
+         style="text-align:center;text-anchor:middle;fill:#ff1010;fill-opacity:0.645161;stroke-width:0.264583"
+         id="tspan1071">Image</tspan></text>
   </g>
 </svg>

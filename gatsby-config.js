@@ -8,6 +8,11 @@ module.exports = {
 	siteMetadata: {
 		title: `Lowell EECS Club`,
 		description: `Website of EECS Club at Lowell High School`,
+		links: {
+			discord: `https://example.com`,
+			instagram: `https://www.instagram.com/lowelleecs/`,
+			email: `mailto:lowelleecs@gmail.com`
+		},
 	},
 	plugins: [
 		{

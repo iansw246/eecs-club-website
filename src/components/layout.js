@@ -98,6 +98,11 @@ export default function Layout({ children, stickyFooter = true}) {
 					siteMetadata {
 						title
 						description
+						links {
+							discord
+							instagram
+							email
+						}
 					}
 				}
 			}
@@ -173,10 +178,10 @@ export default function Layout({ children, stickyFooter = true}) {
 						</Nav>
 						<Nav className="ml-auto">
 							<Nav.Item>
-								<FAIconLink title="EECS Club Discord Server" aria-label="EECS Club Discord Server" href="https://discord.com" icon={faDiscord} target="_blank"/>
+								<FAIconLink title="EECS Club Discord Server" aria-label="EECS Club Discord Server" href={data.site.siteMetadata.links.discord} icon={faDiscord} target="_blank"/>
 							</Nav.Item>
 							<Nav.Item>
-								<FAIconLink title="EECS Club Instagram Account" aria-label="EECS Club Instagram Account" href="https://instagram.com" icon={faInstagram} target="_blank"/>
+								<FAIconLink title="EECS Club Instagram Account" aria-label="EECS Club Instagram Account" href={data.site.siteMetadata.links.instagram} icon={faInstagram} target="_blank"/>
 							</Nav.Item>
 						</Nav>
 					</Row>

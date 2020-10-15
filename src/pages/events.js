@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import styled from "styled-components";
-import Layout, { CenteredMainContainer } from "../components/layout";
+import Layout, { CenteredContainer } from "../components/layout";
 
 const Post = styled.div`
 	margin-top: 1rem;
@@ -33,7 +33,7 @@ const PostDescription = styled.p`
 export default function Events({ data }) {
 	return (
 		<Layout>
-			<CenteredMainContainer>
+			<CenteredContainer>
 				<h1>Events and Workshops</h1>
 				{data.allMarkdownRemark.edges.map(({ node }) => (
 					<Post key={node.id}>
@@ -46,7 +46,7 @@ export default function Events({ data }) {
 						</PostLink>
 					</Post>
 				))}
-			</CenteredMainContainer>
+			</CenteredContainer>
 		</Layout>
 	);
 }

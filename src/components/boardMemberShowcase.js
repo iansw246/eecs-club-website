@@ -53,7 +53,7 @@ const HorBlkContainer = styled.div`
 
 	/* I don't like this for some reason */
 	max-width: 100vw;
-	
+
 	margin-left: -2rem;
 	margin-right: -2rem;
 `;
@@ -67,7 +67,7 @@ const HorBlkMemberInfo = styled.div`
 	padding: 0;
 	margin-left: 2rem;
 	margin-right: 2rem;
-	margin-bottom: 2rem;
+	margin-top: 4rem;
 
 	/*@media only screen and (min-width: 900px) {
 		margin-right: 0.5rem;
@@ -151,7 +151,7 @@ const MemberImage = styled.img`
 
 const MemberBox = ({ name, title, description, imageSrc }) => (
 	<Card text="light" bg="dark" style={{margin: "1.5rem", maxWidth: "300px"}}>
-		<Card.Img src={imageSrc} width={250} style={{maxWidth: "250px", marginLeft: "auto", marginRight: "auto"}}/>
+		<Card.Img src={imageSrc} width={250} style={{maxWidth: "250px", marginLeft: "auto", marginRight: "auto", marginTop: "1rem"}}/>
 		<Card.Body>
 			<Card.Title as="h5">{title}</Card.Title>
 			<Card.Title as="h4">{name}</Card.Title>
