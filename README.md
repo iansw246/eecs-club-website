@@ -10,7 +10,7 @@ Uses Gatsby, Typography JS, styled-components, and a bit more.
 To develop on this repository, simply clone:
 ```sh
 cd ~
-git clone https://github.com/eecs-club/website.git
+git clone https://github.com/ianjazz246/eecs-club-website.git
 ```
 ...then install the npm package.
 ```sh
