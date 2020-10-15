@@ -7,7 +7,12 @@
 module.exports = {
 	siteMetadata: {
 		title: `Lowell EECS Club`,
-		description: `Lowell EECS Club`,
+		description: `Website of EECS Club at Lowell High School`,
+		links: {
+			discord: `https://example.com`,
+			instagram: `https://www.instagram.com/lowelleecs/`,
+			email: `mailto:lowelleecs@gmail.com`
+		},
 	},
 	plugins: [
 		{
@@ -28,14 +33,15 @@ module.exports = {
 				name: `pages`,
 			},
 		},
-		{
-			resolve: `gatsby-plugin-typography`,
-			options: {
-				pathToConfigModule: `src/utils/typography`,
-			}
-		},
+		`gatsby-plugin-sass`,
 		`gatsby-transformer-remark`,
 		`gatsby-plugin-react-helmet`,
-		`gatsby-plugin-netlify-cms`,
+		{
+			resolve: `gatsby-plugin-netlify-cms`,
+			options: {
+				//modulePath: `${__dirname}/src/cms/cms.js`,
+			}
+		}
+		
 	],
 };
