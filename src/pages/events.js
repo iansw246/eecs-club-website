@@ -1,10 +1,11 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import styled from "styled-components";
-import Layout from "../components/layout";
+import Layout, { CenteredContainer } from "../components/layout";
 
 const Post = styled.div`
-	margin: 1rem 1rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 	transition: background-color 0.1s ease-in;
 
 	&:hover {
@@ -32,18 +33,20 @@ const PostDescription = styled.p`
 export default function Events({ data }) {
 	return (
 		<Layout>
-			<h1>Events and Workshops</h1>
-			{data.allMarkdownRemark.edges.map(({ node }) => (
-				<Post key={node.id}>
-					<PostLink key={node.id} to={node.fields.slug}>
-						<PostTitle key={node.id}>
-							{node.frontmatter.title}{" "}
-							<PostDate key={node.id}>- {node.frontmatter.date}</PostDate>
-						</PostTitle>
-						<PostDescription>{node.frontmatter.description}</PostDescription>
-					</PostLink>
-				</Post>
-			))}
+			<CenteredContainer>
+				<h1>Events and Workshops</h1>
+				{data.allMarkdownRemark.edges.map(({ node }) => (
+					<Post key={node.id}>
+						<PostLink key={node.id} to={node.fields.slug}>
+							<PostTitle key={node.id}>
+								{node.frontmatter.title}{" "}
+								<PostDate key={node.id}>- {node.frontmatter.date}</PostDate>
+							</PostTitle>
+							<PostDescription>{node.frontmatter.description}</PostDescription>
+						</PostLink>
+					</Post>
+				))}
+			</CenteredContainer>
 		</Layout>
 	);
 }
