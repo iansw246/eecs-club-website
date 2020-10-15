@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, Link, graphql } from "gatsby";
 import { Container, Navbar, Nav, Row, Col} from "react-bootstrap";
@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faDiscord, faInstagram } from "@fortawesome/free-brands-svg-icons"
 import styled from "styled-components";
 
+import DebugOptionsBox from "./debugOptionsBox";
 
 import "../styles/global.scss";
 
@@ -38,6 +39,16 @@ const Logo = styled.img`
 	filter: invert(100%);
 `;
 
+// Empty div with some height to prevent main content from being covered by fixed navbar
+// Unneeded if using position:sticky on navbar, but support and some browser issues made me choose not to use sticky
+const MainContentSpacer = styled.div`
+	/*margin-top: 4rem;*/
+	/*32 is the height of logo image. <a> has 4.4 top & bottom padding, <nav> has 8 top & bottom padding*/
+	min-height: ${32 + 2*4.4 + 2*8}px;
+	height: 4rem;
+	height: calc(2.8rem + 16px);
+`;
+
 const FAIconStyled = styled(FontAwesomeIcon)`
 	&& {
 		height: 1.7rem;
@@ -50,7 +61,7 @@ const FooterStyled = styled(Container).attrs((props) => ({
 	fluid: true,
 	className: `${props.sticky && "mt-auto"} py-1`, //margin-top: auto, padding-top/bottom: 1
 }))`
-	background-color: #191919;
+	background-color: #090909;
 `;
 
 const FooterNavLink = styled(Nav.Link)``;
@@ -77,6 +88,9 @@ export const CenteredContainer = (props) => (
 // stickyFooter: boolean: whether the footer will have margin-top to put itself at bottom of page when page content is short. 
 // Layout contains Helmet tags, top navbar, and footera
 export default function Layout({ children, stickyFooter = true}) {
+	const [coloredNavbar, setColoredNavbar] = useState(true);
+	const [fixedBackgroundImage, setFixedBackgroundImage] = useState(false);
+
 	const data = useStaticQuery(
 		graphql`
 			query {
@@ -91,7 +105,14 @@ export default function Layout({ children, stickyFooter = true}) {
 	);
 
 	return (
-		<Container className="d-flex flex-column px-0 min-vh-100" style={{backgroundImage: `url("/img/cover-background-edit-UNOPTIMIZED.svg")`, backgroundPosition: "center top"}} fluid>
+		<Container className="d-flex flex-column px-0 min-vh-100"
+			style={{
+				backgroundImage: `url("/img/cover-background-edit-UNOPTIMIZED.svg")`,
+				backgroundPosition: "center top",
+				backgroundAttachment: fixedBackgroundImage ? "fixed" : null,
+				}}
+			fluid
+		>
 			<Helmet>
 				{/*Primary tags */}
 				<title>Lowell EECS Club</title>
@@ -105,8 +126,25 @@ export default function Layout({ children, stickyFooter = true}) {
 					crossorigin="anonymous"
 				/> */}
 			</Helmet>
+			<DebugOptionsBox left={"0px"} right={" "}>
+				<input onChange={() => setColoredNavbar(!coloredNavbar)} id="coloredNavbar" type="checkbox" defaultChecked />
+				<label htmlFor="coloredNavbar">Colored Navbar</label>
+				<br />
+				<input onChange={() => setFixedBackgroundImage(!fixedBackgroundImage)} id="fixedBackgroundImage" type="checkbox" />
+				<label htmlFor="fixedBackgroundImage">Fixed background image</label>
+				<br />
+				<button onClick={(e) => {
+					//let debugBoxClassList = e.currentTarget.parentElement.classList[0];
+					let debugBoxClass = DebugOptionsBox.styledComponentId;
+					for (let debugBox of document.getElementsByClassName(debugBoxClass)) {
+						debugBox.style.display = "none";
+					}
+				}}>
+					Hide debug (refresh to restore)
+				</button>
+			</DebugOptionsBox>
 			{/* Ideally, would use sticky, but my Android has some glitches while scrolling. Assumming others have this minor yet annoying issue*/}
-			<Navbar id="primary-navbar" variant="dark" expand="sm" className="shadow-sm bg-secondary position-fixed w-100" style={{zIndex: 1}}>
+			<Navbar id="primary-navbar" variant="dark" expand="sm" className={`shadow-sm ${coloredNavbar ? "bg-primary" : ""} position-fixed w-100 font-weight-bold`} style={{zIndex: 1, backgroundColor: coloredNavbar ? null : "var(--body-bg)"}}>
 					<Container fluid="lg">
 						<Navbar.Brand as={Link} to="/" style={{display: "flex"}}>
 							<Logo src="/eecs-logo-UNOPTMIZED.svg" />EECS Club
@@ -115,16 +153,17 @@ export default function Layout({ children, stickyFooter = true}) {
 						<Navbar.Collapse id="responsive-navbar-nav">
 							<Nav className="text-primary">
 								<Nav.Item><NavRouterLink to="/">Home</NavRouterLink></Nav.Item>
-								<Nav.Item><NavRouterLink to="/about">About</NavRouterLink></Nav.Item>
-								<Nav.Item><NavRouterLink to="/links">Links</NavRouterLink></Nav.Item>
+								<Nav.Item><NavRouterLink to="/about/">About</NavRouterLink></Nav.Item>
+								<Nav.Item><NavRouterLink to="/links/">Links</NavRouterLink></Nav.Item>
 								{/* <Nav.Item><NavRouterLink to="/events">Workshops</NavRouterLink></Nav.Item> */}
-								<Nav.Item><NavRouterLink to="/contact">Contact</NavRouterLink></Nav.Item>
+								<Nav.Item><NavRouterLink to="/contact/">Contact</NavRouterLink></Nav.Item>
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
 			</Navbar>
-			{/* Space so children not underneath navbar */}
-			<div style={{marginTop: "4rem"}}></div>
+
+			<MainContentSpacer />
+
 			{children}
 			<FooterStyled sticky={stickyFooter}>
 				<Container fluid="lg" className="text-muted">

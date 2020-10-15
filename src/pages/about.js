@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import Container from "react-bootstrap/Container"
 import Layout, { CenteredContainer } from "../components/layout"
-import BoardMemberShowcase, { MemberRow } from "../components/boardMemberShowcase"
+import BoardMemberShowcase, { MemberRow, HorizontalBlockShowcase } from "../components/boardMemberShowcase"
 import DebugOptionsBox from "../components/debugOptionsBox"
 
 const pageDesigns = {
@@ -13,37 +13,47 @@ const pageDesigns = {
 			<MemberRow
 					name="Bob"
 					title="VP of Bob"
-					imageSrc="/img/uploads/pg4.jpg"
+					imageSrc="/img/bob.svg"
 					description="Bob is such a bob he even the VP of Bob wow such cool."
 			/>
 			<MemberRow
 					name="Bob"
 					title="VP of Bob"
-					imageSrc="/img/uploads/pg4.jpg"
+					imageSrc="/img/bob.svg"
 					description="Bob is such a bob he even the VP of Bob wow such cool."
 			/>
 			<MemberRow
 					name="Bob"
 					title="VP of Bob"
-					imageSrc="/img/uploads/pg4.jpg"
+					imageSrc="/img/bob.svg"
 					description="Bob is such a bob he even the VP of Bob wow such cool."
 			/>
 			<MemberRow
 					name="Bob"
 					title="VP of Bob"
-					imageSrc="/img/uploads/pg4.jpg"
+					imageSrc="/img/bob.svg"
 					description="Bob is such a bob he even the VP of Bob wow such cool."
 			/>
 		</>
 	),
+	horizontalBlocks: () => (
+		<HorizontalBlockShowcase />
+	)
 }
 
 export default function About() {
 	const pageDesignEntries = Object.entries(pageDesigns);
 
 	const [useImageBanner, setImageBanner] = useState(false);
-	const [pageDesign, setPageDesign] = useState(pageDesignEntries[0][0]);
 
+	const defaultBoardMemberDesign = "horizontalBlocks";
+	const defaultDesignInvalid = pageDesigns[defaultBoardMemberDesign] === null;
+
+	if (defaultDesignInvalid) {
+		console.error("Default board member design is invalid.");
+	}
+
+	const [pageDesign, setPageDesign] = useState(defaultDesignInvalid ? pageDesignEntries[0][0] : defaultBoardMemberDesign);
 	const BoardMembers = pageDesigns[pageDesign];
 
 	return (
@@ -55,7 +65,7 @@ export default function About() {
 				{
 					pageDesignEntries.map((design, index) => (
 						<>
-							<input defaultChecked={index === 0} id={`pageDesign${design[0]}`} name="pageDesign" type="radio" onChange={() => setPageDesign(design[0])} />
+							<input defaultChecked={pageDesign === design[0] ? true : null} id={`pageDesign${design[0]}`} name="pageDesign" type="radio" onChange={() => setPageDesign(design[0])} />
 							<label htmlFor={`pageDesign${design[0]}`}>{design[0]}</label>
 							<br></br>
 						</>
@@ -79,24 +89,23 @@ export default function About() {
 				<CenteredContainer>
 				{/*
 					Audience: Primarily Lowell students. Secondarily: Parents and the general public
-					Make club interesting to students
+					Make club interesting to students. Keep professional and actually important appeareance
 				*/}
 					<p>
 						Lowell Electrical Engineering & Computer Science (EECS) Club is a student-run club at Lowell High School in San Francisco, California.
-						Learn and teach EECS
-
-						Our mission is provide Lowell students exposure to EECS and teach them core concepts in the field.
+						The club was created in <strong>[Insert date]</strong> with the goal of exposing students to EECS and inspiring their interest in the fascinating field.
 						
-						From soldering to coding, 
+						We teach important concepts and skills such as soldering, C++ coding, and circuity through hands-on projects
+						creating colorful RGB displays, animated LED cubes, four-legged robots, and much more.
 
-						Everyone is welcome, regardless of experience. 
-						Through 
+						We welcome all Lowell students regardless of experience. Our workshops will prepare you to make the coolest projects in no time.
 
-						We meet every Friday from 3:30 to 4:30 pm. Due to the pandemic, 
+						We meet every Friday from 3:30 to 4:30 pm. Due to the pandemic, our meetings are hosted on Zoom.
+						To sign up, fill out <a>our signup form</a>.
 
-						We explore various topics in EECS, creating you how to solder, make colorful animated RGB displays, animated LED cubes, robots, and many other things.
-						We hope to see you there
+						We hope to see you there!
 					</p>
+					
 					<h2>Board Members</h2>
 					<BoardMembers />
 				</CenteredContainer>
