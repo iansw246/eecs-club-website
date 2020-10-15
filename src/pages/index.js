@@ -45,15 +45,12 @@ const ScrollDownArrow = styled.img.attrs(() => ({
 export default function Home({ data }) {
 	const [fullScreenCover, toggleFullScreenCover] = useState(false);
 
-	/*
-	<DebugOptionsBox>
+	return (
+		<Layout stickyFooter={false}>
+			<DebugOptionsBox>
 				<input type="checkbox" id="fullScreenCover" name="fullScreenCover" onChange={() => toggleFullScreenCover(!fullScreenCover)} />
 				<label htmlFor="fullScreenCover">Full screen cover</label>
 			</DebugOptionsBox>
-	*/
-
-	return (
-		<Layout stickyFooter={false}>
 			<CoverMainContainer>
 				<Container className="d-flex flex-column" style={fullScreenCover ? {minHeight: "88vh"} : {marginTop: "2rem", marginBottom: "8rem"}}>
 					{/* div for spacing, makes top space smaller than bottom */}

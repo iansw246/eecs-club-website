@@ -85,11 +85,20 @@ export const CenteredContainer = (props) => (
 	</Container>
 );
 
+const PageContainer = styled(Container).attrs(() => ({
+	className: "d-flex flex-column px-0 min-vh-100",
+	fluid: true,
+}))`
+	background-image: url("/img/cover-background-min.svg");
+	background-position: "center top";
+	${'' /* background-attachment: ${fixedBackgroundImage ? "fixed" : null}; */}
+`;
+
 // stickyFooter: boolean: whether the footer will have margin-top to put itself at bottom of page when page content is short. 
 // Layout contains Helmet tags, top navbar, and footera
 export default function Layout({ children, stickyFooter = true}) {
 	const [coloredNavbar, setColoredNavbar] = useState(true);
-	const [fixedBackgroundImage, setFixedBackgroundImage] = useState(false);
+	const [fixedBackgroundImage, setFixedBackgroundImage] = useState(true);
 
 	const data = useStaticQuery(
 		graphql`
@@ -110,14 +119,7 @@ export default function Layout({ children, stickyFooter = true}) {
 	);
 
 	return (
-		<Container className="d-flex flex-column px-0 min-vh-100"
-			style={{
-				backgroundImage: `url("/img/cover-background-edit-UNOPTIMIZED.svg")`,
-				backgroundPosition: "center top",
-				backgroundAttachment: fixedBackgroundImage ? "fixed" : null,
-				}}
-			fluid
-		>
+		<PageContainer style={{backgroundAttachment: fixedBackgroundImage ? "fixed" : null}}>
 			<Helmet>
 				{/*Primary tags */}
 				<title>Lowell EECS Club</title>
@@ -131,11 +133,13 @@ export default function Layout({ children, stickyFooter = true}) {
 					crossorigin="anonymous"
 				/> */}
 			</Helmet>
+
+			{/* Debug Options */}
 			<DebugOptionsBox left={"0px"} right={" "}>
 				<input onChange={() => setColoredNavbar(!coloredNavbar)} id="coloredNavbar" type="checkbox" defaultChecked />
 				<label htmlFor="coloredNavbar">Colored Navbar</label>
 				<br />
-				<input onChange={() => setFixedBackgroundImage(!fixedBackgroundImage)} id="fixedBackgroundImage" type="checkbox" />
+				<input onChange={() => setFixedBackgroundImage(!fixedBackgroundImage)} id="fixedBackgroundImage" type="checkbox" defaultChecked={fixedBackgroundImage ? true : null}/>
 				<label htmlFor="fixedBackgroundImage">Fixed background image</label>
 				<br />
 				<button onClick={(e) => {
@@ -148,6 +152,7 @@ export default function Layout({ children, stickyFooter = true}) {
 					Hide debug (refresh to restore)
 				</button>
 			</DebugOptionsBox>
+
 			{/* Ideally, would use sticky, but my Android has some glitches while scrolling. Assumming others have this minor yet annoying issue*/}
 			<Navbar id="primary-navbar" variant="dark" expand="sm" className={`shadow-sm ${coloredNavbar ? "bg-primary" : ""} position-fixed w-100 font-weight-bold`} style={{zIndex: 1, backgroundColor: coloredNavbar ? null : "var(--body-bg)"}}>
 					<Container fluid="lg">
@@ -189,6 +194,6 @@ export default function Layout({ children, stickyFooter = true}) {
 					<small>Last updated {(new Date()).toLocaleDateString("en-US")}</small>
 				</Container>
 			</FooterStyled>
-		</Container>
+		</PageContainer>
 	);
 }

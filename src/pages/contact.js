@@ -15,6 +15,16 @@ const FormStyled = styled(Form)`
 	border-bottom: 2px solid var(--primary);
 `;
 
+const FormLabelStyled = styled(Form.Label)`
+	&::after {
+		${(prop) => prop.required ? `
+			content: "*";
+			color: red;
+			` : null
+		}
+	}
+`;
+
 export default function Contact({ data }) {
 	const links = data.site.siteMetadata.links;
 	return (
@@ -27,15 +37,15 @@ export default function Contact({ data }) {
 				</p>
 				<FormStyled data-netlify="true">
 					<Form.Group controlId="formEmail">
-						<Form.Label>Email Address</Form.Label>
-						<Form.Control type="email" placeholder="Enter email" />
+						<FormLabelStyled required>Email Address</FormLabelStyled>
+						<Form.Control type="email" placeholder="Enter email" required />
 					</Form.Group>
 					<Form.Group controlId="formName">
-						<Form.Label>Name</Form.Label>
-						<Form.Control type="text" placeholder="Enter name" />
+						<FormLabelStyled required>Name</FormLabelStyled>
+						<Form.Control type="text" placeholder="Enter name" required />
 					</Form.Group>
 					<Form.Group controlId="formMessage">
-						<Form.Label>Message</Form.Label>
+						<FormLabelStyled>Message</FormLabelStyled>
 						<Form.Control as="textarea" placeholder="Enter your message" />
 					</Form.Group>
 					<Form.Group>	
