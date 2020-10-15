@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { Container, Row, Col, Carousel, Media } from "react-bootstrap"
+import { Container, Carousel } from "react-bootstrap"
 
 
 const CarouselContentContainer = styled(Container)`
