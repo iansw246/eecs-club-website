@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { Container, Card } from "react-bootstrap"
+import { darkTheme } from "./theme"
 
 // Copied from projects showcase
 const CarouselContentContainer = styled(Container)`
@@ -150,7 +151,7 @@ const MemberImage = styled.img`
 `;
 
 const MemberBox = ({ name, title, description, imageSrc }) => (
-	<Card text="light" bg="dark" style={{margin: "1.5rem", maxWidth: "300px"}}>
+	<Card text="light" style={{margin: "1.5rem", maxWidth: "300px", backgroundColor: darkTheme.backgroundColor}}>
 		<Card.Img src={imageSrc} width={250} style={{maxWidth: "250px", marginLeft: "auto", marginRight: "auto", marginTop: "1rem"}}/>
 		<Card.Body>
 			<Card.Title as="h5">{title}</Card.Title>
@@ -168,10 +169,10 @@ const MemberBox = ({ name, title, description, imageSrc }) => (
 	// </ContentHolder>
 );
 
-
-export default function BoardMemberShowcase() {
+// Most likely to be used version
+export default function BoardMemberShowcase({ justifyContent, marginLeft }) {
 	return (
-		<MemberBoxesHolder>
+		<MemberBoxesHolder style={{justifyContent: justifyContent, marginLeft: marginLeft}}>
 			<MemberBox
 				name="Bob"
 				title="VP of Bob"

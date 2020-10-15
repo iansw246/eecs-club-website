@@ -48,6 +48,7 @@ export default function Home({ data }) {
 	return (
 		<Layout stickyFooter={false}>
 			<DebugOptionsBox>
+				<h4>Ask for permission for photos?</h4>
 				<input type="checkbox" id="fullScreenCover" name="fullScreenCover" onChange={() => toggleFullScreenCover(!fullScreenCover)} />
 				<label htmlFor="fullScreenCover">Full screen cover</label>
 			</DebugOptionsBox>

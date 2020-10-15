@@ -12,7 +12,7 @@ To develop on this repository, simply clone:
 cd ~
 git clone https://github.com/ianjazz246/eecs-club-website.git
 ```
-...then install the npm package.
+...then install the npm packages.
 ```sh
 cd website
 yarn

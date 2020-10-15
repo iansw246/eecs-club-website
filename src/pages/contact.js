@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import styled from "styled-components"
 import { Form, Button } from "react-bootstrap"
 import Layout, { CenteredContainer } from "../components/layout";
+import { darkTheme } from "../components/theme"
 
 const NoBulletUl = styled.ul`
     list-style-type: none;
@@ -13,6 +14,20 @@ const NoBulletUl = styled.ul`
 const FormStyled = styled(Form)`
 	border-top: 2px solid var(--primary);
 	border-bottom: 2px solid var(--primary);
+
+	.form-control::placeholder {
+		color: lightgray;
+	}
+
+	input:focus, textarea:focus {
+		background-color: ${darkTheme.backgroundColorLighten};
+		color: ${darkTheme.textColor};
+	}
+	input, textarea {
+		background-color: ${darkTheme.backgroundColor};
+		border-color: black;
+		color: ${darkTheme.textColor};
+	}
 `;
 
 const FormLabelStyled = styled(Form.Label)`
@@ -33,7 +48,17 @@ export default function Contact({ data }) {
 				<h1>Contact</h1>
 				<p>
 					We're always welcome to any feedback or suggestions.
-					Contact us through the links below.
+					Contact us through: 
+				</p>
+				<NoBulletUl>
+                    {/* I've read that emails will get scraped and filled with spam, so some captcha/javascript obfuscating should be used.
+						Or just a form.	
+					<li>Email: <a href={links.email}>lowelleecs@gmail.com</a></li> */}
+                    <li>Discord: <a href={links.discord}>Insert Discord Link Here</a></li>
+                    <li>Instagram: <a href={links.instagram}>Insert Instagram Link Here</a></li>
+                </NoBulletUl>
+				<p>
+					You can also fill out this form.
 				</p>
 				<FormStyled data-netlify="true">
 					<Form.Group controlId="formEmail">
@@ -52,13 +77,6 @@ export default function Contact({ data }) {
 						<Button variant="primary" type="submit">Submit</Button>
 					</Form.Group>
 				</FormStyled>
-                <NoBulletUl>
-                    {/* I've read that emails will get scraped and filled with spam, so some captcha/javascript obfuscating should be used.
-						Or just a form.	
-					<li>Email: <a href={links.email}>lowelleecs@gmail.com</a></li> */}
-                    <li>Discord: <a href={links.discord}>Insert Discord Link Here</a></li>
-                    <li>Instagram: <a href={links.instagram}>Insert Instagram Link Here</a></li>
-                </NoBulletUl>
 			</CenteredContainer>
 		</Layout>
 	);

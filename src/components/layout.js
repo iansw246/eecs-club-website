@@ -20,6 +20,17 @@ import "../styles/global.scss";
 // Maybe SVG Backgrounds?
 // Maybe different background for mobile?
 
+const NavbarStyled = styled(Navbar).attrs((props) => ({
+	id: "primary-navbar",
+	variant: "dark",
+	expand: "sm",
+	className: "shadow-sm position-fixed w-100 font-weight-bold",
+}))`
+	z-index: 1;
+	background-color: ${(props) => props.coloredNavbar ? "var(--primary)" : "var(--body-bg)"};
+
+`
+
 const NavRouterLink = (props) => (
 	<Nav.Link
 		{...props}
@@ -85,12 +96,13 @@ export const CenteredContainer = (props) => (
 	</Container>
 );
 
+// Wraps all of page content
 const PageContainer = styled(Container).attrs(() => ({
 	className: "d-flex flex-column px-0 min-vh-100",
 	fluid: true,
 }))`
 	background-image: url("/img/cover-background-min.svg");
-	background-position: "center top";
+	background-position: center top;
 	${'' /* background-attachment: ${fixedBackgroundImage ? "fixed" : null}; */}
 `;
 
@@ -154,7 +166,7 @@ export default function Layout({ children, stickyFooter = true}) {
 			</DebugOptionsBox>
 
 			{/* Ideally, would use sticky, but my Android has some glitches while scrolling. Assumming others have this minor yet annoying issue*/}
-			<Navbar id="primary-navbar" variant="dark" expand="sm" className={`shadow-sm ${coloredNavbar ? "bg-primary" : ""} position-fixed w-100 font-weight-bold`} style={{zIndex: 1, backgroundColor: coloredNavbar ? null : "var(--body-bg)"}}>
+			<NavbarStyled coloredNavbar={coloredNavbar}>
 					<Container fluid="lg">
 						<Navbar.Brand as={Link} to="/" style={{display: "flex"}}>
 							<Logo src="/eecs-logo-UNOPTMIZED.svg" />EECS Club
@@ -170,7 +182,7 @@ export default function Layout({ children, stickyFooter = true}) {
 							</Nav>
 						</Navbar.Collapse>
 					</Container>
-			</Navbar>
+			</NavbarStyled>
 
 			<MainContentSpacer />
 

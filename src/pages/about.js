@@ -9,6 +9,9 @@ const pageDesigns = {
 	blocks: () => (
 		<BoardMemberShowcase />
 	),
+	leftAlignedBlocks: () => (
+		<BoardMemberShowcase justifyContent="flex-start" marginLeft="-1.5rem"/>
+	),
 	rows: () => (
 		<>
 			<MemberRow
