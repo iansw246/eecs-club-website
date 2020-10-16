@@ -11,7 +11,9 @@ module.exports = {
 		links: {
 			discord: `https://example.com`,
 			instagram: `https://www.instagram.com/lowelleecs/`,
-			email: `mailto:lowelleecs@gmail.com`
+			instagramUsername: `@lowelleecs`,
+			email: `mailto:lowelleecs@gmail.com`,
+			maillingList: ``,
 		},
 	},
 	plugins: [
