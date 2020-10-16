@@ -55,7 +55,7 @@ export default function Contact({ data }) {
 						Or just a form.	
 					<li>Email: <a href={links.email}>lowelleecs@gmail.com</a></li> */}
                     <li>Discord: <a href={links.discord}>Insert Discord Link Here</a></li>
-                    <li>Instagram: <a href={links.instagram}>Insert Instagram Link Here</a></li>
+                    <li>Instagram: <a href={links.instagram}>{links.instagramUsername}</a></li>
                 </NoBulletUl>
 				<p>
 					You can also fill out this form.
@@ -89,6 +89,7 @@ export const query = graphql`
 				links {
 					discord
 					instagram
+					instagramUsername
 					email
 				}
 			}
