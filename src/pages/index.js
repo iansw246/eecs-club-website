@@ -36,7 +36,7 @@ const CoverLogo = styled.img`
 `;
 
 const ScrollDownArrow = styled.img.attrs(() => ({
-	src: "/img/scroll-down-arrow.svg",
+	src: "/img/scroll-down-arrow-UNOPTIMIZED.svg",
 }))`
 	width: 5rem;
 `;
@@ -70,7 +70,7 @@ export default function Home({ data }) {
 					{/* div for spacing, makes top space smaller than bottom */}
 					{fullScreenCover ? <div style={{ flexGrow: 2 }}></div> : null}
 					<Container>
-						<CoverLogo src="/eecs-logo-UNOPTMIZED.svg"></CoverLogo>
+						<CoverLogo src="/img/eecs-logo-UNOPTMIZED.svg"></CoverLogo>
 						<h1>Lowell EECS Club</h1>
 						<p>
 							Learn electrical engineering & computer science while making exciting

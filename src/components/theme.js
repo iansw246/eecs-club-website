@@ -4,4 +4,5 @@ export const darkTheme = {
 	backgroundColor: "#343a40",
 	backgroundColorLighten: "#4f5860",
 	textColor: "var(--light)",
+	linkColor: "#57a9ff",
 }

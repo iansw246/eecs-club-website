@@ -60,18 +60,18 @@ export default function Contact({ data }) {
 				<p>
 					You can also fill out this form.
 				</p>
-				<FormStyled data-netlify="true">
+				<FormStyled name="contact" data-netlify="true" action="/success/">
 					<Form.Group controlId="formEmail">
 						<FormLabelStyled required>Email Address</FormLabelStyled>
-						<Form.Control type="email" placeholder="Enter email" required />
+						<Form.Control type="email" name="email" placeholder="Enter email" required />
 					</Form.Group>
 					<Form.Group controlId="formName">
 						<FormLabelStyled required>Name</FormLabelStyled>
-						<Form.Control type="text" placeholder="Enter name" required />
+						<Form.Control type="text" name="name" placeholder="Enter name" required />
 					</Form.Group>
 					<Form.Group controlId="formMessage">
 						<FormLabelStyled>Message</FormLabelStyled>
-						<Form.Control as="textarea" placeholder="Enter your message" />
+						<Form.Control as="textarea" name="message" placeholder="Enter your message" />
 					</Form.Group>
 					<Form.Group>	
 						<Button variant="primary" type="submit">Submit</Button>
