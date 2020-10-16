@@ -70,13 +70,13 @@ export default function Home({ data }) {
 					{/* div for spacing, makes top space smaller than bottom */}
 					{fullScreenCover ? <div style={{ flexGrow: 2 }}></div> : null}
 					<Container>
-						<CoverLogo src="/img/eecs-logo-UNOPTMIZED.svg"></CoverLogo>
+						<CoverLogo src="/img/eecs-logo.svg"></CoverLogo>
 						<h1>Lowell EECS Club</h1>
 						<p>
 							Learn electrical engineering & computer science while making exciting
 							projects
 						</p>
-						<p>Meetings every Fridays from 3:30 to 4:30 pm</p>
+						<p>Meetings every Friday from 3:30 to 4:30 pm</p>
 						<Button className="m-2" href={links.mailingList} variant="primary">
 							Join mailing list
 						</Button>
