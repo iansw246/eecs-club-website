@@ -65,7 +65,7 @@ export default function ProjectsShowcase() {
 					<ProjectImage src="/img/soldering-workshop.jpg" alt="Soldering workshop"/>
 					<ProjectText>
 						<h3>Soldering Workshop</h3>
-						<p>Beginning workshop to learn how to solder.</p>
+						<p>Introductory workshop teaching members how to solder.</p>
 					</ProjectText>
 				</CarouselContentContainer>
 			</Carousel.Item>
