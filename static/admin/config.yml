@@ -49,7 +49,7 @@ collections:
       - label: 'Links'
         name: 'links'
         widget: 'list'
-        summary: '{{fields.text}} linking to: {{fields.url}}'
+        summary: '"{{fields.text}}" linking to: {{fields.url}}'
         fields: 
           - {label: 'URL', name: 'url', widget: 'url'}
             

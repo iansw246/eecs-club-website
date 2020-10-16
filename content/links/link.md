@@ -6,6 +6,6 @@ links:
     url: https://kjlkj.com
   - url: https://google.com
     text: google.com
-  - url: https://bcc.co.uk
+  - url: https://www.bbc.com
     text: BBC
 ---
