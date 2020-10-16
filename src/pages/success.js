@@ -8,7 +8,7 @@ function goBack() {
 	navigate(-1);
 }
 
-const ButtonAsLink = styled.a`
+const ButtonAsLink = styled.button`
 	border: none;
 	background: none;
 	color: ${darkTheme.linkColor};
