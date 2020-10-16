@@ -1,0 +1,9 @@
+/* Used in the svg favicon */
+g { 
+	stroke:#000;
+}
+@media (prefers-color-scheme: dark) {
+	g {
+		stroke:#fff
+	}
+}

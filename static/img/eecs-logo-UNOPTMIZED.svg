@@ -210,10 +210,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="11.313709"
-     inkscape:cx="20.750677"
-     inkscape:cy="23.586505"
+     inkscape:cx="49.5641"
+     inkscape:cy="25.932938"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g6695"
      inkscape:document-rotation="0"
      showgrid="false"
      units="mm"
@@ -240,7 +240,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -249,16 +249,14 @@
      inkscape:groupmode="layer"
      id="layer1">
     <g
-       id="g6663" />
-    <g
        id="g981"
        style="stroke:#000000;stroke-opacity:1;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">
       <circle
-         style="fill:none;fill-rule:nonzero;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke:#000000;stroke-opacity:1"
+         style="fill:none;fill-rule:nonzero;stroke:#000000;stroke-opacity:1"
          id="path847"
          cy="8"
          cx="8"
-         r="7.5573382" />
+         r="7.4999995" />
       <g
          id="g965"
          style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:round;stroke:#000000;stroke-opacity:1">
@@ -269,45 +267,43 @@
            inkscape:tile-w="5.8707349"
            inkscape:tile-h="10.632393"
            inkscape:tile-x0="0.9380213"
-           inkscape:tile-y0="0.59148988"
-           style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:round;stroke:#000000;stroke-opacity:1">
+           inkscape:tile-y0="0.59148988">
           <g
-             id="g6632"
-             style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:round;stroke:#000000;stroke-opacity:1">
+             id="g6632">
             <circle
-               style="fill:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:round;stroke:#000000;stroke-opacity:1"
+               style="fill:none;"
                id="path859"
                cx="3.9632678"
                cy="6.5697069"
                r="0.87157786" />
             <path
-               style="fill:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:round;stroke:#000000;stroke-opacity:1"
+               style="fill:none;"
                d="M 0.93802133,6.5697111 H 2.7452408"
                id="path861"
                sodipodi:nodetypes="cc" />
           </g>
           <path
-             style="fill:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:round;stroke:#000000;stroke-opacity:1"
+             style="fill:none;"
              d="M 2.9676164,2.3541783 V 2.2527157 3.9747873"
              id="path6634"
              sodipodi:nodetypes="ccc" />
           <path
-             style="fill:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:round;stroke:#000000;stroke-opacity:1"
+             style="fill:none;"
              d="M 4.4676164,1.7041783 V 1.5484266 3.3247873"
              id="path6638"
              sodipodi:nodetypes="ccc" />
           <g
              id="g6685"
-             style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:round;stroke:#000000;stroke-opacity:1">
+             style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">
             <path
-               style="fill:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:round;stroke:#000000;stroke-opacity:1"
+               style="fill:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
                d="M 6.3087564,1.0914899 V 9.5877221 A 0.26458333,0.26458333 135 0 1 6.0441731,9.8523054 H 4.2357354"
                id="path6640"
                sodipodi:nodetypes="ccc"
                inkscape:path-effect="#path-effect6653"
                inkscape:original-d="m 6.3087564,1.0914899 c 0,2.9202718 0,5.8405437 0,8.7608155 h -2.073021" />
             <circle
-               style="fill:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:round;stroke:#000000;stroke-opacity:1"
+               style="fill:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
                id="circle6642"
                cx="3.3545778"
                cy="9.8523054"
@@ -333,8 +329,7 @@
            inkscape:transform-center-y="2.0923136"
            width="100%"
            height="100%"
-           transform="rotate(180,8.0000002,8.0000002)"
-           style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:round;stroke:#000000;stroke-opacity:1" />
+           transform="rotate(180,8.0000002,8.0000002)" />
       </g>
     </g>
   </g>
