@@ -1,6 +1,6 @@
 import React, { useState } from "react"
+import { graphql } from "gatsby"
 import Container from "react-bootstrap/Container"
-import { Link } from "gatsby"
 import Layout, { CenteredContainer } from "../components/layout"
 import BoardMemberShowcase, { MemberRow, HorizontalBlockShowcase } from "../components/boardMemberShowcase"
 import DebugOptionsBox from "../components/debugOptionsBox"
@@ -98,16 +98,16 @@ export default function About({ data }) {
 					<div>
 						<p>
 							Lowell Electrical Engineering & Computer Science (EECS) Club is a student-run club at Lowell High School in San Francisco, California.
-							The club was created in <strong>[Insert date]</strong> with the goal of exposing students to EECS and inspiring their interest in the field.
+							The club was started in <strong>[Insert date]</strong> with the goal of inspiring students' interest in EECS by providng them exposure to the field.
 							<blockquote />
-							Maybe?: goal of providing students an opportunity to explore EECS?
+							Maybe?: goal of providing students opportunities to explore EECS?
 							<blockquote />
 						</p>
 						<p>
-							We teach our members how to solder, code, build circuits, and use Arduinos through hands-on projects
+							We teach our members how to solder, code, build circuits, and use Arduino microcontrollers through hands-on projects
 							creating colorful RGB displays, animated LED cubes, four-legged robots, and much more.
 							In addition, we have guest speakers talk about the field and their work.
-							All students are welcome regardless of experience. Our workshops will prepare you to make super cool projects in no time.
+							All students are welcome regardless of experience. Our workshops will prepare our members to make super cool projects in no time.
 						</p>
 						<p>
 							We meet every Friday from 3:30 to 4:30 pm. Due to the pandemic, our meetings are hosted on Zoom.
@@ -117,7 +117,7 @@ export default function About({ data }) {
 						</p>
 					</div>
 
-					<h2>Board Members</h2>
+					<h2>Officers</h2>
 					<BoardMembers />
 				</CenteredContainer>
 			</main>

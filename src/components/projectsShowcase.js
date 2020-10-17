@@ -67,7 +67,7 @@ export default function ProjectsShowcase() {
 	`);
 
 	return (
-		<Carousel interval={null}>
+		<Carousel>
 			<Carousel.Item>
 				<CarouselContentContainer>
 					<ProjectImage fixed={data.lightCube.childImageSharp.fixed} alt="LED light cube"/>

@@ -169,6 +169,8 @@ const MemberBox = ({ name, title, description, imageSrc }) => (
 	// </ContentHolder>
 );
 
+export { MemberBox };
+
 // Most likely to be used version
 export default function BoardMemberShowcase({ justifyContent, marginLeft }) {
 	return (

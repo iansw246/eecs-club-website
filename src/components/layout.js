@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useStaticQuery, Link, graphql } from "gatsby";
 import styled from "styled-components";
 
-import { Container, Nav, Row, Col} from "react-bootstrap";
+import { Container, Nav, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faDiscord, faInstagram } from "@fortawesome/free-brands-svg-icons"
 
@@ -37,7 +37,7 @@ const FooterStyled = styled(Container).attrs((props) => ({
 	fluid: true,
 	className: `${props.sticky && "mt-auto"} py-1`, //margin-top: auto, padding-top/bottom: 1
 }))`
-	background-color: #090909;
+	background-color: ${darkTheme.footerBackground};
 	color: ${darkTheme.textColorMuted};
 `;
 
@@ -75,12 +75,16 @@ const PageContainer = styled(Container).attrs(() => ({
 		top: 0;
 		left: 0;
 		width: 100%;
-		height: 100%;
+		${'' /* Make the background image extend below screen, so when
+			scrolling on mobile devices, no white bar is shown at the bottom of the screen
+		 */}
+		height: 150%;
 		will-change: transform;
 		z-index: -1;
+		background-color: ${darkTheme.bodyBackground};
 		background-image: url("/img/cover-background-min.svg");
 		background-position: center top;
-		background-color: ${darkTheme.bodyBackground};
+		background-repeat: repeat;
 	}
 `;
 
