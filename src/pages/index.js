@@ -93,7 +93,7 @@ export default function Home({ data }) {
 						<ScrollDownArrow />
 					</a>
 				) : null}
-				<h2 className="my-5" id="projects">
+				<h2 className="mb-4 mt-2" id="projects">
 					Projects
 				</h2>
 				<Container>
