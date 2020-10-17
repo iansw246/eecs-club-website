@@ -1,7 +1,8 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import styled from "styled-components";
-import Layout, { CenteredContainer } from "../components/layout";
+import Layout from "../components/layout"
+import CenteredContainer from "../components/layout"
 
 const Post = styled.div`
 	margin-top: 1rem;

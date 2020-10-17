@@ -1,7 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby"
 import styled from "styled-components"
-import Layout, { CenteredContainer } from "../components/layout"
+import Layout from "../components/layout"
+import CenteredContainer from "../components/centeredContainer"
 // import { Button } from "react-bootstrap"
 // import { darkTheme } from "../components/theme"
 

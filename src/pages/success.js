@@ -1,7 +1,8 @@
 import React from "react"
 import { navigate } from "gatsby"
 import ButtonAsLink from "../components/buttonAsLink"
-import Layout, { CenteredContainer } from "../components/layout"
+import Layout from "../components/layout"
+import CenteredContainer from "../components/layout"
 
 function goBack() {
 	navigate(-1);
