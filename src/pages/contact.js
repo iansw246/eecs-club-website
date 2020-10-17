@@ -2,8 +2,10 @@ import React from "react";
 import { graphql } from "gatsby"
 import styled from "styled-components"
 import { Form, Button } from "react-bootstrap"
-import Layout, { CenteredContainer } from "../components/layout";
+
+import Layout from "../components/layout";
 import { darkTheme } from "../components/theme"
+import CenteredContainer from "../components/centeredContainer"
 
 const NoBulletUl = styled.ul`
     list-style-type: none;
@@ -44,7 +46,7 @@ export default function Contact({ data }) {
 	const links = data.site.siteMetadata.links;
 	return (
 		<Layout>
-			<CenteredContainer>
+			<CenteredContainer as="main">
 				<h1>Contact</h1>
 				<p>
 					We're always welcome to any feedback or suggestions.
@@ -54,7 +56,7 @@ export default function Contact({ data }) {
                     {/* I've read that emails will get scraped and filled with spam, so some captcha/javascript obfuscating should be used.
 						Or just a form.	
 					<li>Email: <a href={links.email}>lowelleecs@gmail.com</a></li> */}
-                    <li>Discord: <a href={links.discord}>Insert Discord Link Here</a></li>
+                    <li>Discord: <a href={links.discord}>{links.discord}</a></li>
                     <li>Instagram: <a href={links.instagram}>{links.instagramUsername}</a></li>
                 </NoBulletUl>
 				<p>

@@ -10,9 +10,8 @@ const NavbarStyled = styled(Navbar).attrs((props) => ({
 	className: "shadow-sm position-fixed w-100 font-weight-bold",
 }))`
 	z-index: 1;
-	background-color: ${(props) => (props.coloredNavbar ? "var(--primary)" : "var(--body-bg)")};
-
-`
+	background-color: ${(props) => (props.$coloredNavbar ? "var(--primary)" : "var(--body-bg)")};
+`;
 
 const NavRouterLink = (props) => (
 	<Nav.Link
@@ -35,7 +34,7 @@ const Logo = styled.img`
 
 /* Ideally, would use sticky, but my Android has some glitches while scrolling. Assumming others have this minor yet annoying issue*/
 export default ({coloredNavbar}) => (
-	<NavbarStyled coloredNavbar={coloredNavbar}>
+	<NavbarStyled $coloredNavbar={coloredNavbar}>
 		<Container fluid="lg">
 			<Navbar.Brand as={Link} to="/" style={{display: "flex"}}>
 				<Logo src="/img/eecs-logo.svg" alt="EECS Club logo"/>EECS Club

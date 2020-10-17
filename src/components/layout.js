@@ -56,12 +56,6 @@ const FAIconLink = (props) => (
 	</Nav.Link>
 );
 
-export const CenteredContainer = (props) => (
-	<Container className="text-light" fluid="lg" {...props}>
-		{props.children}
-	</Container>
-);
-
 // Wraps all of page content
 const PageContainer = styled(Container).attrs(() => ({
 	className: "d-flex flex-column px-0 min-vh-100",
@@ -79,7 +73,7 @@ const PageContainer = styled(Container).attrs(() => ({
 			scrolling on mobile devices, no white bar is shown at the bottom of the screen
 		 */}
 		height: 150%;
-		will-change: transform;
+		${'' /* will-change: transform; */}
 		z-index: -1;
 		background-color: ${darkTheme.bodyBackground};
 		background-image: url("/img/cover-background-min.svg");
@@ -111,7 +105,7 @@ export default function Layout({ children, stickyFooter = true}) {
 	);
 
 	return (
-		<PageContainer fixedBackgroundImage={fixedBackgroundImage}>
+		<PageContainer $fixedBackgroundImage={fixedBackgroundImage}>
 			<Head />
 
 			{/* Debug Options */}

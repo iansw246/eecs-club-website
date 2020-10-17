@@ -1,5 +1,8 @@
 import React from "react"
-import Layout, { CenteredContainer } from "../components/layout"
+import Layout from "../components/layout"
+
+import CenteredContainer from "../components/centeredContainer"
+
 
 export default function NotFound() {
 	return (

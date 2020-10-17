@@ -1,7 +1,9 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
 import Container from "react-bootstrap/Container"
-import Layout, { CenteredContainer } from "../components/layout"
+
+import Layout from "../components/layout"
+import CenteredContainer from "../components/centeredContainer"
 import BoardMemberShowcase, { MemberRow, HorizontalBlockShowcase } from "../components/boardMemberShowcase"
 import DebugOptionsBox from "../components/debugOptionsBox"
 
@@ -68,29 +70,27 @@ export default function About({ data }) {
 				<hr></hr>
 				{
 					pageDesignEntries.map((design, index) => (
-						<>
-							<input defaultChecked={pageDesign === design[0] ? true : null} id={`pageDesign${design[0]}`} name="pageDesign" type="radio" onChange={() => setPageDesign(design[0])} />
-							<label htmlFor={`pageDesign${design[0]}`}>{design[0]}</label>
-							<br></br>
-						</>
+						<div key={`pageDesign${design[0]}`}>
+							<input key={`pageDesign${design[0]}input`} defaultChecked={pageDesign === design[0] ? true : null} id={`pageDesign${design[0]}`} name="pageDesign" type="radio" onChange={() => setPageDesign(design[0])} />
+							<label key={`pageDesign${design[0]}label`} htmlFor={`pageDesign${design[0]}`}>{design[0]}</label>
+							<br key={`pageDesign${design[0]}br`}></br>
+						</div>
 					))
 				}
 			</DebugOptionsBox>
-			<main>
+			<CenteredContainer>
 				{
 					useImageBanner ? (
-						<Container fluid style={{backgroundImage: `url("/img/eecsphoto2-maxwell-xu.jpg")`, backgroundSize: "cover"}}>
+						<Container fluid style={{backgroundImage: `url("/img/eecsphoto2-maxwell-xu.jpg")`, backgroundSize: "cover", position: "absolute", left: 0, right: 0}}>
 							<Container fluid="lg">
 								<h1>About</h1>
 							</Container>
-						</Container>		
-					) : (
-						<Container className="text-light" fluid="lg">
-							<h1>About</h1>
 						</Container>
+					) : (
+						<h1>About</h1>
 					)
 				}
-				<CenteredContainer>
+				<div>
 				{/*
 					Audience: Primarily Lowell students. Secondarily: Parents and the general public
 					Make club interesting to students. Keep professional and actually important appeareance
@@ -116,8 +116,8 @@ export default function About({ data }) {
 
 					<h2>Officers</h2>
 					<BoardMembers />
-				</CenteredContainer>
-			</main>
+				</div>
+			</CenteredContainer>
 		</Layout>
 	)
 }
