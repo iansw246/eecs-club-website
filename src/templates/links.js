@@ -2,16 +2,16 @@ import React from "react";
 import { graphql } from "gatsby"
 import styled from "styled-components"
 import Layout, { CenteredContainer } from "../components/layout"
-import { Button } from "react-bootstrap"
-import { darkTheme } from "../components/theme"
+// import { Button } from "react-bootstrap"
+// import { darkTheme } from "../components/theme"
 
 const UlStyled = styled.ul`
 	font-size: 1.5rem;
 `;
 
-const LinkButton = styled(Button)`
-	margin: 0.5rem;
-`;
+// const LinkButton = styled(Button)`
+// 	margin: 0.5rem;
+// `;
 
 export default function Links({ data }) {
 	return (

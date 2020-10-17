@@ -29,3 +29,7 @@ body {
 }
 
 @import "~bootstrap/scss/bootstrap";
+
+:root {
+	--varA: #{$gray-500};
+}
