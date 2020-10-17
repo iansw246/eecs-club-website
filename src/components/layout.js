@@ -2,54 +2,18 @@ import React, { useState } from "react";
 import { useStaticQuery, Link, graphql } from "gatsby";
 import styled from "styled-components";
 
-import { Container, Navbar, Nav, Row, Col} from "react-bootstrap";
+import { Container, Nav, Row, Col} from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faDiscord, faInstagram } from "@fortawesome/free-brands-svg-icons"
 
 import DebugOptionsBox from "./debugOptionsBox";
+import Navbar from "./navbar"
 import Head from "./head"
 import { darkTheme } from "./theme"
 
 import "../styles/global.scss";
 
-
-
 // background-image: url("https://media1.tenor.com/images/d600bc32b6dc1d9f4642f4794cbe6336/tenor.gif")
-
-// TODO:
-// Get proper backgroudn image with proper transparency (I just used magic want in Paint.NET)
-// Maybe SVG Backgrounds?
-// Maybe different background for mobile?
-
-const NavbarStyled = styled(Navbar).attrs((props) => ({
-	id: "primary-navbar",
-	variant: "dark",
-	expand: "sm",
-	className: "shadow-sm position-fixed w-100 font-weight-bold",
-}))`
-	z-index: 1;
-	background-color: ${(props) => props.coloredNavbar ? "var(--primary)" : "var(--body-bg)"};
-
-`
-
-const NavRouterLink = (props) => (
-	<Nav.Link
-		{...props}
-		as={Link}
-		activeStyle={{
-			textDecoration: "underline",
-			// borderBottom: `2px solid ${props.borderColor || "var(--gray)"}`,
-		}} />
-);
-
-const Logo = styled.img`
-	width: 32px;
-	height: 32px;
-	margin-right: 0.5rem;
-	margin-top: auto;
-	margin-bottom: auto;
-	filter: invert(100%);
-`;
 
 // Empty div with some height to prevent main content from being covered by fixed navbar
 // Unneeded if using position:sticky on navbar, but support and some browser issues made me choose not to use sticky
@@ -154,23 +118,7 @@ export default function Layout({ children, stickyFooter = true}) {
 			</DebugOptionsBox>
 
 			{/* Ideally, would use sticky, but my Android has some glitches while scrolling. Assumming others have this minor yet annoying issue*/}
-			<NavbarStyled coloredNavbar={coloredNavbar}>
-					<Container fluid="lg">
-						<Navbar.Brand as={Link} to="/" style={{display: "flex"}}>
-							<Logo src="/img/eecs-logo.svg" alt="EECS Club logo"/>EECS Club
-						</Navbar.Brand>
-						<Navbar.Toggle aria-controls="responsive-navbar-nav"/>
-						<Navbar.Collapse id="responsive-navbar-nav">
-							<Nav className="text-primary">
-								<Nav.Item><NavRouterLink to="/">Home</NavRouterLink></Nav.Item>
-								<Nav.Item><NavRouterLink to="/about/">About</NavRouterLink></Nav.Item>
-								<Nav.Item><NavRouterLink to="/links/">Links</NavRouterLink></Nav.Item>
-								{/* <Nav.Item><NavRouterLink to="/events">Workshops</NavRouterLink></Nav.Item> */}
-								<Nav.Item><NavRouterLink to="/contact/">Contact</NavRouterLink></Nav.Item>
-							</Nav>
-						</Navbar.Collapse>
-					</Container>
-			</NavbarStyled>
+			<Navbar coloredNavbar={coloredNavbar} />
 
 			<MainContentSpacer />
 
@@ -190,7 +138,10 @@ export default function Layout({ children, stickyFooter = true}) {
 							</Nav.Item>
 						</Nav>
 					</Row>
-					<small>Lowell EECS Club - Last updated {(new Date()).toLocaleDateString("en-US")}</small>
+					<div className="d-flex justify-content-between">
+						<small className="mr-2">© {(new Date().getFullYear())} Lowell EECS Club</small>
+						<small>Last updated {(new Date()).toLocaleDateString("en-US")}</small>
+					</div>
 				</Container>
 			</FooterStyled>
 		</PageContainer>

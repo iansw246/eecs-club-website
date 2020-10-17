@@ -1,10 +1,12 @@
 import React from "react"
-import Layout from "../components/layout"
+import Layout, { CenteredContainer } from "../components/layout"
 
 export default function NotFound() {
 	return (
 		<Layout>
-			<h1>Page not found</h1>
+			<CenteredContainer>
+				<h1>Error 404: Page not found</h1>
+			</CenteredContainer>
 		</Layout>
 	)
 }
