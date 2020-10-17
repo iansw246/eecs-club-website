@@ -67,9 +67,21 @@ const PageContainer = styled(Container).attrs(() => ({
 	className: "d-flex flex-column px-0 min-vh-100",
 	fluid: true,
 }))`
-	background-image: url("/img/cover-background-min.svg");
-	background-position: center top;
-	${'' /* background-attachment: ${fixedBackgroundImage ? "fixed" : null}; */}
+	${'' /* Unneeded if using fixed background since ::before doesn't need to fill the PageContainer, only the screen dimensions*/}
+	position: relative;
+	&::before {
+		content: '';
+		position: ${(props) => props.fixedBackgroundImage ? "fixed" : "absolute"};
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		will-change: transform;
+		z-index: -1;
+		background-image: url("/img/cover-background-min.svg");
+		background-position: center top;
+		background-color: ${darkTheme.bodyBackground};
+	}
 `;
 
 // stickyFooter: boolean: whether the footer will have margin-top to put itself at bottom of page when page content is short. 
@@ -95,7 +107,7 @@ export default function Layout({ children, stickyFooter = true}) {
 	);
 
 	return (
-		<PageContainer style={{backgroundAttachment: fixedBackgroundImage ? "fixed" : null}}>
+		<PageContainer fixedBackgroundImage={fixedBackgroundImage}>
 			<Head />
 
 			{/* Debug Options */}
