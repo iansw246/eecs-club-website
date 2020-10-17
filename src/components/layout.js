@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { Helmet } from "react-helmet";
 import { useStaticQuery, Link, graphql } from "gatsby";
-import { Container, Navbar, Nav, Row, Col} from "react-bootstrap";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faDiscord, faInstagram } from "@fortawesome/free-brands-svg-icons"
 import styled from "styled-components";
 
+import { Container, Navbar, Nav, Row, Col} from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faDiscord, faInstagram } from "@fortawesome/free-brands-svg-icons"
+
 import DebugOptionsBox from "./debugOptionsBox";
+import Head from "./head"
+import { darkTheme } from "./theme"
 
 import "../styles/global.scss";
 
@@ -73,6 +74,7 @@ const FooterStyled = styled(Container).attrs((props) => ({
 	className: `${props.sticky && "mt-auto"} py-1`, //margin-top: auto, padding-top/bottom: 1
 }))`
 	background-color: #090909;
+	color: ${darkTheme.textColorMuted};
 `;
 
 const FooterNavLink = styled(Nav.Link)``;
@@ -117,8 +119,6 @@ export default function Layout({ children, stickyFooter = true}) {
 			query {
 				site {
 					siteMetadata {
-						title
-						description
 						links {
 							discord
 							instagram
@@ -132,28 +132,7 @@ export default function Layout({ children, stickyFooter = true}) {
 
 	return (
 		<PageContainer style={{backgroundAttachment: fixedBackgroundImage ? "fixed" : null}}>
-			<Helmet>
-				{/*Primary tags */}
-				<title>Lowell EECS Club</title>
-				<meta name="title" content={data.site.siteMetadata.title} />
-				<meta name="description" content={data.site.siteMetadata.description} />
-
-				<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
-				<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-				<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-				<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-				{/* <link rel="icon" href="/favicon.ico" /> */}
-				<link rel="manifest" href="/site.webmanifest" />
-
-
-				{/*Bootstrap*/}
-				{/* <link
-					rel="stylesheet"
-					href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-					integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-					crossorigin="anonymous"
-				/> */}
-			</Helmet>
+			<Head />
 
 			{/* Debug Options */}
 			<DebugOptionsBox left={"0px"} right={" "}>
@@ -197,7 +176,7 @@ export default function Layout({ children, stickyFooter = true}) {
 
 			{children}
 			<FooterStyled sticky={stickyFooter}>
-				<Container fluid="lg" className="text-muted">
+				<Container fluid="lg">
 					<Row className="mx-0">
 						<Nav>
 							<Nav.Item><FooterNavLink as={Link} to="/">Home</FooterNavLink></Nav.Item>
@@ -211,8 +190,7 @@ export default function Layout({ children, stickyFooter = true}) {
 							</Nav.Item>
 						</Nav>
 					</Row>
-					<small>Lowell EECS Club {" - "}</small>
-					<small>Last updated {(new Date()).toLocaleDateString("en-US")}</small>
+					<small>Lowell EECS Club - Last updated {(new Date()).toLocaleDateString("en-US")}</small>
 				</Container>
 			</FooterStyled>
 		</PageContainer>
