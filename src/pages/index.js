@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
 import styled from "styled-components";
-import Layout, { CenteredContainer } from "../components/layout";
+import Layout from "../components/layout";
 import ProjectsShowcase from "../components/projectsShowcase";
 import { Container, Button } from "react-bootstrap";
 import DebugOptionsBox from "../components/debugOptionsBox";
@@ -78,8 +78,8 @@ export default function Home({ data }) {
 							projects
 						</p>
 						<p>Meetings every Friday from 3:30 to 4:30 pm</p>
-						<Button className="m-2" href={links.mailingList} variant="primary">
-							Join mailing list
+						<Button className="m-2" href={links.signUpForm} variant="primary">
+							Sign up
 						</Button>
 						<Button className="m-2" href={links.discord} variant="primary">
 							Join our Discord
@@ -112,6 +112,7 @@ export const query = graphql`
 					discord
 					instagram
 					email
+					signUpForm
 				}
 			}
 		}

@@ -1,18 +1,11 @@
 import React from "react"
 import { navigate } from "gatsby"
-import styled from "styled-components"
-import { darkTheme } from "../components/theme"
+import ButtonAsLink from "../components/buttonAsLink"
 import Layout, { CenteredContainer } from "../components/layout"
 
 function goBack() {
 	navigate(-1);
 }
-
-const ButtonAsLink = styled.button`
-	border: none;
-	background: none;
-	color: ${darkTheme.linkColor};
-`;
 
 export default function Success() {
 	return (

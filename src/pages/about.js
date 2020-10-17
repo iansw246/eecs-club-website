@@ -45,7 +45,7 @@ const pageDesigns = {
 	)
 }
 
-export default function About() {
+export default function About({ data }) {
 	const pageDesignEntries = Object.entries(pageDesigns);
 
 	const [useImageBanner, setImageBanner] = useState(false);
@@ -95,23 +95,28 @@ export default function About() {
 					Audience: Primarily Lowell students. Secondarily: Parents and the general public
 					Make club interesting to students. Keep professional and actually important appeareance
 				*/}
-					<p>
-						Lowell Electrical Engineering & Computer Science (EECS) Club is a student-run club at Lowell High School in San Francisco, California.
-						The club was created in <strong>[Insert date]</strong> with the goal of exposing students to EECS and inspiring their interest in the fascinating field.
-						
-						We teach important concepts and skills such as soldering, C++ coding, and circuity through hands-on projects
-						creating colorful RGB displays, animated LED cubes, four-legged robots, and much more.
-						<mark>In addition, we have guest speakers from various companies discuss the field and their work.
-						If you would like to present, visit our <Link to="/contact/">contact page.</Link></mark>
+					<div>
+						<p>
+							Lowell Electrical Engineering & Computer Science (EECS) Club is a student-run club at Lowell High School in San Francisco, California.
+							The club was created in <strong>[Insert date]</strong> with the goal of exposing students to EECS and inspiring their interest in the field.
+							<blockquote />
+							Maybe?: goal of providing students an opportunity to explore EECS?
+							<blockquote />
+						</p>
+						<p>
+							We teach our members how to solder, code, build circuits, and use Arduinos through hands-on projects
+							creating colorful RGB displays, animated LED cubes, four-legged robots, and much more.
+							In addition, we have guest speakers talk about the field and their work.
+							All students are welcome regardless of experience. Our workshops will prepare you to make super cool projects in no time.
+						</p>
+						<p>
+							We meet every Friday from 3:30 to 4:30 pm. Due to the pandemic, our meetings are hosted on Zoom.
+							Sign up <a href={data.site.siteMetadata.links.signUpForm}>here. </a>
+							<br />
+							We hope to see you there!
+						</p>
+					</div>
 
-						We welcome all Lowell students regardless of experience. Our workshops will prepare you to make the coolest projects in no time.
-
-						We meet every Friday from 3:30 to 4:30 pm. Due to the pandemic, our meetings are hosted on Zoom.
-						To sign up, fill out <a>our signup form</a>.
-
-						We hope to see you there!
-					</p>
-					
 					<h2>Board Members</h2>
 					<BoardMembers />
 				</CenteredContainer>
@@ -119,3 +124,15 @@ export default function About() {
 		</Layout>
 	)
 }
+
+export const query = graphql`
+	{
+		site {
+			siteMetadata {
+				links {
+					signUpForm
+				}
+			}
+		}
+	}
+`;

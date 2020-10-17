@@ -5,5 +5,6 @@ export const darkTheme = {
 	backgroundColorLighten: "#4f5860",
 	textColor: "var(--light)",
 	linkColor: "#57a9ff",
+	linkColorHover: "#248eff",
 	textColorMuted: "var(--secondary)",
 }
