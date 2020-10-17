@@ -76,6 +76,7 @@ export default function Contact({ data }) {
 					<Form.Group>	
 						<Button variant="primary" type="submit">Submit</Button>
 					</Form.Group>
+					<input name="form-name" value="contact" type="hidden" />
 				</FormStyled>
 			</CenteredContainer>
 		</Layout>
