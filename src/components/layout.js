@@ -63,6 +63,8 @@ const PageContainer = styled(Container).attrs(() => ({
 }))`
 	${'' /* Unneeded if using fixed background since ::before doesn't need to fill the PageContainer, only the screen dimensions*/}
 	position: relative;
+	${'' /* To make the 150% height ::before not show */}
+	overflow: hidden;
 	&::before {
 		content: '';
 		position: ${(props) => props.fixedBackgroundImage ? "fixed" : "absolute"};
