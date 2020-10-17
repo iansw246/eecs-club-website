@@ -60,7 +60,7 @@ export default function Contact({ data }) {
 				<p>
 					You can also fill out this form.
 				</p>
-				<FormStyled name="contact" data-netlify="true" action="/success/">
+				<FormStyled name="contact" method="POST" action="/success/" data-netlify="true">
 					<Form.Group controlId="formEmail">
 						<FormLabelStyled required>Email Address</FormLabelStyled>
 						<Form.Control type="email" name="email" placeholder="Enter email" required />

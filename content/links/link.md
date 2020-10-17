@@ -1,8 +1,7 @@
 ---
 title: Links
 links:
-  - link: Loollklj
-    text: jklkjklj
+  - text: jklkjklj
     url: https://kjlkj.com
   - url: https://google.com
     text: google.com

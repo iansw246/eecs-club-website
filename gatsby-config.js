@@ -56,7 +56,8 @@ module.exports = {
 			resolve: `gatsby-plugin-netlify-cms`,
 			options: {
 				modulePath: `${__dirname}/src/cms/cms.js`,
-			}
+				htmlFavicon: `${__dirname}/static/img/favicon.svg`,
+			},
 		},
 		`gatsby-transformer-sharp`,
 		`gatsby-plugin-sharp`,

@@ -5,12 +5,6 @@ import Layout, { CenteredContainer } from "../components/layout"
 import { Button } from "react-bootstrap"
 import { darkTheme } from "../components/theme"
 
-const NoBulletUl = styled.ul`
-    list-style-type: none;
-	padding: 0;
-	margin-left: 0
-`;
-
 const UlStyled = styled.ul`
 	font-size: 1.5rem;
 `;
@@ -34,8 +28,8 @@ export default function Links({ data }) {
 								target="_blank"
 								rel="noopener noreferrer" // Possible phishing vulnerability if target="_blank" and these rel properties aren't set
 							>
-									{link.text}
-								</a>
+								{link.text}
+							</a>
 						</li>)
 					})
 				}
