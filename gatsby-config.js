@@ -52,6 +52,9 @@ module.exports = {
 		`gatsby-plugin-sass`,
 		`gatsby-transformer-remark`,
 		`gatsby-plugin-react-helmet`,
+		`gatsby-plugin-sharp`,
+		`gatsby-transformer-sharp`,
+		`gatsby-plugin-netlify`,
 		{
 			resolve: `gatsby-plugin-netlify-cms`,
 			options: {
@@ -59,7 +62,5 @@ module.exports = {
 				htmlFavicon: `${__dirname}/static/img/favicon.svg`,
 			},
 		},
-		`gatsby-transformer-sharp`,
-		`gatsby-plugin-sharp`,
 	],
 };
