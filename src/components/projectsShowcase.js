@@ -65,9 +65,7 @@ export default function ProjectsShowcase() {
 			}
 		}
 	`);
-
-
-	console.log(data);
+	
 	return (
 		<Carousel>
 			<Carousel.Item>
