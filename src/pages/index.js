@@ -78,10 +78,10 @@ export default function Home({ data }) {
 							projects
 						</p>
 						<p>Meetings every Friday from 3:30 to 4:30 pm</p>
-						<Button className="m-2" href={links.signUpForm} variant="primary">
+						<Button className="m-2" href={links.signUpForm} variant="primary" target="_blank" rel="noopener noreferrer">
 							Sign up
 						</Button>
-						<Button className="m-2" href={links.discord} variant="primary">
+						<Button className="m-2" href={links.discord} variant="primary" target="_blank" rel="noopener noreferrer">
 							Join our Discord
 						</Button>
 					</Container>

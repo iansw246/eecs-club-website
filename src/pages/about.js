@@ -98,10 +98,7 @@ export default function About({ data }) {
 					<div>
 						<p>
 							Lowell Electrical Engineering & Computer Science (EECS) Club is a student-run club at Lowell High School in San Francisco, California.
-							The club was started in <strong>[Insert date]</strong> with the goal of inspiring students' interest in EECS by providng them exposure to the field.
-							<blockquote />
-							Maybe?: goal of providing students opportunities to explore EECS?
-							<blockquote />
+							Our goal is to inspire students' interest in EECS by providng them exposure to the field.
 						</p>
 						<p>
 							We teach our members how to solder, code, build circuits, and use Arduino microcontrollers through hands-on projects
