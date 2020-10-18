@@ -90,33 +90,29 @@ export default function About({ data }) {
 						<h1>About</h1>
 					)
 				}
-				<div>
 				{/*
 					Audience: Primarily Lowell students. Secondarily: Parents and the general public
 					Make club interesting to students. Keep professional and actually important appeareance
 				*/}
-					<div>
-						<p>
-							Lowell Electrical Engineering & Computer Science (EECS) Club is a student-run club at Lowell High School in San Francisco, California.
-							Our goal is to inspire students' interest in EECS by providng them exposure to the field.
-						</p>
-						<p>
-							We teach our members how to solder, code, build circuits, and use Arduino microcontrollers through hands-on projects
-							creating colorful RGB displays, animated LED cubes, four-legged robots, and much more.
-							In addition, we have guest speakers talk about the field and their work.
-							All students are welcome regardless of experience. Our workshops will prepare our members to make super cool projects in no time.
-						</p>
-						<p>
-							We meet every Friday from 3:30 to 4:30 pm. Due to the pandemic, our meetings are hosted on Zoom.
-							Sign up <a href={data.site.siteMetadata.links.signUpForm}>here. </a>
-							<br />
-							We hope to see you there!
-						</p>
-					</div>
+				<p>
+					Lowell Electrical Engineering & Computer Science (EECS) Club is a student-run club at Lowell High School in San Francisco, California.
+					Our goal is to inspire students' interest in EECS by providng them exposure to the field.
+				</p>
+				<p>
+					We teach our members how to solder, code, build circuits, and use Arduino microcontrollers through hands-on projects
+					creating colorful RGB displays, animated LED cubes, four-legged robots, and much more.
+					In addition, we have guest speakers from the industry talk about the field and their work.
+					All students are welcome to join regardless of experience. Our workshops will enable our members to make super cool projects in no time.
+				</p>
+				<p>
+					We meet every Friday from 3:30 to 4:30 pm. Due to the pandemic, our meetings are hosted on Zoom.
+					Sign up <a href={data.site.siteMetadata.links.signUpForm}>here. </a>
+					<br />
+					We hope to see you there!
+				</p>
 
-					<h2>Officers</h2>
-					<BoardMembers />
-				</div>
+				<h2 style={{marginTop: "2.5rem"}}>Officers</h2>
+				<BoardMembers />
 			</CenteredContainer>
 		</Layout>
 	)
