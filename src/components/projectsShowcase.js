@@ -57,7 +57,7 @@ export default function ProjectsShowcase() {
 					}
 				}
 			}
-			solderingWorkshop: file(relativePath: {eq: "projects/DSC_4710.JPG"}) {
+			solderingWorkshop: file(relativePath: {eq: "projects/DSC_0160.JPG"}) {
 				childImageSharp {
 					fluid(maxWidth: 500, maxHeight: 300) {
 						...GatsbyImageSharpFluid_withWebp

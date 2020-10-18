@@ -1,16 +1,22 @@
 // Boostrap overrides
-//@import "~boootstrap/scss/";
-
 $font-size-base: 1.2rem;
+$headings-margin-bottom: 1rem;
 
-$primary: #00438a; // #1374db //#1E82EB; 
+$h1-font-size: $font-size-base * 2 !default;
+$h2-font-size: $font-size-base * 1.75 !default;
+$h3-font-size: $font-size-base * 1.5 !default;
+$h4-font-size: $font-size-base * 1.25 !default;
+$h5-font-size: $font-size-base * 1.125 !default;
+$h6-font-size: $font-size-base !default;
+
+$primary: #0d47a1; //#00438a;
 //$secondary: #0056b3;
 
 //$body-bg: #121212;
 //$light: #00eeff; // May want to make text slightly darker to reduce constrast
 
-$link-color: lighten($primary, 40%);
-$link-hover-color: lighten($primary, 30%);
+$link-color: lighten($primary, 30%);
+$link-hover-color: lighten($primary, 20%);
 // $link-visited-color: darken($primary, 20%);
 
 $navbar-dark-color: rgba(#ffffff, 1);
@@ -29,7 +35,3 @@ body {
 }
 
 @import "~bootstrap/scss/bootstrap";
-
-:root {
-	--varA: #{$gray-500};
-}

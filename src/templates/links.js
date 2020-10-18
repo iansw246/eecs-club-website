@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import CenteredContainer from "../components/centeredContainer"
-import { Card } from "react-bootstrap";
+import { Container, Card } from "react-bootstrap";
 import Img from "gatsby-image"
 // import { Button } from "react-bootstrap"
 // import { darkTheme } from "../components/theme"
@@ -16,23 +16,34 @@ const UlStyled = styled.ul`
 // 	margin: 0.5rem;
 // `;
 
+const LinksContainer = styled(Container)`
+	display: flex;
+	flex-wrap: wrap;
+	align-items: end;
+`;
+
 export default function Links({ data }) {
+	console.log(data.markdownRemark.frontmatter.links);
 	return (
 		<Layout>
 			<CenteredContainer>
 				<h1>Links</h1>
 
-				{data.markdownRemark.frontmatter.links.map((linkPost, index) => {
-					return (
-						<Card>
-							<Card.Title>
-								<a href={linkPost.url} target="_blank" rel="noopener noreferrer" className="stretched-link">{linkPost}</a>
-							</Card.Title>
-						</Card>
-					)
-				})
-
-				}
+				<LinksContainer>
+					{data.markdownRemark.frontmatter.links.map((linkPost, index) => {
+						return (
+							<Card style={{width: "18rem", margin: "1rem"}} className="bg-dark">
+								<img src={linkPost.thumbnail} />
+								<Card.Body>
+									<Card.Title>
+										<a href={linkPost.url} target="_blank" rel="noopener noreferrer" className="stretched-link">{linkPost.text}</a>
+									</Card.Title>
+								</Card.Body>
+							</Card>
+						)
+					})
+					}
+				</LinksContainer>
 
 				{/* <UlStyled>
 				{
@@ -58,7 +69,6 @@ export default function Links({ data }) {
 export const query = graphql`
 	query($slug: String!) {
 		markdownRemark(fields: { slug: { eq: $slug } }) {
-			html
 			frontmatter {
 				links {
 					text
