@@ -6,8 +6,8 @@ media_folder: /static/img/uploads
 public_folder: /img/uploads
 
 collections:
-  - name: 'workshops'
-    label: 'Workshops'
+  - label: 'Workshops'
+    name: 'workshops'
     folder: 'content/workshops'
     media_folder: /static/img/uploads
     public_folder: /img/uploads
@@ -21,8 +21,9 @@ collections:
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-  - name: 'pages'
-    label: 'Page'
+
+  - label: 'Page'
+    name: 'pages'
     folder: 'src/pages'
     media_folder: /static/img/uploads
     public_folder: /img/uploads
@@ -34,8 +35,9 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-  - name: 'links'
-    label: 'Links'
+
+  - label: 'Links'
+    name: 'links'
     folder: 'content/links'
     media_folder: /static/img/uploads
     public_folder: /img/uploads
@@ -60,3 +62,17 @@ collections:
           #    - '((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)'
           #    - 'Enter a valid url'
           - {label: 'Link text', name: 'text', widget: 'string'}
+          - label: 'Link Thumbnail'
+            name: 'thumbnail'
+            widget: 'image'
+            allow_multiple: false
+  - label: 'Test'
+    name: 'test'
+    folder: 'content/test'
+    create: true
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string'}
+      - label: 'Link field 1'
+        name: 'linkfield1'
+        widget: 'link'
+        customProp: 'This is custom prop'
