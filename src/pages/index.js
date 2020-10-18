@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Layout from "../components/layout";
 import ProjectsShowcase from "../components/projectsShowcase";
 import { Container, Button } from "react-bootstrap";
+import { darkTheme } from "../components/theme"
 import DebugOptionsBox from "../components/debugOptionsBox";
 
 const CoverMainContainer = styled(Container).attrs((props) => ({
@@ -93,10 +94,10 @@ export default function Home({ data }) {
 						<ScrollDownArrow />
 					</a>
 				) : null}
-				<Container style={{paddingLeft: 0, paddingRight: 0, backgroundColor: "rgba(28, 100, 230, 0.5)"}} fluid>
-				<h2 className="mb-4 mt-2" id="projects">
-					Projects
-				</h2>
+				<Container>
+					<h2 className="mb-4 mt-2 d-inline-block" id="projects" style={{border: "2px solid #ba68c8", borderLeft: "none", borderRight: "none"}}>
+						Projects
+					</h2>
 					<ProjectsShowcase />
 				</Container>
 			</CoverMainContainer>

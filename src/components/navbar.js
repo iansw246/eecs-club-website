@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { Container, Navbar, Nav } from "react-bootstrap"
 import styled from "styled-components"
+import { darkTheme } from "./theme"
 
 const NavbarStyled = styled(Navbar).attrs((props) => ({
 	id: "primary-navbar",
@@ -10,7 +11,7 @@ const NavbarStyled = styled(Navbar).attrs((props) => ({
 	className: "shadow-sm position-fixed w-100 font-weight-bold",
 }))`
 	z-index: 1;
-	background-color: ${(props) => (props.$coloredNavbar ? "var(--primary)" : "var(--body-bg)")};
+	background-color: ${(props) => (props.$coloredNavbar ? "var(--primary)" : darkTheme.bodyBackground)};
 `;
 
 const NavRouterLink = (props) => (
