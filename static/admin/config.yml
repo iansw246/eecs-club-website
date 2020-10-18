@@ -66,6 +66,7 @@ collections:
             name: 'thumbnail'
             widget: 'image'
             allow_multiple: false
+            required: false
   - label: 'Test'
     name: 'test'
     folder: 'content/test'

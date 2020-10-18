@@ -93,10 +93,10 @@ export default function Home({ data }) {
 						<ScrollDownArrow />
 					</a>
 				) : null}
+				<Container style={{paddingLeft: 0, paddingRight: 0, backgroundColor: "rgba(28, 100, 230, 0.5)"}} fluid>
 				<h2 className="mb-4 mt-2" id="projects">
 					Projects
 				</h2>
-				<Container>
 					<ProjectsShowcase />
 				</Container>
 			</CoverMainContainer>
