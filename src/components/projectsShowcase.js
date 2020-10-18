@@ -5,6 +5,9 @@ import styled from "styled-components"
 import { Container, Carousel } from "react-bootstrap"
 import { darkTheme } from "./theme"
 
+const CarouselStyled = styled(Carousel)`
+	min-height: 25rem;
+`;
 
 const CarouselContentContainer = styled(Container)`
 	display: flex;
@@ -13,7 +16,6 @@ const CarouselContentContainer = styled(Container)`
 	margin-bottom: 2.5rem; ${'' /*Margin so Carousel page indicator doesn't overlap content*/}
 	padding-left: 10%;
 	padding-right: 10%;
-	min-height: 27rem;
 
 	@media only screen and (min-width: 750px) {
 		min-height: 10rem;
@@ -68,7 +70,8 @@ export default function ProjectsShowcase() {
 	`);
 
 	return (
-		<Carousel>
+		// To prevent layout shifts when switching between slide with different heights
+		<CarouselStyled>
 			<Carousel.Item>
 				<CarouselContentContainer>
 					<ProjectImage fluid={data.lightCube.childImageSharp.fluid} alt="LED light cube"/>
@@ -98,6 +101,6 @@ export default function ProjectsShowcase() {
 					</ProjectText>
 				</CarouselContentContainer>
 			</Carousel.Item>
-		</Carousel>
+		</CarouselStyled>
 	)
 }

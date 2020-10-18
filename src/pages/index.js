@@ -43,6 +43,8 @@ const ScrollDownArrow = styled.img.attrs(() => ({
 	width: 5rem;
 `;
 
+
+
 export default function Home({ data }) {
 	const [fullScreenCover, toggleFullScreenCover] = useState(false);
 
@@ -73,7 +75,7 @@ export default function Home({ data }) {
 					{fullScreenCover ? <div style={{ flexGrow: 2 }}></div> : null}
 					<Container>
 						<CoverLogo src="/img/eecs-logo.svg" alt="EECS Club logo"></CoverLogo>
-						<h1>Lowell EECS Club</h1>
+						<h1 style={{fontSize: "2.6rem"}}>Lowell EECS Club</h1>
 						<p>
 							Learn electrical engineering & computer science while making exciting
 							projects
@@ -95,7 +97,7 @@ export default function Home({ data }) {
 					</a>
 				) : null}
 				<Container>
-					<h2 className="mb-4 mt-2 d-inline-block" id="projects" style={{border: "2px solid #ba68c8", borderLeft: "none", borderRight: "none"}}>
+					<h2 className="mb-4 mt-2 d-inline-block" id="projects" style={{border: "3px solid #b00000", borderLeft: "none", borderRight: "none"}}>
 						Projects
 					</h2>
 					<ProjectsShowcase />

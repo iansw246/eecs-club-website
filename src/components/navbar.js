@@ -10,7 +10,7 @@ const NavbarStyled = styled(Navbar).attrs((props) => ({
 	expand: "sm",
 	className: "shadow-sm position-fixed w-100 font-weight-bold",
 }))`
-	z-index: 1;
+	z-index: 2;
 	background-color: ${(props) => (props.$coloredNavbar ? "var(--primary)" : darkTheme.bodyBackground)};
 `;
 
@@ -23,6 +23,12 @@ const NavRouterLink = (props) => (
 			// borderBottom: `2px solid ${props.borderColor || "var(--gray)"}`,
 		}} />
 );
+
+const NavItem = styled(Nav.Item)`
+	&:hover {
+		background-color: rgba(0, 0, 0, 0.05);
+	}
+`;
 
 const Logo = styled.img`
 	width: 32px;
@@ -43,11 +49,11 @@ export default ({coloredNavbar}) => (
 			<Navbar.Toggle aria-controls="responsive-navbar-nav"/>
 			<Navbar.Collapse id="responsive-navbar-nav">
 				<Nav className="text-primary">
-					<Nav.Item><NavRouterLink to="/">Home</NavRouterLink></Nav.Item>
-					<Nav.Item><NavRouterLink to="/about/">About</NavRouterLink></Nav.Item>
-					<Nav.Item><NavRouterLink to="/links/">Links</NavRouterLink></Nav.Item>
-					{/* <Nav.Item><NavRouterLink to="/events">Workshops</NavRouterLink></Nav.Item> */}
-					<Nav.Item><NavRouterLink to="/contact/">Contact</NavRouterLink></Nav.Item>
+					<NavItem><NavRouterLink to="/">Home</NavRouterLink></NavItem>
+					<NavItem><NavRouterLink to="/about/">About</NavRouterLink></NavItem>
+					<NavItem><NavRouterLink to="/links/">Links</NavRouterLink></NavItem>
+					{/* <NavItem><NavRouterLink to="/events">Workshops</NavRouterLink></NavItem> */}
+					<NavItem><NavRouterLink to="/contact/">Contact</NavRouterLink></NavItem>
 				</Nav>
 			</Navbar.Collapse>
 		</Container>

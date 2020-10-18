@@ -3,7 +3,7 @@ export const darkTheme = {
 
 	bodyBackground: "#121212",
 	footerBackground: "#090909",
-	backgroundColor: "#343a40",
+	backgroundColor: "#24272c",
 	backgroundColorLighten: "#4f5860",
 
 	textColor: "var(--light)",

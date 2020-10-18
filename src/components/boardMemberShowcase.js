@@ -151,7 +151,7 @@ const MemberImage = styled.img`
 `;
 
 const MemberBox = ({ name, title, description, imageSrc }) => (
-	<Card text="light" style={{margin: "1.5rem", maxWidth: "300px", backgroundColor: darkTheme.backgroundColor}}>
+	<Card text="light" style={{margin: "1.5rem", marginTop: 0, maxWidth: "300px", backgroundColor: darkTheme.backgroundColor}}>
 		<Card.Img src={imageSrc} width={250} style={{maxWidth: "250px", marginLeft: "auto", marginRight: "auto", marginTop: "1rem"}}/>
 		<Card.Body>
 			<Card.Title as="h5">{title}</Card.Title>
