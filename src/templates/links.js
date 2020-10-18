@@ -3,6 +3,8 @@ import { graphql } from "gatsby"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import CenteredContainer from "../components/centeredContainer"
+import { Card } from "react-bootstrap";
+import Img from "gatsby-image"
 // import { Button } from "react-bootstrap"
 // import { darkTheme } from "../components/theme"
 
@@ -19,7 +21,20 @@ export default function Links({ data }) {
 		<Layout>
 			<CenteredContainer>
 				<h1>Links</h1>
-				<UlStyled>
+
+				{data.markdownRemark.frontmatter.links.map((linkPost, index) => {
+					return (
+						<Card>
+							<Card.Title>
+								<a href={linkPost.url} target="_blank" rel="noopener noreferrer" className="stretched-link">{linkPost}</a>
+							</Card.Title>
+						</Card>
+					)
+				})
+
+				}
+
+				{/* <UlStyled>
 				{
 					data.markdownRemark.frontmatter.links.map((link, index) => {
 						return (<li key={index}>
@@ -34,7 +49,7 @@ export default function Links({ data }) {
 						</li>)
 					})
 				}
-				</UlStyled>
+				</UlStyled> */}
 			</CenteredContainer>
 		</Layout>
 	);
@@ -48,6 +63,7 @@ export const query = graphql`
 				links {
 					text
 					url
+					thumbnail
 				}
 			}
 		}
