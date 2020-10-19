@@ -17,6 +17,9 @@ const FormStyled = styled(Form)`
 	border-top: 2px solid ${darkTheme.accentColor};
 	border-bottom: 2px solid ${darkTheme.accentColor};
 
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+
 	.form-control::placeholder {
 		color: lightgray;
 	}

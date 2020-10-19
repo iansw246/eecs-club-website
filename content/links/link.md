@@ -9,5 +9,4 @@ links:
     thumbnail: ../../static/img/uploads/star.png
   - url: https://www.bbc.com
     text: BBC
-    thumbnail: ../../static/img/uploads/star.png
 ---
