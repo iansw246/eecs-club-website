@@ -6,6 +6,7 @@ import ProjectsShowcase from "../components/projectsShowcase";
 import { Container, Button } from "react-bootstrap";
 import { darkTheme } from "../components/theme"
 import DebugOptionsBox from "../components/debugOptionsBox";
+import { H1Line } from "../components/textComponents"
 
 const CoverMainContainer = styled(Container).attrs((props) => ({
 	className: "text-light text-center my-auto py-2",
@@ -97,14 +98,9 @@ export default function Home({ data }) {
 					</a>
 				) : null}
 				<Container>
-					<h2 className="mb-4 mt-2 d-inline-block" id="projects" css={`
-						&::before, &::after {
-							content: "-";
-							color: #b00000;
-						}
-					`}>
+					<H1Line className="mb-4 mt-2" id="projects" as="h2" lineColor="#ff2f2f">
 						Projects
-					</h2>
+					</H1Line>
 					<ProjectsShowcase />
 				</Container>
 			</CoverMainContainer>

@@ -14,8 +14,8 @@ const NoBulletUl = styled.ul`
 `;
 
 const FormStyled = styled(Form)`
-	border-top: 2px solid var(--primary);
-	border-bottom: 2px solid var(--primary);
+	border-top: 2px solid ${darkTheme.accentColor};
+	border-bottom: 2px solid ${darkTheme.accentColor};
 
 	.form-control::placeholder {
 		color: lightgray;

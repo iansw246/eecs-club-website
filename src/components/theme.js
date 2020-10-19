@@ -6,6 +6,8 @@ export const darkTheme = {
 	backgroundColor: "#24272c",
 	backgroundColorLighten: "#4f5860",
 
+	accentColor: "#ff2f2f",
+
 	textColor: "var(--light)",
 	textColorMuted: "#adb5bd",
 
