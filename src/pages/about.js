@@ -4,75 +4,13 @@ import Container from "react-bootstrap/Container"
 
 import Layout from "../components/layout"
 import CenteredContainer from "../components/centeredContainer"
-import BoardMemberShowcase, { MemberRow, HorizontalBlockShowcase } from "../components/boardMemberShowcase"
+import BoardMemberShowcase from "../components/boardMemberShowcase"
 import DebugOptionsBox from "../components/debugOptionsBox"
 import { H1Line } from "../components/textComponents"
 
-const pageDesigns = {
-	blocks: () => (
-		<BoardMemberShowcase />
-	),
-	leftAlignedBlocks: () => (
-		<BoardMemberShowcase justifyContent="flex-start" marginLeft="-1.5rem"/>
-	),
-	rows: () => (
-		<>
-			<MemberRow
-					name="Bob"
-					title="VP of Bob"
-					imageSrc="/img/bob.svg"
-					description="Bob is such a bob he even the VP of Bob wow such cool."
-			/>
-			<MemberRow
-					name="Bob"
-					title="VP of Bob"
-					imageSrc="/img/bob.svg"
-					description="Bob is such a bob he even the VP of Bob wow such cool."
-			/>
-			<MemberRow
-					name="Bob"
-					title="VP of Bob"
-					imageSrc="/img/bob.svg"
-					description="Bob is such a bob he even the VP of Bob wow such cool."
-			/>
-			<MemberRow
-					name="Bob"
-					title="VP of Bob"
-					imageSrc="/img/bob.svg"
-					description="Bob is such a bob he even the VP of Bob wow such cool."
-			/>
-		</>
-	),
-	horizontalBlocks: () => (
-		<HorizontalBlockShowcase />
-	)
-}
-
 export default function About({ data }) {
-	const pageDesignEntries = Object.entries(pageDesigns);
-
-	const defaultBoardMemberDesign = "blocks";
-	const defaultDesignInvalid = pageDesigns[defaultBoardMemberDesign] === null;
-
-	if (defaultDesignInvalid) {
-		console.error("Default board member design is invalid.");
-	}
-
-	const [pageDesign, setPageDesign] = useState(defaultDesignInvalid ? pageDesignEntries[0][0] : defaultBoardMemberDesign);
-	const BoardMembers = pageDesigns[pageDesign];
-
 	return (
 		<Layout>
-			<DebugOptionsBox>{
-					pageDesignEntries.map((design, index) => (
-						<div key={`pageDesign${design[0]}`}>
-							<input key={`pageDesign${design[0]}input`} defaultChecked={pageDesign === design[0] ? true : null} id={`pageDesign${design[0]}`} name="pageDesign" type="radio" onChange={() => setPageDesign(design[0])} />
-							<label key={`pageDesign${design[0]}label`} htmlFor={`pageDesign${design[0]}`}>{design[0]}</label>
-							<br key={`pageDesign${design[0]}br`}></br>
-						</div>
-					))
-				}
-			</DebugOptionsBox>
 			<CenteredContainer>
 				{
 					<h1>About</h1>
@@ -100,7 +38,7 @@ export default function About({ data }) {
 				</p>
 
 				<H1Line as="h2" className="text-center" css={`margin-top: 7rem;`}>Officers</H1Line>
-				<BoardMembers />
+				<BoardMemberShowcase />
 			</CenteredContainer>
 		</Layout>
 	)
