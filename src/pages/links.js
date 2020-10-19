@@ -48,6 +48,7 @@ const MISSING_IMAGE_THUMBNAIL = "/img/Icon-Link.svg";
 const CardImageMissing = styled.img.attrs(() => ({
 	alt: "Link icon for link missing a thumbnail",
 	src: MISSING_IMAGE_THUMBNAIL,
+	loading: "lazy",
 }))`
 	${imageBorderCSS}
 	width: 200px;
