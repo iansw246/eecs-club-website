@@ -97,7 +97,12 @@ export default function Home({ data }) {
 					</a>
 				) : null}
 				<Container>
-					<h2 className="mb-4 mt-2 d-inline-block" id="projects" style={{border: "3px solid #b00000", borderLeft: "none", borderRight: "none"}}>
+					<h2 className="mb-4 mt-2 d-inline-block" id="projects" css={`
+						&::before, &::after {
+							content: "-";
+							color: #b00000;
+						}
+					`}>
 						Projects
 					</h2>
 					<ProjectsShowcase />
