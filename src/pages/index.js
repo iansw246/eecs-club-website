@@ -4,7 +4,9 @@ import styled from "styled-components";
 import Layout from "../components/layout";
 import ProjectsShowcase from "../components/projectsShowcase";
 import { Container, Button } from "react-bootstrap";
+import { darkTheme } from "../components/theme"
 import DebugOptionsBox from "../components/debugOptionsBox";
+import { H1Line } from "../components/textComponents"
 
 const CoverMainContainer = styled(Container).attrs((props) => ({
 	className: "text-light text-center my-auto py-2",
@@ -42,6 +44,8 @@ const ScrollDownArrow = styled.img.attrs(() => ({
 	width: 5rem;
 `;
 
+
+
 export default function Home({ data }) {
 	const [fullScreenCover, toggleFullScreenCover] = useState(false);
 
@@ -72,7 +76,7 @@ export default function Home({ data }) {
 					{fullScreenCover ? <div style={{ flexGrow: 2 }}></div> : null}
 					<Container>
 						<CoverLogo src="/img/eecs-logo.svg" alt="EECS Club logo"></CoverLogo>
-						<h1>Lowell EECS Club</h1>
+						<h1 style={{fontSize: "2.6rem"}}>Lowell EECS Club</h1>
 						<p>
 							Learn electrical engineering & computer science while making exciting
 							projects
@@ -93,10 +97,10 @@ export default function Home({ data }) {
 						<ScrollDownArrow />
 					</a>
 				) : null}
-				<Container style={{paddingLeft: 0, paddingRight: 0, backgroundColor: "rgba(28, 100, 230, 0.5)"}} fluid>
-				<h2 className="mb-4 mt-2" id="projects">
-					Projects
-				</h2>
+				<Container>
+					<H1Line className="mb-4 mt-2" id="projects" as="h2" lineColor="#ff2f2f">
+						Projects
+					</H1Line>
 					<ProjectsShowcase />
 				</Container>
 			</CoverMainContainer>

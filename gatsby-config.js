@@ -39,7 +39,7 @@ module.exports = {
 			resolve: `gatsby-source-filesystem`,
 			options: {
 				path: `${__dirname}/src/images`,
-				name: `images`,
+				name: `srcImages`,
 			}
 		},
 		{
@@ -47,6 +47,13 @@ module.exports = {
 			options: {
 				path: `${__dirname}/src/pages`,
 				name: `pages`,
+			},
+		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				path: `${__dirname}/static/img/uploads`,
+				name: `uploadedImages`
 			},
 		},
 		`gatsby-plugin-sass`,

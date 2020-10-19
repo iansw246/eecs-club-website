@@ -24,3 +24,10 @@ yarn develop
 # ...
 # Server should run at https://localhost:8000
 ```
+
+## About images
+`src/images/` are for images that are processed by image-sharp. They are resized and optimized by image-sharp.
+`static/img/uploads/` are for images that are uploaded by Netlify CMS.
+`static/` has images for favicons and stuff
+`static/img/` is for everything else.
+Maybe all images could be in /src/images and the images needed unmodified could be copied to public?
