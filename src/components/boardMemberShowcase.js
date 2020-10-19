@@ -35,115 +35,14 @@ const ProjectText = styled.div`
 	/*text-align: center;*/
 `;
 
-// Experimental alternate version
-export const MemberRow = ({ name, title, description, imageSrc }) => (
-	<CarouselContentContainer>
-		<ProjectText>
-			<h3>{name}</h3>
-			<h5>{title}</h5>
-			<p>{description}</p>
-		</ProjectText>
-		<ProjectImage src={imageSrc} width={200} />
-	</CarouselContentContainer>
-);
-
-const HorBlkContainer = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	align-content: center;
-
-	/* I don't like this for some reason */
-	max-width: 100vw;
-
-	margin-left: -2rem;
-	margin-right: -2rem;
-`;
-
-const HorBlkMemberInfo = styled.div`
-	display: inline-flex;
-	flex-flow: row-reverse;
-	flex-wrap: wrap;
-	justify-content: flex-end;
-	max-width: 450px;
-	padding: 0;
-	margin-left: 2rem;
-	margin-right: 2rem;
-	margin-top: 4rem;
-
-	/*@media only screen and (min-width: 900px) {
-		margin-right: 0.5rem;
-	}*/
-`;
-
-
-// Alternate version
-const HorizontalBlock = ({ name, title, description, imageSrc }) => (
-	<HorBlkMemberInfo>
-		<ProjectText>
-			<h3>{name}</h3>
-			<h5>{title}</h5>
-			<p>{description}</p>
-		</ProjectText>
-		<ProjectImage src={imageSrc} width={200} />
-	</HorBlkMemberInfo>
-);
-
-export function HorizontalBlockShowcase() {
-	return (
-		<HorBlkContainer>
-			<HorizontalBlock
-				name="Bob"
-				title="VP of Bob"
-				imageSrc="/img/bob.svg"
-				description="Bob is such a bob he even the VP of Bob wow such cool."
-			/>
-			<HorizontalBlock
-					name="Bob"
-					title="VP of Bob"
-					imageSrc="/img/bob.svg"
-					description="Bob is such a bob he even the VP of Bob wow such cool."
-			/>
-			<HorizontalBlock
-					name="Bob"
-					title="VP of Bob"
-					imageSrc="/img/bob.svg"
-					description="Bob is such a bob he even the VP of Bob wow such cool."
-			/>
-			<HorizontalBlock
-					name="Bob"
-					title="VP of Bob"
-					imageSrc="/img/bob.svg"
-					description="Bob is such a bob he even the VP of Bob wow such cool."
-			/>
-			<HorizontalBlock
-					name="Bob"
-					title="VP of Bob"
-					imageSrc="/img/bob.svg"
-					description="Bob is such a bob he even the VP of Bob wow such cool."
-			/>
-			<HorizontalBlock
-					name="Bob"
-					title="VP of Bob"
-					imageSrc="/img/bob.svg"
-					description="Bob is such a bob he even the VP of Bob wow such cool."
-			/>
-		</HorBlkContainer>
-	);
-}
-
-
 const MemberBoxesHolder = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 `;
 
-const ContentHolder = styled.div`
-	margin: 1rem;
-	text-align: center;
-	padding: 1rem;
-	max-width: 300px;
-	background-color: #454545;
+const MemberCard = styled(Card)`
+
 `;
 
 const MemberImage = styled.img`

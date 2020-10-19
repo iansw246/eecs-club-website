@@ -1,5 +1,5 @@
 export const darkTheme = {
-	primary: "var(--primary)",//"#00438a"
+	primary: "var(--primary)",//"#0d47a1"
 
 	bodyBackground: "#121212",
 	footerBackground: "#090909",
