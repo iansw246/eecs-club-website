@@ -67,7 +67,7 @@ const PageContainer = styled(Container).attrs(() => ({
 	overflow: hidden;
 	&::before {
 		content: '';
-		position: ${(props) => props.fixedBackgroundImage ? "fixed" : "absolute"};
+		position: ${(props) => props.$fixedBackgroundImage ? "fixed" : "absolute"};
 		top: 0;
 		left: 0;
 		width: 100%;
@@ -76,7 +76,7 @@ const PageContainer = styled(Container).attrs(() => ({
 		 */}
 		height: 150%;
 		${'' /* will-change: transform; */}
-		z-index: -1;
+		z-index: -2;
 		background-color: ${darkTheme.bodyBackground};
 		background-image: url("/img/cover-background-min.svg");
 		background-position: center top;

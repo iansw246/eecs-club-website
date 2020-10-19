@@ -2,6 +2,8 @@ backend:
   name: git-gateway
   branch: master
 
+publish_mode: editorial_workflow
+
 media_folder: /static/img/uploads
 public_folder: /img/uploads
 
@@ -40,7 +42,7 @@ collections:
     name: 'links'
     folder: 'content/links'
     media_folder: /static/img/uploads
-    public_folder: /img/uploads
+    public_folder: ../../static/img/uploads
     create: false
     slug: 'index'
     path: '{{title}}'
