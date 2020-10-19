@@ -1,6 +1,8 @@
 const path = require("path")
 const { createFilePath } = require("gatsby-source-filesystem")
 
+
+
 exports.onCreateNode = ({ node, getNode, actions }) => {
 	const { createNodeField } = actions;
 	if (node.internal.type === `MarkdownRemark`) {
@@ -13,21 +15,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 		// TODO
 		// Modify so any markdown not matching these categories still has slug so no error occurs
 
-		// Create slug for links page
-		if (splitPath.join(`/`) === `content/links/link.md`) {
-			createNodeField({
-				node,
-				name: `slug`,
-				value: `/links`
-			});
-			createNodeField({
-				node,
-				name: `jsComponent`,
-				value: path.resolve("./src/templates/links.js"),
-			});
-
-		// Create slug for files in content/workshops/*/
-		} else if (splitPath.length === 4 && splitPath[0] === `content` && splitPath[1] === `workshops`) {
+		if (splitPath.length === 4 && splitPath[0] === `content` && splitPath[1] === `workshops`) {
 			const slug = createFilePath({ node, getNode, basePath: `` });
 			createNodeField({
 				node,
@@ -63,7 +51,6 @@ exports.createPages = async ({ graphql, actions }) => {
 					node {
 						fields {
 							slug
-							jsComponent
 						}
 						frontmatter {
 							title
@@ -80,7 +67,7 @@ exports.createPages = async ({ graphql, actions }) => {
 			console.warn(`The markdown file titled "${node.frontmatter.title}" does not have a slug. A page will not be created for it.`);
 			return;
 		}
-		if (node.fields.jsComponent !== null) {
+		/* if (node.fields.jsComponent !== null) {
 			createPage({
 				path: node.fields.slug,
 				component: node.fields.jsComponent,
@@ -88,7 +75,8 @@ exports.createPages = async ({ graphql, actions }) => {
 					slug: node.fields.slug,
 				},
 			});
-		} else {
+		}  */
+		else {
 			createPage({
 				path: node.fields.slug,
 				component: path.resolve(`./src/templates/blog-post.js`),

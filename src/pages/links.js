@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import CenteredContainer from "../components/centeredContainer"
 import { Container, Card } from "react-bootstrap";
 import Img from "gatsby-image"
-// import { Button } from "react-bootstrap"
+import * as path from "path"
 import { darkTheme } from "../components/theme"
 
 const UlStyled = styled.ul`
@@ -19,17 +19,26 @@ const UlStyled = styled.ul`
 const LinksContainer = styled(Container)`
 	display: flex;
 	flex-wrap: wrap;
-	align-items: end;
+	align-items: stretch;
+
 `;
 
 const LinkCard = styled(Card)`
-	width: 18rem;
+	width: 200px;
 	margin: 1rem;
 	background-color: ${darkTheme.backgroundColor};
 `;
 
+const CardBody = styled(Card.Body)`
+	${'' /* min-height: 6rem; */}
+`;
+
+const CardImage = styled(Img)`
+	border-top-left-radius: calc(0.25rem - 1px);
+	border-top-right-radius: calc(0.25rem - 1px);
+`;
+
 export default function Links({ data }) {
-	console.log(data.markdownRemark.frontmatter.links);
 	return (
 		<Layout>
 			<CenteredContainer>
@@ -37,14 +46,15 @@ export default function Links({ data }) {
 
 				<LinksContainer>
 					{data.markdownRemark.frontmatter.links.map((linkPost, index) => {
+
 						return (
 							<LinkCard>
-								<img src={linkPost.thumbnail} />
-								<Card.Body>
+								<CardImage fixed={linkPost.thumbnail.childImageSharp.fixed} alt={`${linkPost.text} thumbnail`}/>
+								<CardBody>
 									<Card.Title>
 										<a href={linkPost.url} target="_blank" rel="noopener noreferrer" className="stretched-link">{linkPost.text}</a>
 									</Card.Title>
-								</Card.Body>
+								</CardBody>
 							</LinkCard>
 						)
 					})
@@ -73,15 +83,22 @@ export default function Links({ data }) {
 }
 
 export const query = graphql`
-	query($slug: String!) {
-		markdownRemark(fields: { slug: { eq: $slug } }) {
+	{
+		markdownRemark(fileAbsolutePath: {regex: "/.+/content/links/link.md$/"}) {
 			frontmatter {
 				links {
 					text
 					url
-					thumbnail
+					thumbnail {
+						childImageSharp {
+							fixed (width: 200, height: 100) {
+								...GatsbyImageSharpFixed_withWebp
+							}
+						}
+					}
 				}
 			}
 		}
+		
 	}
 `;
