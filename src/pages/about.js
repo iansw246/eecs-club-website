@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import CenteredContainer from "../components/centeredContainer"
 import BoardMemberShowcase, { MemberRow, HorizontalBlockShowcase } from "../components/boardMemberShowcase"
 import DebugOptionsBox from "../components/debugOptionsBox"
+import { H1Line } from "../components/textComponents"
 
 const pageDesigns = {
 	blocks: () => (
@@ -50,8 +51,6 @@ const pageDesigns = {
 export default function About({ data }) {
 	const pageDesignEntries = Object.entries(pageDesigns);
 
-	const [useImageBanner, setImageBanner] = useState(false);
-
 	const defaultBoardMemberDesign = "blocks";
 	const defaultDesignInvalid = pageDesigns[defaultBoardMemberDesign] === null;
 
@@ -64,11 +63,7 @@ export default function About({ data }) {
 
 	return (
 		<Layout>
-			<DebugOptionsBox>
-				<input id="imageBanner" name="imageBanner" type="checkbox" onChange={() => setImageBanner(!useImageBanner)} />
-				<label htmlFor="imageBanner">Image Banner</label>
-				<hr></hr>
-				{
+			<DebugOptionsBox>{
 					pageDesignEntries.map((design, index) => (
 						<div key={`pageDesign${design[0]}`}>
 							<input key={`pageDesign${design[0]}input`} defaultChecked={pageDesign === design[0] ? true : null} id={`pageDesign${design[0]}`} name="pageDesign" type="radio" onChange={() => setPageDesign(design[0])} />
@@ -80,15 +75,7 @@ export default function About({ data }) {
 			</DebugOptionsBox>
 			<CenteredContainer>
 				{
-					useImageBanner ? (
-						<Container fluid style={{backgroundImage: `url("/img/eecsphoto2-maxwell-xu.jpg")`, backgroundSize: "cover", position: "absolute", left: 0, right: 0}}>
-							<Container fluid="lg">
-								<h1>About</h1>
-							</Container>
-						</Container>
-					) : (
-						<h1>About</h1>
-					)
+					<h1>About</h1>
 				}
 				{/*
 					Audience: Primarily Lowell students. Secondarily: Parents and the general public
@@ -107,11 +94,12 @@ export default function About({ data }) {
 				<p>
 					We meet every Friday from 3:30 to 4:30 pm. Due to the pandemic, our meetings are hosted on Zoom.
 					Sign up <a href={data.site.siteMetadata.links.signUpForm}>here. </a>
-					<br />
+				</p>
+				<p>
 					We hope to see you there!
 				</p>
 
-				<h2 style={{marginTop: "2.5rem"}}>Officers</h2>
+				<H1Line as="h2" className="text-center" css={`margin-top: 7rem;`}>Officers</H1Line>
 				<BoardMembers />
 			</CenteredContainer>
 		</Layout>
