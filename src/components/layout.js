@@ -6,7 +6,6 @@ import { Container, Nav, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faDiscord, faInstagram } from "@fortawesome/free-brands-svg-icons"
 
-import DebugOptionsBox from "./debugOptionsBox";
 import Navbar from "./navbar"
 import Head from "./head"
 import { darkTheme } from "./theme"
@@ -67,7 +66,7 @@ const PageContainer = styled(Container).attrs(() => ({
 	overflow: hidden;
 	&::before {
 		content: '';
-		position: ${(props) => props.$fixedBackgroundImage ? "fixed" : "absolute"};
+		position: fixed;
 		top: 0;
 		left: 0;
 		width: 100%;
@@ -87,9 +86,6 @@ const PageContainer = styled(Container).attrs(() => ({
 // stickyFooter: boolean: whether the footer will have margin-top to put itself at bottom of page when page content is short. 
 // Layout contains Helmet tags, top navbar, and footera
 export default function Layout({ children, stickyFooter = true}) {
-	const [coloredNavbar, setColoredNavbar] = useState(true);
-	const [fixedBackgroundImage, setFixedBackgroundImage] = useState(true);
-
 	const data = useStaticQuery(
 		graphql`
 			query {
@@ -107,30 +103,10 @@ export default function Layout({ children, stickyFooter = true}) {
 	);
 
 	return (
-		<PageContainer $fixedBackgroundImage={fixedBackgroundImage}>
+		<PageContainer>
 			<Head />
 
-			{/* Debug Options */}
-			<DebugOptionsBox left={"0px"} right={" "}>
-				<input onChange={() => setColoredNavbar(!coloredNavbar)} id="coloredNavbar" type="checkbox" defaultChecked />
-				<label htmlFor="coloredNavbar">Colored Navbar</label>
-				<br />
-				<input onChange={() => setFixedBackgroundImage(!fixedBackgroundImage)} id="fixedBackgroundImage" type="checkbox" defaultChecked={fixedBackgroundImage ? true : null}/>
-				<label htmlFor="fixedBackgroundImage">Fixed background image</label>
-				<br />
-				<button onClick={(e) => {
-					//let debugBoxClassList = e.currentTarget.parentElement.classList[0];
-					let debugBoxClass = DebugOptionsBox.styledComponentId;
-					for (let debugBox of document.getElementsByClassName(debugBoxClass)) {
-						debugBox.style.display = "none";
-					}
-				}}>
-					Hide debug (refresh to restore)
-				</button>
-			</DebugOptionsBox>
-
-			{/* Ideally, would use sticky, but my Android has some glitches while scrolling. Assumming others have this minor yet annoying issue*/}
-			<Navbar coloredNavbar={coloredNavbar} />
+			<Navbar coloredNavbar={true}/>
 
 			<MainContentSpacer />
 

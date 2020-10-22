@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Layout from "../components/layout";
 import ProjectsShowcase from "../components/projectsShowcase";
 import { Container, Button } from "react-bootstrap";
@@ -47,33 +47,18 @@ const ScrollDownArrow = styled.img.attrs(() => ({
 
 
 export default function Home({ data }) {
-	const [fullScreenCover, toggleFullScreenCover] = useState(false);
-
 	const links = data.site.siteMetadata.links;
 
 	return (
 		<Layout stickyFooter={false}>
-			<DebugOptionsBox>
-				<h4>Ask for permission for photos?</h4>
-				<input
-					type="checkbox"
-					id="fullScreenCover"
-					name="fullScreenCover"
-					onChange={() => toggleFullScreenCover(!fullScreenCover)}
-				/>
-				<label htmlFor="fullScreenCover">Full screen cover</label>
-			</DebugOptionsBox>
 			<CoverMainContainer>
 				<Container
 					className="d-flex flex-column"
-					style={
-						fullScreenCover
-							? { minHeight: "88vh" }
-							: { marginTop: "2rem", marginBottom: "8rem" }
-					}
+					css={`
+						margin-top: 2rem;
+						margin-bottom: 8rem;
+					`}
 				>
-					{/* div for spacing, makes top space smaller than bottom */}
-					{fullScreenCover ? <div style={{ flexGrow: 2 }}></div> : null}
 					<Container>
 						<CoverLogo src="/img/eecs-logo.svg" alt="EECS Club logo"></CoverLogo>
 						<h1 style={{fontSize: "2.6rem"}}>Lowell EECS Club</h1>
@@ -89,14 +74,7 @@ export default function Home({ data }) {
 							Join our Discord
 						</Button>
 					</Container>
-					{/* div for spacing, makes top space smaller than bottom */}
-					{fullScreenCover ? <div style={{ flexGrow: 6 }}></div> : null}
 				</Container>
-				{fullScreenCover ? (
-					<a href="#projects" aria-label="Scroll to projects">
-						<ScrollDownArrow />
-					</a>
-				) : null}
 				<Container>
 					<H1Line className="mb-4 mt-2" id="projects" as="h2" lineColor="#ff2f2f">
 						Projects

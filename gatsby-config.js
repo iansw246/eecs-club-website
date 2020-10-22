@@ -9,7 +9,7 @@ module.exports = {
 		title: `Lowell EECS Club`,
 		description: `Website of EECS Club at Lowell High School`,
 		links: {
-			discord: `https://discord.gg/swUzYMt`,
+			discord: `https://discord.gg/fPjfnjU`,
 			instagram: `https://www.instagram.com/lowelleecs/`,
 			instagramUsername: `@lowelleecs`,
 			email: `mailto:lowelleecs@gmail.com`,

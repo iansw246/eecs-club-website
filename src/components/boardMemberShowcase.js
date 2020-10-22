@@ -42,7 +42,10 @@ const MemberBoxesHolder = styled.div`
 `;
 
 const MemberCard = styled(Card)`
-
+	margin: 1.5rem;
+	margin-top: 0;
+	max-width: 300px;
+	background-color: ${darkTheme.backgroundColor};
 `;
 
 const MemberImage = styled.img`
@@ -50,7 +53,7 @@ const MemberImage = styled.img`
 `;
 
 const MemberBox = ({ name, title, description, imageSrc }) => (
-	<Card text="light" style={{margin: "1.5rem", marginTop: 0, maxWidth: "300px", backgroundColor: darkTheme.backgroundColor}}>
+	<MemberCard text="light">
 		<Card.Img src={imageSrc} width={250} style={{maxWidth: "250px", marginLeft: "auto", marginRight: "auto", marginTop: "1rem"}}/>
 		<Card.Body>
 			<Card.Title as="h5">{title}</Card.Title>
@@ -59,7 +62,7 @@ const MemberBox = ({ name, title, description, imageSrc }) => (
 				{description}
 			</Card.Text>
 		</Card.Body>
-	</Card>
+	</MemberCard>
 	// <ContentHolder>
 	// 	<h2>{name}</h2>
 	// 	<h4>{title}</h4>

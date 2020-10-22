@@ -56,6 +56,13 @@ const CardImageMissing = styled.img.attrs(() => ({
 	margin: auto;
 `;
 
+const LinksContainerGrid = styled.div`
+	display: grid;
+
+	grid-gap: 1rem;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+`;
+
 
 export default function Links({ data }) {
 	return (
@@ -80,9 +87,26 @@ export default function Links({ data }) {
 								</CardBody>
 							</LinkCard>
 						)
-					})
-					}
+					})}
 				</LinksContainer>
+				<LinksContainerGrid>
+				{data.markdownRemark.frontmatter.links.map((linkPost, index) => {
+					return (
+						<LinkCard>
+							{
+								linkPost.thumbnail ? 
+									<CardImage fixed={linkPost.thumbnail.childImageSharp.fixed} alt={`${linkPost.text} thumbnail`}/> :
+									<CardImageMissing as="img"/>
+							}
+							<CardBody>
+								<Card.Title>
+									<a href={linkPost.url} target="_blank" rel="noopener noreferrer" className="stretched-link">{linkPost.text}</a>
+								</Card.Title>
+							</CardBody>
+						</LinkCard>
+					)
+					})}
+				</LinksContainerGrid>
 
 				{/* <UlStyled>
 				{
