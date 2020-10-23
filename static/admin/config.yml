@@ -53,6 +53,7 @@ collections:
         widget: 'list'
         summary: '"{{fields.text}}" linking to: {{fields.url}}'
         fields: 
+          - {label: 'Link text', name: 'text', widget: 'string'}
           - {label: 'URL', name: 'url', widget: 'url'}
             
           #- label: 'Link'
@@ -61,7 +62,6 @@ collections:
           #  pattern:
           #    - '((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)'
           #    - 'Enter a valid url'
-          - {label: 'Link text', name: 'text', widget: 'string'}
           - label: 'Link Thumbnail'
             name: 'thumbnail'
             widget: 'image'

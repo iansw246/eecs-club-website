@@ -13,10 +13,6 @@ const CoverMainContainer = styled(Container).attrs((props) => ({
 	fluid: true,
 	as: "main",
 }))`
-	/*background-image: url("/eecs logo bitmap trace.svg");*/
-	background-position: center;
-	background-size: contain;
-	background-repeat: no-repeat;
 	flex: 1; /*Expand to take up space */
 
 	display: flex;
