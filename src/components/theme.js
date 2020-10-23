@@ -3,7 +3,7 @@ export const darkTheme = {
 
 	bodyBackground: "#121212",
 	footerBackground: "#090909",
-	backgroundColor: "#2a3546",
+	backgroundColor: "#292f39",//"#2a3546",
 	backgroundColorLighten: "#4f5860",
 
 	accentColor: "#ff2f2f",
