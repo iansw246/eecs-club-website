@@ -34,7 +34,6 @@ const CoverLogo = styled.img`
 		height: 8rem;
 		width: 8rem;
 	}
-	filter: invert(1);
 `;
 
 const ScrollDownArrow = styled.img.attrs(() => ({
