@@ -24,6 +24,7 @@ const LinkCard = styled(Card)`
 	margin: 1.2rem;
 	margin-bottom: 2.5rem;
 	border: none;
+	border-top: 2px solid ${darkTheme.accentColor};
 	${'' /* padding: 0.4rem; */}
 	background-color: ${darkTheme.backgroundColor};
 	overflow: hidden;
@@ -105,7 +106,7 @@ export const query = graphql`
 					url
 					thumbnail {
 						childImageSharp {
-							fixed (width: 200, height: 150, cropFocus: CENTER) {
+							fixed (width: 200, height: 150, cropFocus: CENTER, background: "#292f39") {
 								...GatsbyImageSharpFixed_withWebp
 							}
 						}
