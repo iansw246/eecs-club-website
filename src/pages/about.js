@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
 import Container from "react-bootstrap/Container"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import CenteredContainer from "../components/centeredContainer"
@@ -27,8 +28,9 @@ export default function About({ data }) {
 					We teach our members how to solder, code, build circuits, and use Arduino microcontrollers through hands-on projects
 					creating colorful RGB displays, animated LED cubes, four-legged robots, and much more.
 					In addition, we have guest speakers from the industry talk about the field and their work.
-					All students are welcome to join regardless of experience. Our workshops will enable our members to make super cool projects in no time.
+					All students are welcome to join regardless of experience. Our workshops will enable our members to create super cool projects in no time.
 				</p>
+				<Img />
 				<p>
 					We meet every Friday from 3:30 to 4:30 pm. Due to the pandemic, our meetings are hosted on Zoom.
 					Sign up <a href={data.site.siteMetadata.links.signUpForm}>here. </a>
@@ -37,7 +39,8 @@ export default function About({ data }) {
 					We hope to see you there!
 				</p>
 
-				<H1Line as="h2" className="text-center" css={`margin-top: 7rem;`}>Officers</H1Line>
+				{/* <H1Line as="h2" className="text-center" css={`margin-top: 7rem;`}>Officers</H1Line> */}
+				<h2 css={`margin-top: 7rem;`}>Officers</h2>
 				<BoardMemberShowcase />
 			</CenteredContainer>
 		</Layout>
@@ -53,5 +56,6 @@ export const query = graphql`
 				}
 			}
 		}
+		bannerImage: file()
 	}
 `;

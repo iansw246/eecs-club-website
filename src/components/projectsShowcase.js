@@ -7,6 +7,8 @@ import { darkTheme } from "./theme"
 
 const CarouselStyled = styled(Carousel)`
 	min-height: 25rem;
+	${'' /* border-top: 2px solid ${darkTheme.accentColor};
+	padding-top: 2rem; */}
 `;
 
 const CarouselContentContainer = styled(Container)`
