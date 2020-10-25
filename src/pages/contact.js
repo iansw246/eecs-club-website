@@ -52,7 +52,7 @@ export default function Contact({ data }) {
 			<CenteredContainer as="main">
 				<h1>Contact</h1>
 				<p>
-					We're welcome to any feedback or suggestions.
+					We are welcome to any feedback or suggestions.
 					Contact us through: 
 				</p>
 				<NoBulletUl>
