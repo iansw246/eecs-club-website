@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import styled, { css } from "styled-components";
 import Layout from "../components/layout";
 import ProjectsShowcase from "../components/projectsShowcase";
 import { Container, Button } from "react-bootstrap";
 import { darkTheme } from "../components/theme"
-import DebugOptionsBox from "../components/debugOptionsBox";
 import { H1Line } from "../components/textComponents"
 
 const CoverMainContainer = styled(Container).attrs((props) => ({

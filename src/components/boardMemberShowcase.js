@@ -5,38 +5,6 @@ import { Container, Card } from "react-bootstrap"
 import Img from "gatsby-image"
 import { darkTheme } from "./theme"
 
-// Copied from projects showcase
-const CarouselContentContainer = styled(Container)`
-	display: flex;
-	flex-direction: row-reverse;
-	flex-wrap: wrap;
-	justify-content: center;
-	margin-bottom: 2.5rem; ${'' /*Margin so Carousel page indicator doesn't overlap content*/}
-`;
-
-const ProjectImage = styled.img`
-	flex-grow: 3;
-	width: 50%;
-	max-width: 200px;
-
-	margin-right: 0.5rem;
-`;
-
-const ProjectText = styled.div`
-	flex: 1;
-	min-width: 150px;
-
-	margin-left: 0.5rem;
-	margin-right: 0.5rem;
-
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-
-
-	/*text-align: center;*/
-`;
-
 const MemberBoxesHolder = styled.div`
 	display: flex;
 	flex-wrap: wrap;
