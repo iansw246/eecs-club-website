@@ -52,7 +52,7 @@ export default function Contact({ data }) {
 			<CenteredContainer as="main">
 				<h1>Contact</h1>
 				<p>
-					We're always welcome to any feedback or suggestions.
+					We're welcome to any feedback or suggestions.
 					Contact us through: 
 				</p>
 				<NoBulletUl>
@@ -63,7 +63,7 @@ export default function Contact({ data }) {
                     <li>Instagram: <a href={links.instagram}>{links.instagramUsername}</a></li>
                 </NoBulletUl>
 				<p>
-					You can also fill out this form.
+					Or fill out this form.
 				</p>
 				<FormStyled name="contact" method="POST" action="/success/" data-netlify="true">
 					<Form.Group controlId="formEmail">

@@ -1,78 +1,24 @@
-import React, { useState } from "react"
+import React from "react"
 import { graphql } from "gatsby"
-import Container from "react-bootstrap/Container"
+import { css } from "styled-components"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import CenteredContainer from "../components/centeredContainer"
-import BoardMemberShowcase, { MemberRow, HorizontalBlockShowcase } from "../components/boardMemberShowcase"
-import DebugOptionsBox from "../components/debugOptionsBox"
+import BoardMemberShowcase from "../components/boardMemberShowcase"
 import { H1Line } from "../components/textComponents"
 
-const pageDesigns = {
-	blocks: () => (
-		<BoardMemberShowcase />
-	),
-	leftAlignedBlocks: () => (
-		<BoardMemberShowcase justifyContent="flex-start" marginLeft="-1.5rem"/>
-	),
-	rows: () => (
-		<>
-			<MemberRow
-					name="Bob"
-					title="VP of Bob"
-					imageSrc="/img/bob.svg"
-					description="Bob is such a bob he even the VP of Bob wow such cool."
-			/>
-			<MemberRow
-					name="Bob"
-					title="VP of Bob"
-					imageSrc="/img/bob.svg"
-					description="Bob is such a bob he even the VP of Bob wow such cool."
-			/>
-			<MemberRow
-					name="Bob"
-					title="VP of Bob"
-					imageSrc="/img/bob.svg"
-					description="Bob is such a bob he even the VP of Bob wow such cool."
-			/>
-			<MemberRow
-					name="Bob"
-					title="VP of Bob"
-					imageSrc="/img/bob.svg"
-					description="Bob is such a bob he even the VP of Bob wow such cool."
-			/>
-		</>
-	),
-	horizontalBlocks: () => (
-		<HorizontalBlockShowcase />
-	)
-}
-
 export default function About({ data }) {
-	const pageDesignEntries = Object.entries(pageDesigns);
-
-	const defaultBoardMemberDesign = "blocks";
-	const defaultDesignInvalid = pageDesigns[defaultBoardMemberDesign] === null;
-
-	if (defaultDesignInvalid) {
-		console.error("Default board member design is invalid.");
-	}
-
-	const [pageDesign, setPageDesign] = useState(defaultDesignInvalid ? pageDesignEntries[0][0] : defaultBoardMemberDesign);
-	const BoardMembers = pageDesigns[pageDesign];
+	const bannerSources = [
+		data.bannerImageMobile.childImageSharp.fluid,
+		{
+			...data.bannerImageDesktop.childImageSharp.fluid,
+			media: `(min-width: 768px)`,
+		},
+	];
 
 	return (
 		<Layout>
-			<DebugOptionsBox>{
-					pageDesignEntries.map((design, index) => (
-						<div key={`pageDesign${design[0]}`}>
-							<input key={`pageDesign${design[0]}input`} defaultChecked={pageDesign === design[0] ? true : null} id={`pageDesign${design[0]}`} name="pageDesign" type="radio" onChange={() => setPageDesign(design[0])} />
-							<label key={`pageDesign${design[0]}label`} htmlFor={`pageDesign${design[0]}`}>{design[0]}</label>
-							<br key={`pageDesign${design[0]}br`}></br>
-						</div>
-					))
-				}
-			</DebugOptionsBox>
 			<CenteredContainer>
 				{
 					<h1>About</h1>
@@ -89,8 +35,9 @@ export default function About({ data }) {
 					We teach our members how to solder, code, build circuits, and use Arduino microcontrollers through hands-on projects
 					creating colorful RGB displays, animated LED cubes, four-legged robots, and much more.
 					In addition, we have guest speakers from the industry talk about the field and their work.
-					All students are welcome to join regardless of experience. Our workshops will enable our members to make super cool projects in no time.
+					All students are welcome to join regardless of experience. Our workshops will enable our members to create super cool projects in no time.
 				</p>
+				<Img className="my-4" fluid={bannerSources}/>
 				<p>
 					We meet every Friday from 3:30 to 4:30 pm. Due to the pandemic, our meetings are hosted on Zoom.
 					Sign up <a href={data.site.siteMetadata.links.signUpForm}>here. </a>
@@ -99,8 +46,9 @@ export default function About({ data }) {
 					We hope to see you there!
 				</p>
 
-				<H1Line as="h2" className="text-center" css={`margin-top: 7rem;`}>Officers</H1Line>
-				<BoardMembers />
+				{/* <H1Line as="h2" className="text-center" css={`margin-top: 7rem;`}>Officers</H1Line> */}
+				<h2 css={`margin-top: 7rem;`}>Officers</h2>
+				<BoardMemberShowcase />
 			</CenteredContainer>
 		</Layout>
 	)
@@ -112,6 +60,20 @@ export const query = graphql`
 			siteMetadata {
 				links {
 					signUpForm
+				}
+			}
+		}
+		bannerImageDesktop: file(relativePath: {eq: "aboutBanner.jpg"}) {
+			childImageSharp {
+				fluid(maxWidth: 1100, cropFocus: CENTER) {
+					...GatsbyImageSharpFluid_withWebp
+				}
+			}
+		}
+		bannerImageMobile: file(relativePath: {eq: "aboutBannerMobile.jpg"}) {
+			childImageSharp {
+				fluid(maxWidth: 768, maxHeight: 300, cropFocus: CENTER) {
+					...GatsbyImageSharpFluid_withWebp
 				}
 			}
 		}
