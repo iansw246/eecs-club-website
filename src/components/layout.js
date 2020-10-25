@@ -10,6 +10,8 @@ import Navbar from "./navbar"
 import Head from "./head"
 import { darkTheme } from "./theme"
 
+import backgroundImage from "../images/cover-background-min.svg"
+
 import "../styles/global.scss";
 
 // background-image: url("https://media1.tenor.com/images/d600bc32b6dc1d9f4642f4794cbe6336/tenor.gif")
@@ -77,7 +79,7 @@ const PageContainer = styled(Container).attrs(() => ({
 		${'' /* will-change: transform; */}
 		z-index: -2;
 		background-color: ${darkTheme.bodyBackground};
-		background-image: url("/img/cover-background-min.svg");
+		background-image: url("${backgroundImage}");
 		background-position: center top;
 		background-repeat: repeat;
 	}
