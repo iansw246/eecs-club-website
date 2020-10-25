@@ -7,6 +7,8 @@ import { Container, Button } from "react-bootstrap";
 import { darkTheme } from "../components/theme"
 import { H1Line } from "../components/textComponents"
 
+import logo from "../images/eecs-logo.svg"
+
 const CoverMainContainer = styled(Container).attrs((props) => ({
 	className: "text-light text-center my-auto py-2",
 	fluid: true,
@@ -54,7 +56,7 @@ export default function Home({ data }) {
 					`}
 				>
 					<Container>
-						<CoverLogo src="/img/eecs-logo.svg" alt="EECS Club logo"></CoverLogo>
+						<CoverLogo src={logo} alt="EECS Club logo"></CoverLogo>
 						<h1 style={{fontSize: "2.6rem"}}>Lowell EECS Club</h1>
 						<p>
 							Learn electrical engineering & computer science while creating exciting projects
