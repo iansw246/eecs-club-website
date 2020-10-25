@@ -36,7 +36,6 @@ const Logo = styled.img`
 	margin-right: 0.5rem;
 	margin-top: auto;
 	margin-bottom: auto;
-	filter: invert(100%);
 `;
 
 /* Ideally, would use sticky, but my Android has some glitches while scrolling. Assumming others have this minor yet annoying issue*/
