@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
+import { css } from "styled-components"
 import Container from "react-bootstrap/Container"
 import Img from "gatsby-image"
 
@@ -10,6 +11,14 @@ import DebugOptionsBox from "../components/debugOptionsBox"
 import { H1Line } from "../components/textComponents"
 
 export default function About({ data }) {
+	const bannerSources = [
+		data.bannerImageMobile.childImageSharp.fluid,
+		{
+			...data.bannerImageDesktop.childImageSharp.fluid,
+			media: `(min-width: 768px)`,
+		},
+	];
+
 	return (
 		<Layout>
 			<CenteredContainer>
@@ -30,7 +39,7 @@ export default function About({ data }) {
 					In addition, we have guest speakers from the industry talk about the field and their work.
 					All students are welcome to join regardless of experience. Our workshops will enable our members to create super cool projects in no time.
 				</p>
-				<Img />
+				<Img className="my-4" style={{borderTop: "2px solid red"}} fluid={bannerSources}/>
 				<p>
 					We meet every Friday from 3:30 to 4:30 pm. Due to the pandemic, our meetings are hosted on Zoom.
 					Sign up <a href={data.site.siteMetadata.links.signUpForm}>here. </a>
@@ -56,6 +65,19 @@ export const query = graphql`
 				}
 			}
 		}
-		bannerImage: file()
+		bannerImageDesktop: file(relativePath: {eq: "aboutBanner.jpg"}) {
+			childImageSharp {
+				fluid(maxWidth: 1100, cropFocus: CENTER) {
+					...GatsbyImageSharpFluid_withWebp
+				}
+			}
+		}
+		bannerImageMobile: file(relativePath: {eq: "aboutBannerMobile.jpg"}) {
+			childImageSharp {
+				fluid(maxWidth: 768, maxHeight: 300, cropFocus: CENTER) {
+					...GatsbyImageSharpFluid_withWebp
+				}
+			}
+		}
 	}
 `;

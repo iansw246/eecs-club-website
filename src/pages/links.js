@@ -60,7 +60,6 @@ const CardImageMissing = styled.img.attrs(() => ({
 `;
 
 export default function Links({ data }) {
-	console.log(data.markdownRemark.frontmatter.links);
 	return (
 		<Layout>
 			<CenteredContainer>
