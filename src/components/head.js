@@ -2,6 +2,8 @@ import React from "react"
 import Helmet from "react-helmet"
 import { graphql, useStaticQuery } from "gatsby"
 
+import openGraphImage from "../images/Open Graph image.png"
+
 export default function Head({ title, description, url: siteUrl }) {
 	const data = useStaticQuery(
 		graphql`
@@ -35,14 +37,14 @@ export default function Head({ title, description, url: siteUrl }) {
 			<meta property="og:url" content={siteUrl}/>
 			<meta property="og:title" content={title}/>
 			<meta property="og:description" content={description}/>
-			<meta property="og:image" content={siteUrl + "/img/Open Graph image.png"}/>
+			<meta property="og:image" content={openGraphImage}/>
 
 			{/* Twitter */}
 			<meta property="twitter:card" content="summary_large_image"/>
 			<meta property="twitter:url" content={siteUrl}/>
 			<meta property="twitter:title" content={title}/>
 			<meta property="twitter:description" content={description}/>
-			<meta property="twitter:image" content={siteUrl + "/img/Open Graph image.png"}/>
+			<meta property="twitter:image" content={openGraphImage}/>
 
 			{/* Favicons */}
 

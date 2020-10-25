@@ -4,6 +4,8 @@ import { Container, Navbar, Nav } from "react-bootstrap"
 import styled from "styled-components"
 import { darkTheme } from "./theme"
 
+import logo from "../images/eecs-logo.svg"
+
 const NavbarStyled = styled(Navbar).attrs((props) => ({
 	id: "primary-navbar",
 	variant: "dark",
@@ -43,7 +45,7 @@ export default ({coloredNavbar}) => (
 	<NavbarStyled $coloredNavbar={coloredNavbar}>
 		<Container fluid="lg">
 			<Navbar.Brand as={Link} to="/" style={{display: "flex"}}>
-				<Logo src="/img/eecs-logo.svg" alt="EECS Club logo"/>EECS Club
+				<Logo src={logo} alt="EECS Club logo"/>EECS Club
 			</Navbar.Brand>
 			<Navbar.Toggle aria-controls="responsive-navbar-nav"/>
 			<Navbar.Collapse id="responsive-navbar-nav">

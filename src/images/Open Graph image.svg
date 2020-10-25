@@ -72,17 +72,36 @@
        only_selected="true"
        hide_knots="false" />
     <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter1708"
-       x="-0.013279029"
-       width="1.0265581"
-       y="-0.020048729"
-       height="1.0400975">
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Blur"
+       id="filter2037"
+       height="1"
+       width="1"
+       y="0"
+       x="0">
+      <feColorMatrix
+         values="1.7 -0.3 -0.3 0 0 -0.3 1.7 -0.3 0 0 -0.3 -0.3 1.7 0 0 0 0 0 1 0 "
+         id="feColorMatrix2035"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix2385" />
       <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="1.7985312"
-         id="feGaussianBlur1710" />
+         id="feGaussianBlur2387"
+         stdDeviation="0.5 0.5"
+         result="blur"
+         in="fbSourceGraphic" />
+      <feColorMatrix
+         id="feColorMatrix2389"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 50 0 "
+         result="colormatrix" />
+      <feComposite
+         in2="fbSourceGraphic"
+         id="feComposite2391"
+         in="colormatrix"
+         operator="in" />
     </filter>
   </defs>
   <sodipodi:namedview
@@ -92,11 +111,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="656.36274"
-     inkscape:cy="308.92366"
+     inkscape:zoom="0.7"
+     inkscape:cx="453.81922"
+     inkscape:cy="193.94804"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer3"
      inkscape:document-rotation="0"
      showgrid="false"
      units="px"
@@ -162,8 +181,11 @@
        id="image1654"
        x="4.3164749"
        y="-53.457325"
-       style="filter:url(#filter1708)"
-       transform="matrix(0.98319066,0,0,0.98319066,-4.7624987,7.5555149)" />
+       transform="matrix(0.98319066,0,0,0.98319066,-4.2439178,7.0369347)"
+       inkscape:export-filename="C:\Users\iansw\Desktop\image1654.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       style="filter:url(#filter2037)" />
   </g>
   <g
      inkscape:label="Top"
