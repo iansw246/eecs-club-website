@@ -37,7 +37,7 @@ export default function About({ data }) {
 					In addition, we have guest speakers from the industry talk about the field and their work.
 					All students are welcome to join regardless of experience. Our workshops will enable our members to create super cool projects in no time.
 				</p>
-				<Img className="my-4" style={{borderTop: "2px solid red"}} fluid={bannerSources}/>
+				<Img className="my-4" fluid={bannerSources}/>
 				<p>
 					We meet every Friday from 3:30 to 4:30 pm. Due to the pandemic, our meetings are hosted on Zoom.
 					Sign up <a href={data.site.siteMetadata.links.signUpForm}>here. </a>
