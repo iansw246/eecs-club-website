@@ -1,13 +1,11 @@
-import React, { useState } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 import { css } from "styled-components"
-import Container from "react-bootstrap/Container"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import CenteredContainer from "../components/centeredContainer"
 import BoardMemberShowcase from "../components/boardMemberShowcase"
-import DebugOptionsBox from "../components/debugOptionsBox"
 import { H1Line } from "../components/textComponents"
 
 export default function About({ data }) {
