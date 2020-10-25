@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
-import { Container, Card } from "react-bootstrap"
+import { Card } from "react-bootstrap"
 import Img from "gatsby-image"
 import { darkTheme } from "./theme"
 

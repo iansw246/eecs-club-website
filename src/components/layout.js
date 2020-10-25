@@ -1,13 +1,11 @@
 import React from "react";
-import { useStaticQuery, Link, graphql } from "gatsby";
 import styled from "styled-components";
 
-import { Container, Nav, Row } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faDiscord, faInstagram } from "@fortawesome/free-brands-svg-icons"
+import { Container } from "react-bootstrap";
 
 import Navbar from "./navbar"
 import Head from "./head"
+import Footer from "./footer"
 import { darkTheme } from "./theme"
 
 import backgroundImage from "../images/cover-background-min.svg"
@@ -25,37 +23,6 @@ const MainContentSpacer = styled.div`
 	height: 4rem;
 	height: calc(2.8rem + 16px);
 `;
-
-const FAIconStyled = styled(FontAwesomeIcon)`
-	&& {
-		height: 1.7rem;
-		width: 1.7rem;
-	}
-`;
-
-const FooterStyled = styled(Container).attrs((props) => ({
-	as: "footer",
-	fluid: true,
-	className: `${props.sticky && "mt-auto"} py-1`, //margin-top: auto, padding-top/bottom: 1
-}))`
-	background-color: ${darkTheme.footerBackground};
-	color: ${darkTheme.textColorMuted};
-`;
-
-const FooterNavLink = styled(Nav.Link)``;
-
-const FAIconLink = (props) => (
-	<Nav.Link
-		aria-label={props["aria-label"]}
-		title={props.title}
-		href={props.href}
-		className="text-light"
-		target={props.target}
-		rel={props.target === "_blank" ? "noopener noreferrer" : null} // Possible phishing vulnerability if target="_blank" and these rel properties aren't set
-	>
-		<FAIconStyled icon={props.icon}/>
-	</Nav.Link>
-);
 
 // Wraps all of page content
 const PageContainer = styled(Container).attrs(() => ({
@@ -88,22 +55,6 @@ const PageContainer = styled(Container).attrs(() => ({
 // stickyFooter: boolean: whether the footer will have margin-top to put itself at bottom of page when page content is short. 
 // Layout contains Helmet tags, top navbar, and footera
 export default function Layout({ children, stickyFooter = true}) {
-	const data = useStaticQuery(
-		graphql`
-			query {
-				site {
-					siteMetadata {
-						links {
-							discord
-							instagram
-							email
-						}
-					}
-				}
-			}
-		`
-	);
-
 	return (
 		<PageContainer>
 			<Head />
@@ -113,27 +64,9 @@ export default function Layout({ children, stickyFooter = true}) {
 			<MainContentSpacer />
 
 			{children}
-			<FooterStyled sticky={stickyFooter}>
-				<Container fluid="lg">
-					<Row className="mx-0">
-						<Nav>
-							<Nav.Item><FooterNavLink as={Link} to="/">Home</FooterNavLink></Nav.Item>
-						</Nav>
-						<Nav className="ml-auto">
-							<Nav.Item>
-								<FAIconLink title="EECS Club Discord Server" aria-label="EECS Club Discord Server" href={data.site.siteMetadata.links.discord} icon={faDiscord} target="_blank"/>
-							</Nav.Item>
-							<Nav.Item>
-								<FAIconLink title="EECS Club Instagram Account" aria-label="EECS Club Instagram Account" href={data.site.siteMetadata.links.instagram} icon={faInstagram} target="_blank"/>
-							</Nav.Item>
-						</Nav>
-					</Row>
-					<div className="d-flex justify-content-between">
-						<small className="mr-2">©{(new Date().getFullYear())} Ian Wong - for Lowell EECS Club</small>
-						<small>Last updated {(new Date()).toLocaleDateString("en-US")}</small>
-					</div>
-				</Container>
-			</FooterStyled>
+
+			<Footer stickyFooter={stickyFooter}/>
+
 		</PageContainer>
 	);
 }
