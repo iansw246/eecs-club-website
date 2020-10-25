@@ -1,8 +1,6 @@
 const path = require("path")
 const { createFilePath } = require("gatsby-source-filesystem")
 
-
-
 exports.onCreateNode = ({ node, getNode, actions }) => {
 	const { createNodeField } = actions;
 	if (node.internal.type === `MarkdownRemark`) {
@@ -67,15 +65,6 @@ exports.createPages = async ({ graphql, actions }) => {
 			console.info(`The markdown file titled "${node.frontmatter.title}" does not have a slug. A page will not be created for it.`);
 			return;
 		}
-		/* if (node.fields.jsComponent !== null) {
-			createPage({
-				path: node.fields.slug,
-				component: node.fields.jsComponent,
-				context: {
-					slug: node.fields.slug,
-				},
-			});
-		}  */
 		else {
 			createPage({
 				path: node.fields.slug,

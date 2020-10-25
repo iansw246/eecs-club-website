@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
-import CenteredContainer from "../components/layout"
+import CenteredContainer from "../components/centeredContainer"
 
 export default function BlogPost({ data }) {
 	const post = data.markdownRemark;

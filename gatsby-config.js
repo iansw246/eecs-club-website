@@ -1,13 +1,19 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
+// To disable crawlers on deploy previews
+// Taken from https://www.gatsbyjs.com/plugins/gatsby-plugin-robots-txt/
+const {
+	NODE_ENV,
+	URL: NETLIFY_SITE_URL = `https://www.lowelleecs.ml`,
+	DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+	CONTEXT: NETLIFY_ENV = NODE_ENV
+} = process.env;
+const isNetlifyProduction = NETLIFY_ENV === 'production';
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
 
 module.exports = {
 	siteMetadata: {
 		title: `Lowell EECS Club`,
-		description: `Website of EECS Club at Lowell High School`,
+		description: `Official website of EECS Club at Lowell High School`,
+		siteUrl: `https://www.lowelleecs.ml`,
 		links: {
 			discord: `https://discord.gg/fPjfnjU`,
 			instagram: `https://www.instagram.com/lowelleecs/`,
@@ -17,10 +23,7 @@ module.exports = {
 		},
 	},
 	plugins: [
-		{
-			resolve: `gatsby-plugin-styled-components`,
-			options: {},
-		},
+		`gatsby-plugin-styled-components`,
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
@@ -67,6 +70,33 @@ module.exports = {
 			options: {
 				modulePath: `${__dirname}/src/cms/cms.js`,
 				htmlFavicon: `${__dirname}/static/img/favicon.svg`,
+			},
+		},
+		{
+			resolve: `gatsby-plugin-sitemap`,
+			options: {
+				exclude: [`/success`, `/workshops/dummy`]
+			}
+		},
+		{
+			resolve: `gatsby-plugin-robots-txt`,
+			options: {
+				resolveEnv: () => NETLIFY_ENV,
+				env: {
+					production: {
+						policy: [{ userAgent: `*` }]
+					},
+					"branch-deploy": {
+						policy: [{ userAgent: `*`, disallow: [`/`] }],
+						sitemap: null,
+						host: null
+					},
+					"deploy-preview": {
+						policy: [{ userAgent: `*`, disallow: [`/`] }],
+						sitemap: null,
+						host: null
+					}
+				}
 			},
 		},
 	],
