@@ -59,9 +59,14 @@ export default function Home({ data }) {
 						<CoverLogo src={logo} alt="EECS Club logo"></CoverLogo>
 						<h1 style={{fontSize: "2.6rem"}}>Lowell EECS Club</h1>
 						<p>
+							Official website of the EECS Club at Lowell High School in San Francisco, California
+						</p>
+						<p>
 							Learn electrical engineering & computer science while creating exciting projects
 						</p>
-						<p>Meetings every Friday from 3:30 to 4:30 pm</p>
+						<p>
+							Meetings every Friday from 3:30 to 4:30 pm
+						</p>
 						<Button className="m-2" href={links.signUpForm} variant="primary" target="_blank" rel="noopener noreferrer">
 							Sign up
 						</Button>
