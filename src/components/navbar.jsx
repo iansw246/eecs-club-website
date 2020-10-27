@@ -53,7 +53,7 @@ export default ({coloredNavbar}) => (
 					<NavItem><NavRouterLink to="/">Home</NavRouterLink></NavItem>
 					<NavItem><NavRouterLink to="/about/">About</NavRouterLink></NavItem>
 					<NavItem><NavRouterLink to="/links/">Links</NavRouterLink></NavItem>
-					{/* <NavItem><NavRouterLink to="/events">Workshops</NavRouterLink></NavItem> */}
+					{/* <NavItem><NavRouterLink to="/events/">Workshops</NavRouterLink></NavItem> */}
 					<NavItem><NavRouterLink to="/contact/">Contact</NavRouterLink></NavItem>
 				</Nav>
 			</Navbar.Collapse>

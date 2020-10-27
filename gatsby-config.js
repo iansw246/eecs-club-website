@@ -18,8 +18,8 @@ module.exports = {
 			discord: `https://discord.gg/fPjfnjU`,
 			instagram: `https://www.instagram.com/lowelleecs/`,
 			instagramUsername: `@lowelleecs`,
-			email: `mailto:lowelleecs@gmail.com`,
-			signUpForm: `http://forms.gle/P8FQZdq8b5aLnoRQ9`,
+			email: `lowelleecs@gmail.com`,
+			signUpForm: `https://forms.gle/P8FQZdq8b5aLnoRQ9`,
 		},
 	},
 	plugins: [

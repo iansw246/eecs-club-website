@@ -32,10 +32,11 @@ const MemberImage = styled(Img).attrs(() => ({
 const MemberBox = ({ name, title, description, imageSrc, imageFixed }) => (
 	<MemberCard text="light">
 		{
-			imageSrc ? 
-			<MemberImage as="img" src={imageSrc} />
+			imageFixed ? 
+			<MemberImage fixed={imageFixed} alt={`Image of ${name}`}/>
 			:
-			<MemberImage fixed={imageFixed} />
+			<MemberImage as="img" src={imageSrc} alt={`Image of ${name}`}/>
+			
 		}
 		<Card.Body>
 			<Card.Title as="h5">{title}</Card.Title>
@@ -73,46 +74,46 @@ export default function BoardMemberShowcase({ justifyContent, marginLeft }) {
 	return (
 		<MemberBoxesHolder style={{justifyContent: justifyContent, marginLeft: marginLeft}}>
 			<MemberBox
-				name="Bob"
-				title="VP of Bob"
-				imageSrc="/img/bob.svg"
-				description="Bob is such a bob he even the VP of Bob wow such cool."
+				name="Maxwell Xu"
+				title="President"
+				imageSrc=""
+				description=""
 			/>
 			<MemberBox
-				name="Bob"
-				title="VP of Bob"
-				imageSrc="/img/bob.svg"
-				description="Bob is such a bob he even the VP of Bob wow such cool."
+				name="Noella Lee"
+				title="Vice President of Operations"
+				imageSrc=""
+				description=""
 			/>
 			<MemberBox
 				name="Ian Wong"
-				title="VP of Finance"
+				title="Vice President of Finance"
 				imageFixed={data.ianImage.childImageSharp.fixed}
 				description=""
 			/>
 			<MemberBox
-				name="Bob"
-				title="VP of Bob"
-				imageSrc="/img/bob.svg"
-				description="Bob is such a bob he even the VP of Bob wow such cool."
+				name="Katie Ho"
+				title="Vice President of Public Relations"
+				imageSrc=""
+				description=""
 			/>
 			<MemberBox
-				name="Bob"
-				title="VP of Bob"
-				imageSrc="/img/bob.svg"
-				description="Bob is such a bob he even the VP of Bob wow such cool."
+				name="Alyssa Wu"
+				title="Project Leader"
+				imageSrc=""
+				description=""
 			/>
 			<MemberBox
-				name="Bob"
-				title="VP of Bob"
-				imageSrc="/img/bob.svg"
-				description="Bob is such a bob he even the VP of Bob wow such cool."
+				name="Marvin Chen"
+				title="Project Leader"
+				imageSrc=""
+				description=""
 			/>
 			<MemberBox
-				name="Bob"
-				title="VP of Bob"
-				imageSrc="/img/bob.svg"
-				description="Bob is such a bob he even the VP of Bob wow such cool."
+				name="Liam Giraldo"
+				title="Project Leader"
+				imageSrc=""
+				description="	"
 			/>
 		</MemberBoxesHolder>
 	)
