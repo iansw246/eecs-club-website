@@ -35,7 +35,12 @@ const MemberBox = ({ name, title, description, imageSrc, imageFixed }) => (
 			imageFixed ? 
 			<MemberImage fixed={imageFixed} alt={`Image of ${name}`}/>
 			:
-			<MemberImage as="img" src={imageSrc} alt={`Image of ${name}`}/>
+			(
+				imageSrc ?
+				<MemberImage as="img" src={imageSrc} alt={`Image of ${name}`}/>
+				: <MemberImage as="img" src={imageSrc} alt={`Image of ${name} not yet added`}/>
+			)
+			
 			
 		}
 		<Card.Body>
@@ -76,13 +81,13 @@ export default function BoardMemberShowcase({ justifyContent, marginLeft }) {
 			<MemberBox
 				name="Maxwell Xu"
 				title="President"
-				imageSrc=""
+				imageSrc={null}
 				description=""
 			/>
 			<MemberBox
 				name="Noella Lee"
 				title="Vice President of Operations"
-				imageSrc=""
+				imageSrc={null}
 				description=""
 			/>
 			<MemberBox
@@ -94,26 +99,26 @@ export default function BoardMemberShowcase({ justifyContent, marginLeft }) {
 			<MemberBox
 				name="Katie Ho"
 				title="Vice President of Public Relations"
-				imageSrc=""
+				imageSrc={null}
 				description=""
 			/>
 			<MemberBox
 				name="Alyssa Wu"
 				title="Project Leader"
-				imageSrc=""
+				imageSrc={null}
 				description=""
 			/>
 			<MemberBox
 				name="Marvin Chen"
 				title="Project Leader"
-				imageSrc=""
+				imageSrc={null}
 				description=""
 			/>
 			<MemberBox
 				name="Liam Giraldo"
 				title="Project Leader"
-				imageSrc=""
-				description="	"
+				imageSrc={null}
+				description=""
 			/>
 		</MemberBoxesHolder>
 	)

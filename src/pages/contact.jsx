@@ -6,6 +6,8 @@ import { Form, Button } from "react-bootstrap"
 import Layout from "../components/layout";
 import { darkTheme } from "../components/theme"
 import CenteredContainer from "../components/centeredContainer"
+import Head from "../components/head"
+import NewTabLink from "../components/newTabLink"
 
 const NoBulletUl = styled.ul`
     list-style-type: none;
@@ -45,10 +47,14 @@ const FormLabelStyled = styled(Form.Label)`
 	}
 `;
 
-export default function Contact({ data }) {
+export default function Contact({ data, location }) {
 	const links = data.site.siteMetadata.links;
 	return (
 		<Layout>
+			<Head
+				title="Contact"
+				pagePath={location.pathname}
+			/>
 			<CenteredContainer as="main">
 				<h1>Contact</h1>
 				<p>
@@ -59,8 +65,8 @@ export default function Contact({ data }) {
                     {/* I've read that emails will get scraped and filled with spam, so some captcha/javascript obfuscating should be used.
 						Or just a form.	
 					<li>Email: <a href={links.email}>lowelleecs@gmail.com</a></li> */}
-                    <li>Discord: <a href={links.discord}>{links.discord}</a></li>
-                    <li>Instagram: <a href={links.instagram}>{links.instagramUsername}</a></li>
+                    <li>Discord: <NewTabLink href={links.discord}>{links.discord}</NewTabLink></li>
+                    <li>Instagram: <NewTabLink href={links.instagram}>{links.instagramUsername}</NewTabLink></li>
                 </NoBulletUl>
 				<p>
 					Or fill out this form.

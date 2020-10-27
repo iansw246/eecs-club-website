@@ -6,9 +6,10 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import CenteredContainer from "../components/centeredContainer"
 import BoardMemberShowcase from "../components/boardMemberShowcase"
+import Head from "../components/head"
 import { H1Line } from "../components/textComponents"
 
-export default function About({ data }) {
+export default function About({ data, location }) {
 	const bannerSources = [
 		data.bannerImageMobile.childImageSharp.fluid,
 		{
@@ -19,6 +20,7 @@ export default function About({ data }) {
 
 	return (
 		<Layout>
+			<Head title="About" pagePath={location.pathname} />
 			<CenteredContainer>
 				{
 					<h1>About</h1>
