@@ -8,6 +8,7 @@ import CenteredContainer from "../components/centeredContainer"
 import BoardMemberShowcase from "../components/boardMemberShowcase"
 import Head from "../components/head"
 import { H1Line } from "../components/textComponents"
+import NewTabLink from "../components/newTabLink"
 
 export default function About({ data, location }) {
 	const bannerSources = [
@@ -42,7 +43,7 @@ export default function About({ data, location }) {
 				<Img className="my-4" fluid={bannerSources}/>
 				<p>
 					We meet every Friday from 3:30 to 4:30 pm. Due to the pandemic, our meetings are hosted on Zoom.
-					Sign up <a href={data.site.siteMetadata.links.signUpForm}>here. </a>
+					Sign up <NewTabLink href={data.site.siteMetadata.links.signUpForm}>here</NewTabLink> (must use SFUSD account).
 				</p>
 				<p>
 					We hope to see you there!
