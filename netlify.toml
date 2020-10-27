@@ -3,9 +3,3 @@
 
 [[plugins]]
 	package = "netlify-plugin-gatsby-cache"
-
-[[redirects]]
-	from = "http://lowelleecs.ml/*"
-	to = "https://www.lowelleecs.ml/:splat"
-	status = 301
-	force = false
