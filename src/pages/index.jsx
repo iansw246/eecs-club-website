@@ -1,11 +1,13 @@
 import React from "react";
 import { graphql } from "gatsby";
 import styled, { css } from "styled-components";
+import { Container, Button } from "react-bootstrap";
+
 import Layout from "../components/layout";
 import ProjectsShowcase from "../components/projectsShowcase";
-import { Container, Button } from "react-bootstrap";
 import { darkTheme } from "../components/theme"
 import { H1Line } from "../components/textComponents"
+import Head from "../components/head"
 
 import logo from "../images/eecs-logo.svg"
 
@@ -42,11 +44,15 @@ const ScrollDownArrow = styled.img.attrs(() => ({
 
 
 
-export default function Home({ data }) {
+export default function Home({ data, location }) {
 	const links = data.site.siteMetadata.links;
 
 	return (
 		<Layout stickyFooter={false}>
+			<Head
+				title="Home"
+				pagePath={location.pathname}
+			/>
 			<CoverMainContainer>
 				<Container
 					className="d-flex flex-column"

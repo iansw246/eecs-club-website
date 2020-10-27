@@ -5,6 +5,7 @@ export default styled.button`
 	border: none;
 	background: none;
 	color: ${darkTheme.linkColor};
+	padding: 0;
 
 	&:hover {
 		color: ${darkTheme.linkColorHover};

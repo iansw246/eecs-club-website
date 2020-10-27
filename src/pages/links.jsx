@@ -1,11 +1,14 @@
 import React from "react";
 import { graphql } from "gatsby"
 import styled, { css } from "styled-components"
-import Layout from "../components/layout"
-import CenteredContainer from "../components/centeredContainer"
 import { Container, Card } from "react-bootstrap";
 import Img from "gatsby-image"
+
+import Layout from "../components/layout"
+import CenteredContainer from "../components/centeredContainer"
 import { darkTheme } from "../components/theme"
+import Head from "../components/head"
+import NewTabLink from "../components/newTabLink"
 
 // Also change the graphql query
 const imageWidth = 200; // px
@@ -59,9 +62,14 @@ const CardImageMissing = styled.img.attrs(() => ({
 	margin: auto;
 `;
 
-export default function Links({ data }) {
+export default function Links({ data, location }) {
 	return (
 		<Layout>
+			<Head
+				title="Links"
+				description="Collection of useful links for Lowell EECS Club."
+				pagePath={location.pathname}
+			/>
 			<CenteredContainer>
 				<h1>Links</h1>
 
@@ -85,7 +93,7 @@ export default function Links({ data }) {
 									//<CardImageMissing as="img"/>
 								}
 								<CardBody>
-									<a href={linkPost.url} target="_blank" rel="noopener noreferrer" className="stretched-link h5">{linkPost.text}</a>
+									<NewTabLink href={linkPost.url} className="stretched-link h5">{linkPost.text}</NewTabLink>
 								</CardBody>
 							</LinkCard>
 						)

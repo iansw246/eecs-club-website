@@ -4,7 +4,8 @@ import { graphql, useStaticQuery } from "gatsby"
 
 import openGraphImage from "../images/Open Graph image.png"
 
-export default function Head({ title, description, url: siteUrl }) {
+// SEO and favicons
+export default function Head({ title, description, siteUrl, pagePath, type }) {
 	const data = useStaticQuery(
 		graphql`
 			query {
@@ -23,9 +24,13 @@ export default function Head({ title, description, url: siteUrl }) {
 	title = title || data.site.siteMetadata.title;
 	description = description || data.site.siteMetadata.description;
 	siteUrl = siteUrl || data.site.siteMetadata.siteUrl;
+	type = type || "website";
 
 	return (
-		<Helmet>
+		<Helmet
+			titleTemplate="%s | Lowell EECS Club"
+			defaultTitle="Lowell EECS Club"
+		>
 			<html lang="en" />
 
 			<title>{title}</title>
@@ -33,18 +38,25 @@ export default function Head({ title, description, url: siteUrl }) {
 			<meta name="description" content={description} />
 
 			{/* Open Graph / Facebook */}
-			<meta property="og:type" content="website"/>
-			<meta property="og:url" content={siteUrl}/>
-			<meta property="og:title" content={title}/>
-			<meta property="og:description" content={description}/>
-			<meta property="og:image" content={openGraphImage}/>
+			<meta property="og:type" content={type} />
+			{
+				pagePath ? <meta property="og:url" content={ `${siteUrl}${pagePath}` } />
+				: null
+			}
+			
+			<meta property="og:title" content={title }/>
+			<meta property="og:description" content={description} />
+			<meta property="og:image" content={siteUrl + openGraphImage} />
 
 			{/* Twitter */}
-			<meta property="twitter:card" content="summary_large_image"/>
-			<meta property="twitter:url" content={siteUrl}/>
-			<meta property="twitter:title" content={title}/>
-			<meta property="twitter:description" content={description}/>
-			<meta property="twitter:image" content={openGraphImage}/>
+			<meta property="twitter:card" content="summary_large_image" />
+			{
+				pagePath ? <meta property="twitter:url" content={ `${siteUrl}${pagePath}` } />
+				: null
+			}
+			<meta property="twitter:title" content={title} />
+			<meta property="twitter:description" content={description} />
+			<meta property="twitter:image" content={siteUrl + openGraphImage} />
 
 			{/* Favicons */}
 
