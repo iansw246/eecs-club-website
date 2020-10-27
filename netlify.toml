@@ -8,4 +8,4 @@
 	from = "http://lowelleecs.ml/*"
 	to = "https://www.lowelleecs.ml/:splat"
 	status = 301
-	force = false
+	force = true
