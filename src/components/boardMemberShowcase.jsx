@@ -33,11 +33,11 @@ const MemberBox = ({ name, title, description, imageSrc, imageFixed }) => (
 	<MemberCard text="light">
 		{
 			imageFixed ? 
-			<MemberImage fixed={imageFixed} alt={`Image of ${name}`}/>
+			<MemberImage fixed={imageFixed} alt={`${name} - ${title}`}/>
 			:
 			(
 				imageSrc ?
-				<MemberImage as="img" src={imageSrc} alt={`Image of ${name}`}/>
+				<MemberImage as="img" src={imageSrc} alt={`${name} - ${title}`}/>
 				: <MemberImage as="img" src={imageSrc} alt={`Image of ${name} not yet added`}/>
 			)
 			

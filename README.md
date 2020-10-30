@@ -1,10 +1,11 @@
 # EECS Club Website
-[Here](https://reverent-jang-69754c.netlify.app/)
+https://www.lowelleecs.ml
+(The domain was free, ok)
 
 Built, deployed, and hosted using Netlify: 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4f62ab3d-1fc4-4787-a637-d92026cb6a79/deploy-status)](https://app.netlify.com/sites/reverent-jang-69754c/deploys)
 
-Uses Gatsby, Bootstrap, styled-components, and a bit more.
+Uses Gatsby, react-bootstrap, styled-components, and a bit more.
 
 ## Installation
 To develop on this repository, simply clone:
@@ -26,12 +27,10 @@ yarn develop
 ```
 
 ## About images
-`src/images/` are for images that are processed by image-sharp. They are resized and optimized by image-sharp.
+`src/images/` main folder for images
 
 `static/img/uploads/` are for images that are uploaded by Netlify CMS.
 
-`static/` has images for favicons and stuff
+`static/` has favicons and stuff
 
 `static/img/` is for everything else.
-
-Maybe all images could be in /src/images and the images needed unmodified could be copied to public?

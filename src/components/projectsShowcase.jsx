@@ -46,22 +46,22 @@ const ProjectText = styled.div`
 
 export default function ProjectsShowcase() {
 	const data = useStaticQuery(graphql`
-		query {
-			lightCube: file(relativePath: {eq: "projects/DSC_4071.JPG"}) {
+		{
+			lightCube: file(relativePath: {eq: "projects/light-cube.jpg"}) {
 				childImageSharp {
 					fluid(maxWidth: 500, maxHeight: 300) {
 						...GatsbyImageSharpFluid_withWebp
 					}
 				}
 			}
-			ledBoard: file(relativePath: {eq: "projects/DSC_4215.JPG"}) {
+			ledBoard: file(relativePath: {eq: "projects/light-board-1.jpg"}) {
 				childImageSharp {
 					fluid(maxWidth: 500, maxHeight: 300, cropFocus: CENTER) {
 						...GatsbyImageSharpFluid_withWebp
 					}
 				}
 			}
-			solderingWorkshop: file(relativePath: {eq: "projects/DSC_0160.JPG"}) {
+			solderingWorkshop: file(relativePath: {eq: "projects/soldering-workshop-2.jpg"}) {
 				childImageSharp {
 					fluid(maxWidth: 500, maxHeight: 300) {
 						...GatsbyImageSharpFluid_withWebp

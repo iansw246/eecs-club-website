@@ -44,14 +44,13 @@ const ScrollDownArrow = styled.img.attrs(() => ({
 
 
 
-export default function Home({ data, location }) {
+export default function Home({ data }) {
 	const links = data.site.siteMetadata.links;
 
 	return (
 		<Layout stickyFooter={false}>
 			<Head
 				title="Home"
-				pagePath={location.pathname}
 			/>
 			<CoverMainContainer>
 				<Container
@@ -106,7 +105,6 @@ export const query = graphql`
 			siteMetadata {
 				links {
 					discord
-					instagram
 					email
 					signUpForm
 				}

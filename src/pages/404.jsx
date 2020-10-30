@@ -6,10 +6,10 @@ import CenteredContainer from "../components/centeredContainer"
 import Head from "../components/head"
 
 
-export default function NotFound({ location }) {
+export default function NotFound() {
 	return (
 		<Layout>
-			<Head title="404" description="Error 404: Page not found" pagePath={location.pathname}/>
+			<Head title="404" description="Error 404: Page not found" />
 			<CenteredContainer>
 				<h1>Error 404: Page not found</h1>
 				<Link to="/">Return to home page?</Link>

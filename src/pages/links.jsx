@@ -62,13 +62,12 @@ const CardImageMissing = styled.img.attrs(() => ({
 	margin: auto;
 `;
 
-export default function Links({ data, location }) {
+export default function Links({ data }) {
 	return (
 		<Layout>
 			<Head
 				title="Links"
 				description="Collection of useful links for Lowell EECS Club."
-				pagePath={location.pathname}
 			/>
 			<CenteredContainer>
 				<h1>Links</h1>
