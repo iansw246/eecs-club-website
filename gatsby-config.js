@@ -12,7 +12,7 @@ const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
 module.exports = {
 	siteMetadata: {
 		title: `Lowell EECS Club`,
-		description: `Official website of EECS Club at Lowell High School`,
+		description: `Official website of EECS Club at Lowell High School. Learn electrical engineering & computer science while creating exciting projects.`,
 		siteUrl: `https://www.lowelleecs.ml`,
 		links: {
 			discord: `https://discord.gg/fPjfnjU`,

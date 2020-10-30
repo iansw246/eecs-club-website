@@ -1,11 +1,13 @@
 import React from "react"
-import Helmet from "react-helmet"
+import PropTypes from "prop-types"
+import { Helmet } from "react-helmet"
 import { graphql, useStaticQuery } from "gatsby"
+import { useLocation } from "@reach/router"
 
-import openGraphImage from "../images/Open Graph image.png"
+import defaultOpenGraphImage from "../images/Open-Graph-image.png"
 
 // SEO and favicons
-export default function Head({ title, description, siteUrl, pagePath, type }) {
+const Head = ({ title, description, siteUrl, setUrl, type, openGraphImage }) => {
 	const data = useStaticQuery(
 		graphql`
 			query {
@@ -20,11 +22,13 @@ export default function Head({ title, description, siteUrl, pagePath, type }) {
 		`
 	);
 
+	// To make camelCase 
+	const { pathname: pathName } = useLocation();
+
 	// Get property from GraphQL if not passed in props
 	title = title || data.site.siteMetadata.title;
 	description = description || data.site.siteMetadata.description;
 	siteUrl = siteUrl || data.site.siteMetadata.siteUrl;
-	type = type || "website";
 
 	return (
 		<Helmet
@@ -34,24 +38,23 @@ export default function Head({ title, description, siteUrl, pagePath, type }) {
 			<html lang="en" />
 
 			<title>{title}</title>
-			<meta name="title" content={title} />
 			<meta name="description" content={description} />
 
 			{/* Open Graph / Facebook */}
 			<meta property="og:type" content={type} />
 			{
-				pagePath ? <meta property="og:url" content={ `${siteUrl}${pagePath}` } />
+				setUrl ? <meta property="og:url" content={ `${siteUrl}${pathName}` } />
 				: null
 			}
 			
-			<meta property="og:title" content={title }/>
+			<meta property="og:title" content={title}/>
 			<meta property="og:description" content={description} />
 			<meta property="og:image" content={siteUrl + openGraphImage} />
 
 			{/* Twitter */}
 			<meta property="twitter:card" content="summary_large_image" />
 			{
-				pagePath ? <meta property="twitter:url" content={ `${siteUrl}${pagePath}` } />
+				setUrl ? <meta property="twitter:url" content={ `${siteUrl}${pathName}` } />
 				: null
 			}
 			<meta property="twitter:title" content={title} />
@@ -72,3 +75,20 @@ export default function Head({ title, description, siteUrl, pagePath, type }) {
 		</Helmet>
 	)
 }
+
+Head.defaultProps = {
+	setUrl: true,
+	type: `website`,
+	openGraphImage: defaultOpenGraphImage
+}
+
+Head.propTypes = {
+	title: PropTypes.string.isRequired,
+	description: PropTypes.string,
+	siteUrl: PropTypes.string,
+	setUrl: PropTypes.bool,
+	type: PropTypes.string,
+	openGraphImage: PropTypes.string,
+}
+
+export default Head;

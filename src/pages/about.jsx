@@ -10,7 +10,7 @@ import Head from "../components/head"
 import { H1Line } from "../components/textComponents"
 import NewTabLink from "../components/newTabLink"
 
-export default function About({ data, location }) {
+export default function About({ data }) {
 	const bannerSources = [
 		data.bannerImageMobile.childImageSharp.fluid,
 		{
@@ -21,7 +21,7 @@ export default function About({ data, location }) {
 
 	return (
 		<Layout>
-			<Head title="About" pagePath={location.pathname} />
+			<Head title="About" />
 			<CenteredContainer>
 				{
 					<h1>About</h1>

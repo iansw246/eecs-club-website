@@ -6,6 +6,6 @@ export default function(props) {
 			{...props}
 			target="_blank"
 			rel="noopener noreferrer" // Possible phishing vulnerability if target="_blank" and these rel properties aren't set>
-		/>
+		>{props.children}</a>
 	);
 }

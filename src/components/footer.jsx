@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types"
 import styled from "styled-components"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { Container, Row, Nav } from "react-bootstrap"
@@ -39,7 +40,7 @@ const FAIconLink = (props) => (
 	</Nav.Link>
 );
 
-export default function({ stickyFooter }) {
+const Footer = ({ stickyFooter }) => {
 	const data = useStaticQuery(graphql`
 		{
 			site {
@@ -53,25 +54,37 @@ export default function({ stickyFooter }) {
 		}
 	`);
 	
-	return <FooterStyled sticky={stickyFooter}>
-	<Container fluid="lg">
-		<Row className="mx-0">
-			<Nav>
-				<Nav.Item><FooterNavLink as={Link} to="/">Home</FooterNavLink></Nav.Item>
-			</Nav>
-			<Nav className="ml-auto">
-				<Nav.Item>
-					<FAIconLink title="EECS Club Discord Server" aria-label="EECS Club Discord Server" href={data.site.siteMetadata.links.discord} icon={faDiscord} target="_blank"/>
-				</Nav.Item>
-				<Nav.Item>
-					<FAIconLink title="EECS Club Instagram Account" aria-label="EECS Club Instagram Account" href={data.site.siteMetadata.links.instagram} icon={faInstagram} target="_blank"/>
-				</Nav.Item>
-			</Nav>
-		</Row>
-		<div className="d-flex justify-content-between">
-			<small className="mr-4">©{(new Date().getFullYear())} Ian Wong - for Lowell EECS Club</small>
-			<small>Last updated {(new Date()).toLocaleDateString("en-US")}</small>
-		</div>
-	</Container>
-	</FooterStyled>
+	return (
+		<FooterStyled sticky={stickyFooter}>
+			<Container fluid="lg">
+				<Row className="mx-0">
+					<Nav>
+						<Nav.Item><FooterNavLink as={Link} to="/">Home</FooterNavLink></Nav.Item>
+					</Nav>
+					<Nav className="ml-auto">
+						<Nav.Item>
+							<FAIconLink title="EECS Club Discord Server" aria-label="EECS Club Discord Server" href={data.site.siteMetadata.links.discord} icon={faDiscord} target="_blank"/>
+						</Nav.Item>
+						<Nav.Item>
+							<FAIconLink title="EECS Club Instagram Account" aria-label="EECS Club Instagram Account" href={data.site.siteMetadata.links.instagram} icon={faInstagram} target="_blank"/>
+						</Nav.Item>
+					</Nav>
+				</Row>
+				<div className="d-flex justify-content-between">
+					<small className="mr-4">©{(new Date().getFullYear())} Ian Wong - for Lowell EECS Club</small>
+					<small>Last updated {(new Date()).toLocaleDateString("en-US")}</small>
+				</div>
+			</Container>
+		</FooterStyled>
+	);
 }
+
+Footer.defaultProps = {
+	stickyFooter: false,
+}
+
+Footer.propTypes = {
+	stickyFooter: PropTypes.bool,
+}
+
+export default Footer

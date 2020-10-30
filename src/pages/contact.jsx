@@ -47,14 +47,11 @@ const FormLabelStyled = styled(Form.Label)`
 	}
 `;
 
-export default function Contact({ data, location }) {
+export default function Contact({ data }) {
 	const links = data.site.siteMetadata.links;
 	return (
 		<Layout>
-			<Head
-				title="Contact"
-				pagePath={location.pathname}
-			/>
+			<Head title="Contact" />
 			<CenteredContainer as="main">
 				<h1>Contact</h1>
 				<p>
