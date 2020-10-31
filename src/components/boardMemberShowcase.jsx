@@ -12,9 +12,11 @@ const MemberBoxesHolder = styled.div`
 `;
 
 const MemberCard = styled(Card)`
+	width: 25%;
+	min-width: 250px;
 	margin: 1.5rem;
 	margin-top: 0;
-	width: 300px;
+	${'' /* width: 300px; */}
 	background-color: ${darkTheme.backgroundColor};
 	border-top: 2px solid ${darkTheme.accentColor};
 `;
@@ -22,16 +24,21 @@ const MemberCard = styled(Card)`
 const MemberImage = styled(Img).attrs(() => ({
 	className: "card-img"
 }))`
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: 1rem;
+	margin-right: 1rem;
+	align-self: center;
 	margin-top: 1rem;
-	width: 250px;
-	height: 325px;
+	max-width: 250px;
+	${'' /* width: 250px;
+	height: 325px; */}
 `;
 
-const MemberBox = ({ name, title, description, imageSrc, imageFixed }) => (
+const MemberBox = ({ name, title, description, imageSrc, imageFixed, imageFluid }) => (
 	<MemberCard text="light">
 		{
+			imageFluid ?
+			<MemberImage fluid={imageFluid} alt={`${name} - ${title}`}/>
+			:
 			imageFixed ? 
 			<MemberImage fixed={imageFixed} alt={`${name} - ${title}`}/>
 			:
@@ -66,10 +73,53 @@ export default function BoardMemberShowcase({ justifyContent, marginLeft }) {
 	const data = useStaticQuery(
 		graphql`
 			{
+				noellaImage: file(relativePath: {eq: "boardmembers/Noella Lee.png"}) {
+					childImageSharp {
+						fixed(width: 250, height: 325, cropFocus: ATTENTION) {
+							...GatsbyImageSharpFixed_withWebp
+						}
+						fluid(maxWidth: 250, maxHeight: 325) {
+							...GatsbyImageSharpFluid_withWebp
+						}
+					}
+				}
 				ianImage: file(relativePath: {eq: "boardmembers/Ian Wong.jpg"}) {
 					childImageSharp {
 						fixed(width: 250, height: 325, cropFocus: ATTENTION) {
 							...GatsbyImageSharpFixed_withWebp
+						}
+						fluid(maxWidth: 250, maxHeight: 325) {
+							...GatsbyImageSharpFluid_withWebp
+						}
+					}
+				}
+				katieImage: file(relativePath: {eq: "boardmembers/Katie Ho.jpg"}) {
+					childImageSharp {
+						fixed(width: 250, height: 320, cropFocus: ATTENTION) {
+							...GatsbyImageSharpFixed_withWebp
+						}
+						fluid(maxWidth: 250, maxHeight: 325) {
+							...GatsbyImageSharpFluid_withWebp
+						}
+					}
+				}
+				alyssaImage: file(relativePath: {eq: "boardmembers/Alyssa Wu.jpg"}) {
+					childImageSharp {
+						fixed(width: 250, height: 320, cropFocus: ATTENTION) {
+							...GatsbyImageSharpFixed_withWebp
+						}
+						fluid(maxWidth: 250, maxHeight: 325) {
+							...GatsbyImageSharpFluid_withWebp
+						}
+					}
+				}
+				marvinImage: file(relativePath: {eq: "boardmembers/Marvin Chen.jpg"}) {
+					childImageSharp {
+						fixed(width: 250, height: 320, cropFocus: ATTENTION) {
+							...GatsbyImageSharpFixed_withWebp
+						}
+						fluid(maxWidth: 250, maxHeight: 325) {
+							...GatsbyImageSharpFluid_withWebp
 						}
 					}
 				}
@@ -87,31 +137,36 @@ export default function BoardMemberShowcase({ justifyContent, marginLeft }) {
 			<MemberBox
 				name="Noella Lee"
 				title="Vice President of Operations"
-				imageSrc={null}
+				imageFixed={data.noellaImage.childImageSharp.fixed}
+				imageFluid={data.noellaImage.childImageSharp.fluid}
 				description=""
 			/>
 			<MemberBox
 				name="Ian Wong"
 				title="Vice President of Finance"
 				imageFixed={data.ianImage.childImageSharp.fixed}
+				imageFluid={data.ianImage.childImageSharp.fluid}
 				description=""
 			/>
 			<MemberBox
 				name="Katie Ho"
 				title="Vice President of Public Relations"
-				imageSrc={null}
+				imageFixed={data.katieImage.childImageSharp.fixed}
+				imageFluid={data.katieImage.childImageSharp.fluid}
 				description=""
 			/>
 			<MemberBox
 				name="Alyssa Wu"
 				title="Project Leader"
-				imageSrc={null}
+				imageFixed={data.alyssaImage.childImageSharp.fixed}
+				imageFluid={data.alyssaImage.childImageSharp.fluid}
 				description=""
 			/>
 			<MemberBox
 				name="Marvin Chen"
 				title="Project Leader"
-				imageSrc={null}
+				imageFixed={data.marvinImage.childImageSharp.fixed}
+				imageFluid={data.marvinImage.childImageSharp.fluid}
 				description=""
 			/>
 			<MemberBox
