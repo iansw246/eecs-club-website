@@ -9,14 +9,14 @@ const MemberBoxesHolder = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+
+	margin: 3rem 0.5rem;
 `;
 
 const MemberCard = styled(Card)`
-	width: 25%;
-	min-width: 250px;
 	margin: 1.5rem;
 	margin-top: 0;
-	${'' /* width: 300px; */}
+	width: 275px;
 	background-color: ${darkTheme.backgroundColor};
 	border-top: 2px solid ${darkTheme.accentColor};
 `;
@@ -28,17 +28,14 @@ const MemberImage = styled(Img).attrs(() => ({
 	margin-right: 1rem;
 	align-self: center;
 	margin-top: 1rem;
-	max-width: 250px;
-	${'' /* width: 250px;
-	height: 325px; */}
+
+	width: 250px;
+	height: 325px;
 `;
 
-const MemberBox = ({ name, title, description, imageSrc, imageFixed, imageFluid }) => (
+const MemberBox = ({ name, title, description, imageSrc, imageFixed }) => (
 	<MemberCard text="light">
 		{
-			imageFluid ?
-			<MemberImage fluid={imageFluid} alt={`${name} - ${title}`}/>
-			:
 			imageFixed ? 
 			<MemberImage fixed={imageFixed} alt={`${name} - ${title}`}/>
 			:
@@ -47,8 +44,6 @@ const MemberBox = ({ name, title, description, imageSrc, imageFixed, imageFluid 
 				<MemberImage as="img" src={imageSrc} alt={`${name} - ${title}`}/>
 				: <MemberImage as="img" src={imageSrc} alt={`Image of ${name} not yet added`}/>
 			)
-			
-			
 		}
 		<Card.Body>
 			<Card.Title as="h5">{title}</Card.Title>
@@ -72,55 +67,35 @@ export { MemberBox };
 export default function BoardMemberShowcase({ justifyContent, marginLeft }) {
 	const data = useStaticQuery(
 		graphql`
+			fragment BoardMemberPhoto on ImageSharp {
+				fixed(width: 250, height: 325, cropFocus: ATTENTION) {
+					...GatsbyImageSharpFixed_withWebp
+				}
+			}
 			{
 				noellaImage: file(relativePath: {eq: "boardmembers/Noella Lee.png"}) {
 					childImageSharp {
-						fixed(width: 250, height: 325, cropFocus: ATTENTION) {
-							...GatsbyImageSharpFixed_withWebp
-						}
-						fluid(maxWidth: 250, maxHeight: 325) {
-							...GatsbyImageSharpFluid_withWebp
-						}
+						...BoardMemberPhoto
 					}
 				}
 				ianImage: file(relativePath: {eq: "boardmembers/Ian Wong.jpg"}) {
 					childImageSharp {
-						fixed(width: 250, height: 325, cropFocus: ATTENTION) {
-							...GatsbyImageSharpFixed_withWebp
-						}
-						fluid(maxWidth: 250, maxHeight: 325) {
-							...GatsbyImageSharpFluid_withWebp
-						}
+						...BoardMemberPhoto
 					}
 				}
 				katieImage: file(relativePath: {eq: "boardmembers/Katie Ho.jpg"}) {
 					childImageSharp {
-						fixed(width: 250, height: 320, cropFocus: ATTENTION) {
-							...GatsbyImageSharpFixed_withWebp
-						}
-						fluid(maxWidth: 250, maxHeight: 325) {
-							...GatsbyImageSharpFluid_withWebp
-						}
+						...BoardMemberPhoto
 					}
 				}
 				alyssaImage: file(relativePath: {eq: "boardmembers/Alyssa Wu.jpg"}) {
 					childImageSharp {
-						fixed(width: 250, height: 320, cropFocus: ATTENTION) {
-							...GatsbyImageSharpFixed_withWebp
-						}
-						fluid(maxWidth: 250, maxHeight: 325) {
-							...GatsbyImageSharpFluid_withWebp
-						}
+						...BoardMemberPhoto
 					}
 				}
 				marvinImage: file(relativePath: {eq: "boardmembers/Marvin Chen.jpg"}) {
 					childImageSharp {
-						fixed(width: 250, height: 320, cropFocus: ATTENTION) {
-							...GatsbyImageSharpFixed_withWebp
-						}
-						fluid(maxWidth: 250, maxHeight: 325) {
-							...GatsbyImageSharpFluid_withWebp
-						}
+						...BoardMemberPhoto
 					}
 				}
 			}
