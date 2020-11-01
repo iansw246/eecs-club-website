@@ -1,6 +1,6 @@
 # EECS Club Website
 https://www.lowelleecs.ml
-(The domain was free, ok)
+(The domain was free and for testing, ok. We're going to change it.)
 
 Built, deployed, and hosted using Netlify: 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4f62ab3d-1fc4-4787-a637-d92026cb6a79/deploy-status)](https://app.netlify.com/sites/reverent-jang-69754c/deploys)
