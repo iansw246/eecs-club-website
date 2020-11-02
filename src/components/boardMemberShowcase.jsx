@@ -113,35 +113,30 @@ export default function BoardMemberShowcase({ justifyContent, marginLeft }) {
 				name="Noella Lee"
 				title="Vice President of Operations"
 				imageFixed={data.noellaImage.childImageSharp.fixed}
-				imageFluid={data.noellaImage.childImageSharp.fluid}
 				description=""
 			/>
 			<MemberBox
 				name="Ian Wong"
 				title="Vice President of Finance"
 				imageFixed={data.ianImage.childImageSharp.fixed}
-				imageFluid={data.ianImage.childImageSharp.fluid}
 				description=""
 			/>
 			<MemberBox
 				name="Katie Ho"
 				title="Vice President of Public Relations"
 				imageFixed={data.katieImage.childImageSharp.fixed}
-				imageFluid={data.katieImage.childImageSharp.fluid}
 				description=""
 			/>
 			<MemberBox
 				name="Alyssa Wu"
 				title="Project Leader"
 				imageFixed={data.alyssaImage.childImageSharp.fixed}
-				imageFluid={data.alyssaImage.childImageSharp.fluid}
 				description=""
 			/>
 			<MemberBox
 				name="Marvin Chen"
 				title="Project Leader"
 				imageFixed={data.marvinImage.childImageSharp.fixed}
-				imageFluid={data.marvinImage.childImageSharp.fluid}
 				description=""
 			/>
 			<MemberBox
