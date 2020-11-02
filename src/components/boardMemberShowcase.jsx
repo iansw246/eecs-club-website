@@ -9,12 +9,14 @@ const MemberBoxesHolder = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+
+	margin: 3rem 0.5rem;
 `;
 
 const MemberCard = styled(Card)`
 	margin: 1.5rem;
 	margin-top: 0;
-	width: 300px;
+	width: 275px;
 	background-color: ${darkTheme.backgroundColor};
 	border-top: 2px solid ${darkTheme.accentColor};
 `;
@@ -22,9 +24,11 @@ const MemberCard = styled(Card)`
 const MemberImage = styled(Img).attrs(() => ({
 	className: "card-img"
 }))`
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: 1rem;
+	margin-right: 1rem;
+	align-self: center;
 	margin-top: 1rem;
+
 	width: 250px;
 	height: 325px;
 `;
@@ -40,8 +44,6 @@ const MemberBox = ({ name, title, description, imageSrc, imageFixed }) => (
 				<MemberImage as="img" src={imageSrc} alt={`${name} - ${title}`}/>
 				: <MemberImage as="img" src={imageSrc} alt={`Image of ${name} not yet added`}/>
 			)
-			
-			
 		}
 		<Card.Body>
 			<Card.Title as="h5">{title}</Card.Title>
@@ -65,12 +67,35 @@ export { MemberBox };
 export default function BoardMemberShowcase({ justifyContent, marginLeft }) {
 	const data = useStaticQuery(
 		graphql`
+			fragment BoardMemberPhoto on ImageSharp {
+				fixed(width: 250, height: 325, cropFocus: ATTENTION) {
+					...GatsbyImageSharpFixed_withWebp
+				}
+			}
 			{
+				noellaImage: file(relativePath: {eq: "boardmembers/Noella Lee.png"}) {
+					childImageSharp {
+						...BoardMemberPhoto
+					}
+				}
 				ianImage: file(relativePath: {eq: "boardmembers/Ian Wong.jpg"}) {
 					childImageSharp {
-						fixed(width: 250, height: 325, cropFocus: ATTENTION) {
-							...GatsbyImageSharpFixed_withWebp
-						}
+						...BoardMemberPhoto
+					}
+				}
+				katieImage: file(relativePath: {eq: "boardmembers/Katie Ho.jpg"}) {
+					childImageSharp {
+						...BoardMemberPhoto
+					}
+				}
+				alyssaImage: file(relativePath: {eq: "boardmembers/Alyssa Wu.jpg"}) {
+					childImageSharp {
+						...BoardMemberPhoto
+					}
+				}
+				marvinImage: file(relativePath: {eq: "boardmembers/Marvin Chen.jpg"}) {
+					childImageSharp {
+						...BoardMemberPhoto
 					}
 				}
 			}
@@ -87,7 +112,7 @@ export default function BoardMemberShowcase({ justifyContent, marginLeft }) {
 			<MemberBox
 				name="Noella Lee"
 				title="Vice President of Operations"
-				imageSrc={null}
+				imageFixed={data.noellaImage.childImageSharp.fixed}
 				description=""
 			/>
 			<MemberBox
@@ -99,19 +124,19 @@ export default function BoardMemberShowcase({ justifyContent, marginLeft }) {
 			<MemberBox
 				name="Katie Ho"
 				title="Vice President of Public Relations"
-				imageSrc={null}
+				imageFixed={data.katieImage.childImageSharp.fixed}
 				description=""
 			/>
 			<MemberBox
 				name="Alyssa Wu"
 				title="Project Leader"
-				imageSrc={null}
+				imageFixed={data.alyssaImage.childImageSharp.fixed}
 				description=""
 			/>
 			<MemberBox
 				name="Marvin Chen"
 				title="Project Leader"
-				imageSrc={null}
+				imageFixed={data.marvinImage.childImageSharp.fixed}
 				description=""
 			/>
 			<MemberBox

@@ -21,7 +21,9 @@ export default function About({ data }) {
 
 	return (
 		<Layout>
-			<Head title="About" />
+			<Head title="About"
+				description="Lowell Electrical Engineering & Computer Science (EECS) Club is a student-run club at Lowell High School in San Francisco, California. Our goal is to inspire students' interest in EECS by providng them exposure to the field."
+			/>
 			<CenteredContainer>
 				{
 					<h1>About</h1>

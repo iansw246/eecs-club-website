@@ -39,7 +39,9 @@ collections:
   - label: 'Links'
     name: 'links'
     folder: 'content/links'
+    # Where images are saved
     media_folder: /static/img/uploads
+    # Path of images that are saved in the markdown file. We just make it relative to static/img/uploads, and also make GatsbyFileSystem set base path to static/img/uploads so ImageSharp sees stuff relative to static/img/uploads
     public_folder: ../../static/img/uploads
     create: false
     slug: 'index'
@@ -64,16 +66,9 @@ collections:
           #    - 'Enter a valid url'
           - label: 'Link Thumbnail'
             name: 'thumbnail'
-            widget: 'image'
+            widget: 'croppedImage'
             allow_multiple: false
             required: false
-  - label: 'Test'
-    name: 'test'
-    folder: 'content/test'
-    create: true
-    fields:
-      - { label: 'Title', name: 'title', widget: 'string'}
-      - label: 'Link field 1'
-        name: 'linkfield1'
-        widget: 'link'
-        customProp: 'This is custom prop'
+            image_width: '200px'
+            image_height: '150px'
+            hint: The image is resized to 200x150. If the source image is not this aspect ratio (of 4:3), the edges will be cropped out and lost. Crop the image yourself if the auto cropping does unwanted stuff

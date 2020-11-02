@@ -19,8 +19,7 @@ export default class BetterLink extends React.Component {
 		label: "Link to",
 		widget: "string"
 	}];
-	// Required? Will this conflict with built in links?
-	// How does this even work?
+	
 	static pattern = /^buttonlink (href=".+") (text=".+")$/;
 
 	fromBlock(match) {
