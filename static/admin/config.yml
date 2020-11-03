@@ -71,4 +71,6 @@ collections:
             required: false
             image_width: '200px'
             image_height: '150px'
-            hint: The image is resized to 200x150. If the source image is not this aspect ratio (of 4:3), the edges will be cropped out and lost. Crop the image yourself if the auto cropping does unwanted stuff
+            object_fit: 'contain'
+            image_background: '#292f39'
+            hint: The image is resized to 200x150, UNLESS the image is an SVG file. If the image is an SVG, no processing is done.

@@ -33,16 +33,23 @@ const MemberImage = styled(Img).attrs(() => ({
 	height: 325px;
 `;
 
-const MemberBox = ({ name, title, description, imageSrc, imageFixed }) => (
+const MemberBox = ({ name, title, description, imageSrc, imageFixed, imageText }) => (
 	<MemberCard text="light">
 		{
-			imageFixed ? 
-			<MemberImage fixed={imageFixed} alt={`${name} - ${title}`}/>
+			imageText ? 
+			<MemberImage as="div">
+				{imageText}
+			</MemberImage>
 			:
 			(
-				imageSrc ?
-				<MemberImage as="img" src={imageSrc} alt={`${name} - ${title}`}/>
-				: <MemberImage as="img" src={imageSrc} alt={`Image of ${name} not yet added`}/>
+				imageFixed ? 
+				<MemberImage fixed={imageFixed} alt={`${name} - ${title}`}/>
+				:
+				(
+					imageSrc ?
+					<MemberImage as="img" src={imageSrc} alt={`${name} - ${title}`}/>
+					: <MemberImage as="img" src={imageSrc} alt={`Image of ${name} not yet added`}/>
+				)
 			)
 		}
 		<Card.Body>
@@ -98,6 +105,11 @@ export default function BoardMemberShowcase({ justifyContent, marginLeft }) {
 						...BoardMemberPhoto
 					}
 				}
+				liamImage: file(relativePath: {eq: "boardmembers/Liam Giraldo.jpg"}) {
+					childImageSharp {
+						...BoardMemberPhoto
+					}
+				}
 			}
 		`
 	);
@@ -106,7 +118,7 @@ export default function BoardMemberShowcase({ justifyContent, marginLeft }) {
 			<MemberBox
 				name="Maxwell Xu"
 				title="President"
-				imageSrc={null}
+				imageText="Maxwell has chosen not to include an image"
 				description=""
 			/>
 			<MemberBox
@@ -142,7 +154,7 @@ export default function BoardMemberShowcase({ justifyContent, marginLeft }) {
 			<MemberBox
 				name="Liam Giraldo"
 				title="Project Leader"
-				imageSrc={null}
+				imageFixed={data.liamImage.childImageSharp.fixed}
 				description=""
 			/>
 		</MemberBoxesHolder>
