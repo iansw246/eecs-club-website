@@ -31,6 +31,8 @@ const LinkCard = styled(Card)`
 	${'' /* padding: 0.4rem; */}
 	background-color: ${darkTheme.backgroundColor};
 	overflow: hidden;
+
+	align-items: center;
 `;
 
 const CardBody = styled(Card.Body)`
@@ -85,6 +87,7 @@ export default function Links({ data }) {
 										<CardImage as="img" src={linkPost.thumbnail.publicURL} alt={`${linkPost.text} thumbnail`} />
 									)
 									:
+									// Empty div with height and width the same as an image to keep dimensions consistent
 									<CardImage as="div" />
 									//<CardImageMissing as="img"/>
 								}
@@ -109,7 +112,8 @@ export const query = graphql`
 					url
 					thumbnail {
 						childImageSharp {
-							fixed (width: 200, height: 150, fit: CONTAIN, background: "#292f39") {
+							# Background #000000 and last two hex digits 00 is alpha of 0 in this case for completely transparent
+							fixed (width: 200, height: 150, fit: CONTAIN, background: "#0000") {
 								...GatsbyImageSharpFixed_withWebp
 							}
 						}

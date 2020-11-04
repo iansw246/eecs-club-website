@@ -62,7 +62,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
 	result.data.allMarkdownRemark.edges.map(({ node }) => {
 		if (node === null || node.fields === null || !(`slug` in node.fields)) {
-			console.info(`The markdown file titled "${node.frontmatter.title}" does not have a slug. A page will not be created for it.`);
+			console.info(`The markdown file titled "${node.frontmatter.title}" does not have a node "slug" in the fields. A page will not be created for it.`);
 			return;
 		}
 		else {

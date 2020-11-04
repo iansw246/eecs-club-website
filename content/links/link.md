@@ -3,12 +3,13 @@ title: Links
 links:
   - text: Merch Preference Form
     url: https://forms.gle/LJbq8R8sUqff4QFRA
+    thumbnail: ../../static/img/uploads/merch preference form.jpg
   - text: Sign Up Form
     url: http://forms.gle/P8FQZdq8b5aLnoRQ9
     thumbnail: ../../static/img/uploads/signup.svg
   - text: Info Meeting Slides
     url: https://drive.google.com/file/d/1L59J1evASpHigvl86-q60CcpKYXCQpE3/view
-    thumbnail: ../../static/img/uploads/Lowell EECS Club - Info Meeting Summary.png
+    thumbnail: ../../static/img/uploads/info.png
   - text: C++ Workshop Pt 3
     url: https://docs.google.com/document/d/1e3SFLxGvduEhSF0ywue7VYZvbdCWSX1c_Jr-AQgZaBs/edit?usp=sharing
     thumbnail: ../../static/img/uploads/cpp_logo.svg

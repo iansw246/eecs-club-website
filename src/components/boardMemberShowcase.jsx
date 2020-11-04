@@ -118,7 +118,7 @@ export default function BoardMemberShowcase({ justifyContent, marginLeft }) {
 			<MemberBox
 				name="Maxwell Xu"
 				title="President"
-				imageText="Maxwell has chosen not to include an image"
+				imageText=""
 				description=""
 			/>
 			<MemberBox
