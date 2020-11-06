@@ -101,5 +101,13 @@ module.exports = {
 				}
 			},
 		},
+		{
+			resolve: `gatsby-plugin-goatcounter`,
+			options: {
+				code: `lowelleecs`,
+				referrer: true,
+				urlCleanup: true,
+			}
+		},
 	],
 };
