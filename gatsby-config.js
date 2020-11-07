@@ -20,6 +20,7 @@ module.exports = {
 			instagramUsername: `@lowelleecs`,
 			email: `lowelleecs@gmail.com`,
 			signUpForm: `https://forms.gle/P8FQZdq8b5aLnoRQ9`,
+			github: `https://github.com/ianjazz246/eecs-club-website`,
 		},
 	},
 	plugins: [

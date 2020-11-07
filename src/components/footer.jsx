@@ -5,7 +5,7 @@ import { graphql, Link, useStaticQuery } from "gatsby"
 import { Container, Row, Nav } from "react-bootstrap"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faDiscord, faInstagram } from "@fortawesome/free-brands-svg-icons"
+import { faDiscord, faInstagram, faGithub } from "@fortawesome/free-brands-svg-icons"
 
 import { darkTheme } from "./theme.js"
 
@@ -48,6 +48,7 @@ const Footer = ({ stickyFooter }) => {
 					links {
 						discord
 						instagram
+						github
 					}
 				}
 			}
@@ -67,6 +68,9 @@ const Footer = ({ stickyFooter }) => {
 						</Nav.Item>
 						<Nav.Item>
 							<FAIconLink title="EECS Club Instagram Account" aria-label="EECS Club Instagram Account" href={data.site.siteMetadata.links.instagram} icon={faInstagram} target="_blank"/>
+						</Nav.Item>
+						<Nav.Item>
+							<FAIconLink title="EECS Club Github Account" aria-label="EECS Club Github Account" href={data.site.siteMetadata.links.github} icon={faGithub} target="_blank"/>
 						</Nav.Item>
 					</Nav>
 				</Row>

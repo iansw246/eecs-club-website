@@ -75,7 +75,7 @@ export default function BoardMemberShowcase({ justifyContent, marginLeft }) {
 	const data = useStaticQuery(
 		graphql`
 			fragment BoardMemberPhoto on ImageSharp {
-				fixed(width: 250, height: 325, cropFocus: ATTENTION) {
+				fixed(width: 250, height: 325, cropFocus: ATTENTION, quality: 75) {
 					...GatsbyImageSharpFixed_withWebp
 				}
 			}
