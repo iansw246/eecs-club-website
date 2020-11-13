@@ -70,7 +70,7 @@ const Footer = ({ stickyFooter }) => {
 							<FAIconLink title="EECS Club Instagram Account" aria-label="EECS Club Instagram Account" href={data.site.siteMetadata.links.instagram} icon={faInstagram} target="_blank"/>
 						</Nav.Item>
 						<Nav.Item>
-							<FAIconLink title="EECS Club Github Account" aria-label="EECS Club Github Account" href={data.site.siteMetadata.links.github} icon={faGithub} target="_blank"/>
+							<FAIconLink title="EECS Club Website Github" aria-label="EECS Club Website Github" href={data.site.siteMetadata.links.github} icon={faGithub} target="_blank"/>
 						</Nav.Item>
 					</Nav>
 				</Row>

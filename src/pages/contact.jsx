@@ -55,7 +55,7 @@ export default function Contact({ data }) {
 			<CenteredContainer as="main">
 				<h1>Contact</h1>
 				<p>
-					We are welcome to any feedback or suggestions.
+					We are welcome to any feedback or suggestions. We are also looking for guest speakers.
 					Contact us through: 
 				</p>
 				<NoBulletUl>
