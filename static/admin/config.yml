@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   branch: master
 
-media_folder: /static/img/uploads
+media_folder: /src/images
 public_folder: /img/uploads
 
 collections:
@@ -13,7 +13,7 @@ collections:
     public_folder: /img/uploads
     create: true
     slug: index
-    path: {{title}}/index
+    path: '{{title}}/index'
     editor:
       preview: false
     fields:
@@ -30,6 +30,22 @@ collections:
         file: content/pages/index.md
         fields:
           - {label: Title, name: title, widget: string}
+          - {label: Description, name: description, widget: string}
+          - {label: Projects, name: projects, widget: list, fields: [{label: Project, name: project, widget: object, fields: [{label: Title, name: title, widget: string}, {label: Description, name: description, widget: string}, {label: Image, name: image, widget: Image}]}]}
+      - label: About
+        name: about
+        file: content/pages/about.md
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Body, name: body, widget: markdown}
+          - {label: Board Mambers, name: boardMembers, widget: list, fields: [{label: Board Member, name: boardMembers, widget: object, fields: [{label: Position title, name: positionTitle, widget: string}, {label: Name, name: name, widget: string}, {label: Image, name: image, widget: image}]}]}
+      - label: Links
+        name: links
+        file: content/pages/links.md
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Description, name: description, widget: string}
+          - {label: Links, name: links, widget: list, fields: [{label: Link, name: link, widget: object, fields: [{label: Link Text, name: linkText, widget: string}, {label: URL, name: url, widget: url}]}]}
 
   - label: Links
     name: links
@@ -40,7 +56,7 @@ collections:
     public_folder: ../../static/img/uploads
     create: false
     slug: index
-    path: {{title}}
+    path: '{{title}}'
     editor:
       preview: true
     fields:

@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { Container, Button } from "react-bootstrap";
 
 import Layout from "../components/layout";
