@@ -1,6 +1,5 @@
 # EECS Club Website
-https://www.lowelleecs.ml
-(The domain was free and for testing, ok. We're going to change it.)
+[https://www.lowelleecs.ml](https://www.lowelleecs.ml/?ref=gh)
 
 Built, deployed, and hosted using Netlify: 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4f62ab3d-1fc4-4787-a637-d92026cb6a79/deploy-status)](https://app.netlify.com/sites/reverent-jang-69754c/deploys)
@@ -13,7 +12,7 @@ To develop on this repository, simply clone:
 cd ~
 git clone https://github.com/ianjazz246/eecs-club-website.git
 ```
-...then install the npm packages.
+...then install the npm packages. (Make sure Node.js and Yarn is installed)
 ```sh
 cd website
 yarn
