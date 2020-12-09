@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
@@ -44,65 +45,36 @@ const ProjectText = styled.div`
 `;
 
 
-export default function ProjectsShowcase() {
-	const data = useStaticQuery(graphql`
-		{
-			lightCube: file(relativePath: {eq: "projects/light-cube.jpg"}) {
-				childImageSharp {
-					fluid(maxWidth: 500, maxHeight: 300) {
-						...GatsbyImageSharpFluid_withWebp
-					}
-				}
-			}
-			ledBoard: file(relativePath: {eq: "projects/light-board-1.jpg"}) {
-				childImageSharp {
-					fluid(maxWidth: 500, maxHeight: 300, cropFocus: CENTER) {
-						...GatsbyImageSharpFluid_withWebp
-					}
-				}
-			}
-			solderingWorkshop: file(relativePath: {eq: "projects/soldering-workshop-2.jpg"}) {
-				childImageSharp {
-					fluid(maxWidth: 500, maxHeight: 300) {
-						...GatsbyImageSharpFluid_withWebp
-					}
-				}
-			}
-		}
-	`);
-
+const ProjectsShowcase = ({ projects }) => {
 	return (
 		// To prevent layout shifts when switching between slide with different heights
 		<CarouselStyled>
-			<Carousel.Item>
-				<CarouselContentContainer>
-					<ProjectImage fluid={data.lightCube.childImageSharp.fluid} alt="LED light cube"/>
-					<ProjectText>
-						<h3>LED Light Cube</h3>
-						<p>27 LEDs soldered into a 3x3x3 cube.</p>
-					</ProjectText>
-				</CarouselContentContainer>
-			</Carousel.Item>
-			
-			<Carousel.Item>
-				<CarouselContentContainer>
-					<ProjectImage fluid={data.ledBoard.childImageSharp.fluid} alt="LED light board"/>
-					<ProjectText>
-						<h3>Light Board</h3>
-						<p>An array of LEDs, able to display patterns and animations.</p>
-					</ProjectText>
-				</CarouselContentContainer>
-			</Carousel.Item>
-
-			<Carousel.Item>
-				<CarouselContentContainer>
-					<ProjectImage fluid={data.solderingWorkshop.childImageSharp.fluid} alt="Soldering workshop"/>
-					<ProjectText>
-						<h3>Soldering Workshop</h3>
-						<p>Introductory workshop teaching members how to solder.</p>
-					</ProjectText>
-				</CarouselContentContainer>
-			</Carousel.Item>
+			{projects.map(( project, index ) => (
+				<Carousel.Item key={index}>
+					<CarouselContentContainer>
+						<ProjectImage fluid={project.image.childImageSharp.fluid} alt={project.title}/>
+						<ProjectText>
+							<h3>{project.title}</h3>
+							<p>{project.description}</p>
+						</ProjectText>
+					</CarouselContentContainer>
+				</Carousel.Item>	
+			))}
 		</CarouselStyled>
 	)
 }
+
+
+ProjectsShowcase.propTypes = {
+	projects: PropTypes.arrayOf(PropTypes.shape({
+		description: PropTypes.string.isRequired,
+		title: PropTypes.string.isRequired,
+		image: PropTypes.shape({
+			childImageSharp: PropTypes.shape({
+				fluid: PropTypes.object.isRequired,
+			}).isRequired
+		}).isRequired
+	}).isRequired
+)}
+
+export default ProjectsShowcase;

@@ -28,6 +28,8 @@ collections:
       - label: Index
         name: index
         file: content/pages/index.md
+        media_folder: /src/images/projects
+        public_folder: /src/images/projects
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Description, name: description, widget: text }
@@ -44,7 +46,7 @@ collections:
         file: content/pages/links.md
         fields:
           - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: text }
+          - { label: Description, name: description, widget: markdown }
           - { label: Links, name: links, widget: list, fields: [{ label: Link Text, name: linkText, widget: string }, { label: URL, name: url, widget: url }, { label: Thumbnail, name: thumbnail, widget: image }]}
 
   - label: Links

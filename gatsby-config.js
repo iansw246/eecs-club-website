@@ -28,15 +28,8 @@ module.exports = {
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
-				path: `${__dirname}/content/workshops/`,
-				name: `workshops`,
-			},
-		},
-		{
-			resolve: `gatsby-source-filesystem`,
-			options: {
-				path: `${__dirname}/content/links`,
-				name: `links`,
+				path: `${__dirname}/content`,
+				name: `content`,
 			},
 		},
 		{
@@ -62,6 +55,15 @@ module.exports = {
 		},
 		`gatsby-plugin-sass`,
 		`gatsby-transformer-remark`,
+		{
+			resolve: `gatsby-remark-images`,
+			options: {
+				maxWidth: 1180,
+				linkImagesToOriginal: false,
+				backgroundColor: "transparent",
+				widthWebp: true,
+			},
+		},
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-sharp`,
 		`gatsby-transformer-sharp`,
