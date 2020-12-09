@@ -21,7 +21,7 @@ export const query = graphql`
 		markdownRemark(fileAbsolutePath: {regex: "/.*/content/pages/links.md$/"}) {
 			frontmatter {
 				links {
-					text
+					linkText
 					url
 					thumbnail {
 						childImageSharp {

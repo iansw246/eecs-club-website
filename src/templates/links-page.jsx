@@ -78,11 +78,11 @@ export const LinksTemplate = ({
 								linkPost.thumbnail ? 
 								(
 									linkPost.thumbnail.childImageSharp ?
-									<CardImage fixed={linkPost.thumbnail.childImageSharp.fixed} alt={`${linkPost.text} thumbnail`}/>
+									<CardImage fixed={linkPost.thumbnail.childImageSharp.fixed} alt={`${linkPost.linkText} thumbnail`}/>
 									:
 									// But not an image sharp (svgs, for example, don't generate image sharp
 									// Show image directly with simple img tag
-									<CardImage as="img" src={linkPost.thumbnail.publicURL} alt={`${linkPost.text} thumbnail`} />
+									<CardImage as="img" src={linkPost.thumbnail.publicURL} alt={`${linkPost.linkText} thumbnail`} />
 								)
 								:
 								// Empty div with height and width the same as an image to keep dimensions consistent
@@ -90,7 +90,7 @@ export const LinksTemplate = ({
 								//<CardImageMissing as="img"/>
 							}
 							<CardBody>
-								<NewTabLink href={linkPost.url} className="stretched-link h5">{linkPost.text}</NewTabLink>
+								<NewTabLink href={linkPost.url} className="stretched-link h5">{linkPost.linkText}</NewTabLink>
 							</CardBody>
 						</LinkCard>
 					)
