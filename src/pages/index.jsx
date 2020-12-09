@@ -23,7 +23,7 @@ export default function Home({ data }) {
 
 export const query = graphql`
 	{
-		markdownRemark(fileAbsolutePath: {regex: "/.*eecs-club-website/content/pages/index.md$/"}) {
+		markdownRemark(fileAbsolutePath: {regex: "/.*/content/pages/index.md$/"}) {
 			frontmatter {
 				title
 				description
