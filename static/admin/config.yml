@@ -38,14 +38,14 @@ collections:
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Body, name: body, widget: markdown }
-          - { label: Board Mambers, name: boardMembers, widget: list, fields: [{ label: Position title, name: positionTitle, widget: string }, { label: Name, name: name, widget: string }, { label: Image, name: image, widget: image }]}
+          - { label: Board Members, name: boardMembers, widget: list, fields: [{ label: Position title, name: positionTitle, widget: string }, { label: Name, name: name, widget: string }, { label: Image, name: image, widget: image, required: false }]}
       - label: Links
         name: links
         file: content/pages/links.md
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Description, name: description, widget: text }
-          - { label: Links, name: links, widget: list, fields: [{ label: Link Text, name: linkText, widget: string }, { label: URL, name: url, widget: url }]}
+          - { label: Links, name: links, widget: list, fields: [{ label: Link Text, name: linkText, widget: string }, { label: URL, name: url, widget: url }, { label: Thumbnail, name: thumbnail, widget: image }]}
 
   - label: Links
     name: links
