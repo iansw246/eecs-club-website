@@ -59,8 +59,6 @@ export const IndexTemplate = ({
 	`);
 	const links = data.site.siteMetadata.links;
 
-	console.log(projects);
-
 	return (
 		<CoverMainContainer>
 			<Container
@@ -73,9 +71,11 @@ export const IndexTemplate = ({
 				<Container>
 					<CoverLogo src={logo} alt="EECS Club logo"></CoverLogo>
 					<h1 style={{fontSize: "2.6rem"}}>{title}</h1>
-					<p>
-						{description}
-					</p>
+					{
+						description.split("\n").map((line, index) => (
+							<p key={index}>{line}</p>
+						))
+					}
 					<Button className="m-2" href={links.signUpForm} variant="primary" target="_blank" rel="noopener noreferrer">
 						Sign up
 					</Button>

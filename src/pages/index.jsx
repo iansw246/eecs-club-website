@@ -8,7 +8,6 @@ import Head from "../components/head"
 
 export default function Home({ data }) {
 	let markdown = data.markdownRemark.frontmatter;
-	console.log(markdown);
 	return (
 		<Layout stickyFooter={false}>
 			<Head title="Home" />
