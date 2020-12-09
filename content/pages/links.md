@@ -6,7 +6,7 @@ links:
     url: https://forms.gle/LJbq8R8sUqff4QFRA
     thumbnail: ../../static/img/uploads/merch preference form.jpg
   - text: Sign Up Form
-    url: http://forms.gle/P8FQZdq8b5aLnoRQ9
+    url: https://forms.gle/P8FQZdq8b5aLnoRQ9
     thumbnail: ../../static/img/uploads/signup.svg
   - text: Info Meeting Slides
     url: https://drive.google.com/file/d/1L59J1evASpHigvl86-q60CcpKYXCQpE3/view
