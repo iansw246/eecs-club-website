@@ -10,7 +10,7 @@ projects:
     image: ../../src/images/projects/light-cube.jpg
   - title: Light Board
     description: An array of LEDs, able to display patterns and animations.
-    image: ../../src/images/projects/light-board-1.jpg
+    image: ../../src/images/projects/light-board-1-crop.jpg
   - title: Soldering Workshop
     description: Introductory workshop teaching members how to solder.
     image: ../../src/images/projects/soldering-workshop-2.jpg

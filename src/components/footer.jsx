@@ -76,7 +76,7 @@ const Footer = ({ stickyFooter }) => {
 				</Row>
 				<div className="d-flex justify-content-between">
 					<small className="mr-4">©{(new Date().getFullYear())} Ian Wong - for Lowell EECS Club</small>
-					<small>Last updated {(new Date()).toLocaleDateString("en-US")}</small>
+					{/* <small>Last updated {(new Date()).toLocaleDateString("en-US")}</small> */}
 				</div>
 			</Container>
 		</FooterStyled>
