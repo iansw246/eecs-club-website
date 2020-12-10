@@ -29,7 +29,7 @@ collections:
         name: index
         file: content/pages/index.md
         media_folder: /src/images/projects
-        public_folder: /src/images/projects
+        public_folder: ../../src/images/projects #Path of /src/images/projects relative of content/pages/idnex.md
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Description, name: description, widget: text }
@@ -46,6 +46,8 @@ collections:
       - label: Links
         name: links
         file: content/pages/links.md
+        media_folder: /src/images/projects
+        public_folder: ../../src/images/links-page #Path of /src/images/projects relative of content/pages/links.md
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Description, name: description, widget: markdown }
