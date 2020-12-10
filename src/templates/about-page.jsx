@@ -10,7 +10,6 @@ const AboutTemplate = ({
 	body,
 	boardMembers
 }) => {
-	console.log(body);
 	return (
 		<CenteredContainer>
 			<h1>{title}</h1>

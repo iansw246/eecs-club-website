@@ -17,7 +17,4 @@ projects:
   - title: Soldering Workshop
     description: Introductory workshop teaching members how to solder.
     image: ../../src/images/projects/soldering-workshop-2.jpg
-  - title: Test
-    description: Test
-    image: ../../src/images/projects/light-board-2.jpg
 ---

@@ -31,7 +31,7 @@ collections:
         media_folder: /src/images/projects
         public_folder: ../../src/images/projects #Path of /src/images/projects relative of content/pages/idnex.md
         fields:
-          - { label: Title, name: title, widget: string }
+          - { label: Title, name: title, widget: markdown }
           - { label: Description, name: description, widget: text }
           - { label: Projects, name: projects, widget: list, fields: [{ label: Title, name: title, widget: string }, { label: Description, name: description, widget: string }, { label: Image, name: image, widget: image }]}
       - label: About
