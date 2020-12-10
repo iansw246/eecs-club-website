@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
+import PropTypes from "prop-types"
 
 import Layout from "../components/layout"
 import CenteredContainer from "../components/centeredContainer"
@@ -46,6 +47,17 @@ const AboutTemplate = ({
 			</CenteredContainer>
 		</Layout>
 	)
+}
+
+AboutTemplate.propTypes = {
+	title: PropTypes.string,
+	body: PropTypes.object,
+	boardMembers: PropTypes.arrayOf(PropTypes.shape({
+		name: PropTypes.string,
+		title: PropTypes.string,
+		imageFixed: PropTypes.object,
+		description: PropTypes.string,
+	})),
 }
 
 export const query = graphql`

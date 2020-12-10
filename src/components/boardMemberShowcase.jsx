@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
+import PropTypes from "prop-types"
 import { Card } from "react-bootstrap"
 import Img from "gatsby-image"
 import { darkTheme } from "./theme"
@@ -70,8 +71,11 @@ const MemberBox = ({ name, title, description, imageSrc, imageFixed, imageText }
 
 export { MemberBox };
 
-// Most likely to be used version
-export default function BoardMemberShowcase({ justifyContent, marginLeft }) {
+const BoardMemberShowcase = ({
+	justifyContent,
+	marginLeft,
+	boardMembers
+}) => {
 	const data = useStaticQuery(
 		graphql`
 			fragment BoardMemberPhoto on ImageSharp {
@@ -160,3 +164,16 @@ export default function BoardMemberShowcase({ justifyContent, marginLeft }) {
 		</MemberBoxesHolder>
 	)
 }
+
+BoardMemberShowcase.propTypes = {
+	justifyContent: PropTypes.string,
+	marginLeft: PropTypes.string,
+	boardMembers: PropTypes.arrayOf(PropTypes.shape({
+		name: PropTypes.string,
+		title: PropTypes.string,
+		imageFixed: PropTypes.object,
+		description: PropTypes.string,
+	})),
+};
+
+export default BoardMemberShowcase;
