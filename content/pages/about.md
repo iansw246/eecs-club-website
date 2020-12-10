@@ -7,27 +7,30 @@ boardMembers:
   - positionTitle: Vice President of Operations
     name: Noella Lee
     image: ../../src/images/about-page/Noella Lee.png
-    description: 
+    description: null
   - positionTitle: Vice President of Finance
     name: Ian Wong
     image: ../../src/images/about-page/Ian Wong.jpg
-    description: 
+    description: null
   - positionTitle: Vice President of Public Relations
     name: Katie Ho
     image: ../../src/images/about-page/Katie Ho.jpg
-    description: 
+    description: null
   - positionTitle: Project Leader
     name: Alyssa Wu
     image: ../../src/images/about-page/Alyssa Wu.jpg
-    description: 
+    description: null
   - positionTitle: Project Leader
     name: Marvin Chen
     image: ../../src/images/about-page/Marvin Chen.jpg
-    description: 
+    description: null
   - positionTitle: Project Leader
     name: Liam Giraldo
     image: ../../src/images/about-page/Liam Giraldo.jpg
-    description: 
+    description: null
+  - positionTitle: Test
+    name: Test
+    image: ../../src/images/about-page/aboutBanner.jpg
 ---
 Lowell Electrical Engineering & Computer Science (EECS) Club is a student-run club at Lowell High School in San Francisco, California. Our goal is to inspire students' interest in EECS by providng them exposure to the field.
 
