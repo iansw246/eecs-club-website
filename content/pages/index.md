@@ -1,8 +1,11 @@
 ---
 title: Lowell EECS Club
-description: |
-  Official website of the EECS Club at Lowell High School in San Francisco, California.
+description: >
+  Official website of the EECS Club at Lowell High School in San Francisco,
+  California.
+
   Learn electrical engineering & computer science while creating exciting projects.
+
   Meetings every Friday from 3:30 to 4:30 pm.
 projects:
   - title: LED Light Cube
@@ -14,4 +17,7 @@ projects:
   - title: Soldering Workshop
     description: Introductory workshop teaching members how to solder.
     image: ../../src/images/projects/soldering-workshop-2.jpg
+  - title: Test
+    description: Test
+    image: ../../src/images/projects/light-board-2.jpg
 ---
