@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { graphql, useStaticQuery } from "gatsby"
 import PropTypes from "prop-types"
 import { Card } from "react-bootstrap"
 import Img from "gatsby-image"
@@ -76,50 +75,18 @@ const BoardMemberShowcase = ({
 	marginLeft,
 	boardMembers
 }) => {
-	const data = useStaticQuery(
-		graphql`
-			fragment BoardMemberPhoto on ImageSharp {
-				fixed(width: 250, height: 325, cropFocus: ATTENTION, quality: 75) {
-					...GatsbyImageSharpFixed_withWebp
-				}
-			}
-			{
-				noellaImage: file(relativePath: {eq: "boardmembers/Noella Lee.png"}) {
-					childImageSharp {
-						...BoardMemberPhoto
-					}
-				}
-				ianImage: file(relativePath: {eq: "boardmembers/Ian Wong.jpg"}) {
-					childImageSharp {
-						...BoardMemberPhoto
-					}
-				}
-				katieImage: file(relativePath: {eq: "boardmembers/Katie Ho.jpg"}) {
-					childImageSharp {
-						...BoardMemberPhoto
-					}
-				}
-				alyssaImage: file(relativePath: {eq: "boardmembers/Alyssa Wu.jpg"}) {
-					childImageSharp {
-						...BoardMemberPhoto
-					}
-				}
-				marvinImage: file(relativePath: {eq: "boardmembers/Marvin Chen.jpg"}) {
-					childImageSharp {
-						...BoardMemberPhoto
-					}
-				}
-				liamImage: file(relativePath: {eq: "boardmembers/Liam Giraldo.jpg"}) {
-					childImageSharp {
-						...BoardMemberPhoto
-					}
-				}
-			}
-		`
-	);
 	return (
 		<MemberBoxesHolder style={{justifyContent: justifyContent, marginLeft: marginLeft}}>
-			<MemberBox
+			{boardMembers.map((member, index) => (
+				<MemberBox
+					key={index}
+					name={member.name}
+					title={member.positionTitle}
+					imageFixed={member.image ? member.image.childImageSharp.fixed : null}
+					description={member.description}
+				/>
+			))}
+			{/* <MemberBox
 				name="Maxwell Xu"
 				title="President"
 				imageText="No image by request of Max"
@@ -160,7 +127,7 @@ const BoardMemberShowcase = ({
 				title="Project Leader"
 				imageFixed={data.liamImage.childImageSharp.fixed}
 				description=""
-			/>
+			/> */}
 		</MemberBoxesHolder>
 	)
 }
@@ -170,8 +137,12 @@ BoardMemberShowcase.propTypes = {
 	marginLeft: PropTypes.string,
 	boardMembers: PropTypes.arrayOf(PropTypes.shape({
 		name: PropTypes.string,
-		title: PropTypes.string,
-		imageFixed: PropTypes.object,
+		positionTitle: PropTypes.string,
+		image: PropTypes.shape({
+			childImageSharp: PropTypes.shape({
+				fixed: PropTypes.object.isRequired,
+			}).isRequired,
+		}),
 		description: PropTypes.string,
 	})),
 };

@@ -54,14 +54,20 @@ module.exports = {
 			},
 		},
 		`gatsby-plugin-sass`,
-		`gatsby-transformer-remark`,
 		{
-			resolve: `gatsby-remark-images`,
+			resolve: `gatsby-transformer-remark`,
 			options: {
-				maxWidth: 1180,
-				linkImagesToOriginal: false,
-				backgroundColor: "transparent",
-				widthWebp: true,
+				plugins: [
+					{
+						resolve: `gatsby-remark-images`,
+						options: {
+							maxWidth: 1180,
+							linkImagesToOriginal: false,
+							backgroundColor: "transparent",
+							withWebp: true,
+						},
+					},
+				],
 			},
 		},
 		`gatsby-plugin-react-helmet`,

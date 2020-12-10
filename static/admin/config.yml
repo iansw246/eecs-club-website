@@ -36,7 +36,7 @@ collections:
           - { label: Projects, name: projects, widget: list, fields: [{ label: Title, name: title, widget: string }, { label: Description, name: description, widget: string }, { label: Image, name: image, widget: image }]}
       - label: About
         media_folder: /src/images/about-page
-        public_folder: /src/images/about-page
+        public_folder: ../../src/images/about-page #Path of /src/images/about-page relative of content/pages/about.md
         name: about
         file: content/pages/about.md
         fields:
