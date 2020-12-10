@@ -1,5 +1,4 @@
 import React from "react"
-import CMS from "netlify-cms-app"
 
 class CroppedImagePreview extends React.Component {
 	render = () => {
