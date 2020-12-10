@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import PropTypes from "prop-types"
 import styled from "styled-components";
 import { Container, Button } from "react-bootstrap";
 
@@ -73,7 +74,10 @@ export const IndexTemplate = ({
 					<h1 style={{fontSize: "2.6rem"}}>{title}</h1>
 					{
 						description.split("\n").map((line, index) => (
-							<p key={index}>{line}</p>
+							line ? 
+								<p key={index}>{line}</p>
+								:
+								null
 						))
 					}
 					<Button className="m-2" href={links.signUpForm} variant="primary" target="_blank" rel="noopener noreferrer">
@@ -100,4 +104,18 @@ export const IndexTemplate = ({
 			</Container>
 		</CoverMainContainer>
 	);
-}
+};
+
+IndexTemplate.propType = {
+	title: PropTypes.string,
+	description: PropTypes.title,
+	projects: PropTypes.arrayOf(
+		PropTypes.shape({
+			title: PropTypes.string,
+			description: PropTypes.description,
+			image: PropTypes.object,
+		}),
+	),
+};
+
+export default IndexTemplate;
