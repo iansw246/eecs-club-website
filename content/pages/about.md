@@ -28,9 +28,6 @@ boardMembers:
     name: Liam Giraldo
     image: ../../src/images/about-page/Liam Giraldo.jpg
     description: null
-  - positionTitle: Test
-    name: Test
-    image: ../../src/images/about-page/aboutBanner.jpg
 ---
 Lowell Electrical Engineering & Computer Science (EECS) Club is a student-run club at Lowell High School in San Francisco, California. Our goal is to inspire students' interest in EECS by providng them exposure to the field.
 

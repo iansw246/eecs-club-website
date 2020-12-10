@@ -42,7 +42,7 @@ collections:
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Body, name: body, widget: markdown }
-          - { label: Board Members, name: boardMembers, widget: list, fields: [{ label: Position title, name: positionTitle, widget: string }, { label: Name, name: name, widget: string }, { label: Image, name: image, widget: image, required: false }]}
+          - { label: Board Members, name: boardMembers, widget: list, fields: [{ label: Position title, name: positionTitle, widget: string }, { label: Name, name: name, widget: string }, { label: Image, name: image, widget: image, required: false }, { label: Description, name: description, widget: text, required: false }]}
       - label: Links
         name: links
         file: content/pages/links.md
