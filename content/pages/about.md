@@ -35,6 +35,6 @@ We teach our members how to solder, code, build circuits, and use Arduino microc
 
 ![Banner](../../src/images/about-page/aboutBanner.jpg "Banner")
 
-We meet every Friday from 3:30 to 4:30 pm. Due to the pandemic, our meetings are hosted on Zoom. Sign up [here](https://forms.gle/P8FQZdq8b5aLnoRQ9) (must use SFUSD account).
+We meet every Friday from 3:30 to 4:30 pm. Due to the pandemic, our meetings are hosted on Zoom. Sign up [here ](https://forms.gle/UA73L98bqFRzx9ws9)(must use SFUSD account).
 
 We hope to see you there!
