@@ -25,7 +25,7 @@ export const query = graphql`
 					url
 					thumbnail {
 						childImageSharp {
-							# Background #000000 and last two hex digits 00 is alpha of 0 for completely transparent
+							# Equivalent to background #000000, transparent background
 							fixed (width: 200, height: 150, fit: CONTAIN, background: "#0000") {
 								...GatsbyImageSharpFixed_withWebp
 							}
