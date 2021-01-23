@@ -10,7 +10,7 @@ links:
     thumbnail: ../../src/images/links-page/signup.svg
   - linkText: Serial Monitor Arduino Project
     url: https://www.tinkercad.com/things/5CEtEo2LpIp-serial-monitor
-    thumbnail: ../../src/images/links-page/arduino.png
+    thumbnail: ../../src/images/links-page/serial monitor arduino.png
   - linkText: Info Meeting Slides
     url: https://drive.google.com/file/d/1L59J1evASpHigvl86-q60CcpKYXCQpE3/view
     thumbnail: ../../src/images/links-page/info.png

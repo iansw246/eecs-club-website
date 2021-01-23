@@ -51,8 +51,8 @@ collections:
       - label: Links
         name: links
         file: content/pages/links.md
-        media_folder: /src/images/projects
-        public_folder: ../../src/images/links-page #Path of /src/images/projects relative of content/pages/links.md
+        media_folder: /src/images/links-page
+        public_folder: ../../src/images/links-page #Path of /src/images/link-page relative of content/pages/links.md
         preview_path: links/
         fields:
           - { label: Title, name: title, widget: string }
