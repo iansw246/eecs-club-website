@@ -1,13 +1,16 @@
 ---
 title: Links
-description:
+description: Links to projects and announcements.
 links:
   - linkText: Merch Preference Form
     url: https://forms.gle/LJbq8R8sUqff4QFRA
     thumbnail: ../../src/images/links-page/merch preference form.jpg
   - linkText: Sign Up Form
-    url: https://forms.gle/P8FQZdq8b5aLnoRQ9
+    url: https://forms.gle/UA73L98bqFRzx9ws9
     thumbnail: ../../src/images/links-page/signup.svg
+  - linkText: Serial Monitor Arduino Project
+    url: https://www.tinkercad.com/things/5CEtEo2LpIp-serial-monitor
+    thumbnail: ../../src/images/links-page/arduino.png
   - linkText: Info Meeting Slides
     url: https://drive.google.com/file/d/1L59J1evASpHigvl86-q60CcpKYXCQpE3/view
     thumbnail: ../../src/images/links-page/info.png
