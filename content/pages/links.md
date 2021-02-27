@@ -2,6 +2,9 @@
 title: Links
 description: Links to projects and announcements.
 links:
+  - linkText: Github with project code
+    url: https://github.com/LowellEECS/EECS-Project-Code
+    thumbnail: ../../src/images/links-page/github-logo.png
   - linkText: Merch Preference Form
     url: https://forms.gle/LJbq8R8sUqff4QFRA
     thumbnail: ../../src/images/links-page/merch preference form.jpg
