@@ -79,7 +79,7 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-sitemap`,
 			options: {
-				exclude: [`/success`, `/workshops/dummy`]
+				exclude: [`/success`, `/workshops/dummy`, `/admin`]
 			}
 		},
 		{
@@ -88,7 +88,7 @@ module.exports = {
 				resolveEnv: () => NETLIFY_ENV,
 				env: {
 					production: {
-						policy: [{ userAgent: `*` }]
+						policy: [{ userAgent: `*`, disallow: [`/admin`] }],
 					},
 					"branch-deploy": {
 						policy: [{ userAgent: `*`, disallow: [`/`] }],
