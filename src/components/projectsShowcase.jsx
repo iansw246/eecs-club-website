@@ -1,14 +1,13 @@
-import React from "react"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import PropTypes from "prop-types"
-import { graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
+import React from "react"
+import { Carousel, Container } from "react-bootstrap"
 import styled from "styled-components"
-import { Container, Carousel } from "react-bootstrap"
-import { darkTheme } from "./theme"
 
 const CarouselStyled = styled(Carousel)`
+	${""/* To prevent layout shifts when switching between slide with different heights*/}
 	min-height: 25rem;
-	${'' /* border-top: 2px solid ${darkTheme.accentColor};
+	${"" /* border-top: 2px solid ${darkTheme.accentColor};
 	padding-top: 2rem; */}
 `;
 
@@ -16,7 +15,7 @@ const CarouselContentContainer = styled(Container)`
 	display: flex;
 	flex-wrap: wrap;
 	align-content: center;
-	margin-bottom: 2.5rem; ${'' /*Margin so Carousel page indicator doesn't overlap content*/}
+	margin-bottom: 2.5rem; ${"" /*Margin so Carousel page indicator doesn't overlap content*/}
 	padding-left: 10%;
 	padding-right: 10%;
 
@@ -25,7 +24,7 @@ const CarouselContentContainer = styled(Container)`
 	}
 `;
 
-const ProjectImage = styled(Img)`
+const ProjectImage = styled(GatsbyImage)`
 	flex-grow: 3;
 	width: 50%;
 	max-width: 500px;
@@ -47,12 +46,11 @@ const ProjectText = styled.div`
 
 const ProjectsShowcase = ({ projects }) => {
 	return (
-		// To prevent layout shifts when switching between slide with different heights
 		<CarouselStyled>
 			{projects.map(( project, index ) => (
 				<Carousel.Item key={index}>
 					<CarouselContentContainer>
-						<ProjectImage fluid={project.image.childImageSharp.fluid} alt={project.title}/>
+						<ProjectImage image={getImage(project.image)} alt={project.title}/>
 						<ProjectText>
 							<h3>{project.title}</h3>
 							<p>{project.description}</p>
@@ -62,7 +60,7 @@ const ProjectsShowcase = ({ projects }) => {
 			))}
 		</CarouselStyled>
 	)
-}
+};
 
 
 ProjectsShowcase.propTypes = {
@@ -70,11 +68,9 @@ ProjectsShowcase.propTypes = {
 		description: PropTypes.string.isRequired,
 		title: PropTypes.string.isRequired,
 		image: PropTypes.shape({
-			childImageSharp: PropTypes.shape({
-				fluid: PropTypes.object.isRequired,
-			}).isRequired
-		}).isRequired
-	}).isRequired
-)}
+			childImageSharp: PropTypes.object.isRequired,
+		}).isRequired,
+	}).isRequired,
+)};
 
 export default ProjectsShowcase;

@@ -1,7 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import { css } from "styled-components"
 import CenteredContainer from "../components/centeredContainer"
 import BoardMemberShowcase from "../components/boardMemberShowcase"
 
@@ -27,9 +26,7 @@ AboutTemplate.propTypes = {
 		name: PropTypes.string,
 		positionTitle: PropTypes.string,
 		image: PropTypes.shape({
-			childImageSharp: PropTypes.shape({
-				fixed: PropTypes.object.isRequired,
-			}).isRequired,
+			childImageSharp: PropTypes.object.isRequired,
 		}),
 		description: PropTypes.string,
 	})),

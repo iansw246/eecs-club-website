@@ -1,10 +1,10 @@
-import React from "react"
 import { Link } from "gatsby"
-import { Container, Navbar, Nav } from "react-bootstrap"
+import React from "react"
+import { Container, Nav, Navbar } from "react-bootstrap"
 import styled from "styled-components"
+import logo from "../images/eecs-logo.svg"
 import { darkTheme } from "./theme"
 
-import logo from "../images/eecs-logo.svg"
 
 const NavbarStyled = styled(Navbar).attrs((props) => ({
 	id: "primary-navbar",
@@ -41,22 +41,26 @@ const Logo = styled.img`
 `;
 
 /* Ideally, would use sticky, but my Android has some glitches while scrolling. Assumming others have this minor yet annoying issue*/
-export default ({coloredNavbar}) => (
-	<NavbarStyled $coloredNavbar={coloredNavbar}>
-		<Container fluid="lg">
-			<Navbar.Brand as={Link} to="/" style={{display: "flex"}}>
-				<Logo src={logo} alt="EECS Club logo"/>EECS Club
-			</Navbar.Brand>
-			<Navbar.Toggle aria-controls="responsive-navbar-nav"/>
-			<Navbar.Collapse id="responsive-navbar-nav">
-				<Nav className="text-primary">
-					<NavItem><NavRouterLink to="/">Home</NavRouterLink></NavItem>
-					<NavItem><NavRouterLink to="/about/">About</NavRouterLink></NavItem>
-					<NavItem><NavRouterLink to="/links/">Links</NavRouterLink></NavItem>
-					{/* <NavItem><NavRouterLink to="/events/">Workshops</NavRouterLink></NavItem> */}
-					<NavItem><NavRouterLink to="/contact/">Contact</NavRouterLink></NavItem>
-				</Nav>
-			</Navbar.Collapse>
-		</Container>
-	</NavbarStyled>
-);
+export default function({coloredNavbar}) {
+	return (
+		// The prop starting with $ is a transient prop that doesn't get passed by styled-components to deeper components
+		// see https://stackoverflow.com/questions/58094415/styling-react-router-dom-link-using-styled-components-getting-warning-when-passi
+		<NavbarStyled $coloredNavbar={coloredNavbar}>
+			<Container fluid="lg">
+				<Navbar.Brand as={Link} to="/" style={{display: "flex"}}>
+					<Logo src={logo} alt="EECS Club logo"/>EECS Club
+				</Navbar.Brand>
+				<Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+				<Navbar.Collapse id="responsive-navbar-nav">
+					<Nav className="text-primary">
+						<NavItem><NavRouterLink to="/">Home</NavRouterLink></NavItem>
+						<NavItem><NavRouterLink to="/about/">About</NavRouterLink></NavItem>
+						<NavItem><NavRouterLink to="/links/">Links</NavRouterLink></NavItem>
+						{/* <NavItem><NavRouterLink to="/events/">Workshops</NavRouterLink></NavItem> */}
+						<NavItem><NavRouterLink to="/contact/">Contact</NavRouterLink></NavItem>
+					</Nav>
+				</Navbar.Collapse>
+			</Container>
+		</NavbarStyled>
+	);
+}

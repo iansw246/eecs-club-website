@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
 import { Card } from "react-bootstrap"
-import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { darkTheme } from "./theme"
 
 const MemberBoxesHolder = styled.div`
@@ -21,7 +21,7 @@ const MemberCard = styled(Card)`
 	border-top: 2px solid ${darkTheme.accentColor};
 `;
 
-const MemberImage = styled(Img).attrs(() => ({
+const MemberImage = styled(GatsbyImage).attrs(() => ({
 	className: "card-img"
 }))`
 	margin-left: 1rem;
@@ -33,40 +33,34 @@ const MemberImage = styled(Img).attrs(() => ({
 	height: 325px;
 `;
 
-const MemberBox = ({ name, title, description, imageSrc, imageFixed, imageText }) => (
-	<MemberCard text="light">
-		{
-			imageText ? 
-			<MemberImage as="div">
-				{imageText}
-			</MemberImage>
-			:
-			(
-				imageFixed ? 
-				<MemberImage fixed={imageFixed} alt={`${name} - ${title}`}/>
+const MemberBox = ({name, title, description, image}) => {
+	return (
+		<MemberCard text="light">
+			{
+				// Image is null if there is no image
+				image ?
+				<MemberImage image={getImage(image)} alt={`${name} - ${title}`}/>
 				:
-				(
-					imageSrc ?
-					<MemberImage as="img" src={imageSrc} alt={`${name} - ${title}`}/>
-					: <MemberImage as="img" src={imageSrc} alt={`Image of ${name} not yet added`}/>
-				)
-			)
-		}
-		<Card.Body>
-			<Card.Title as="h5">{title}</Card.Title>
-			<Card.Title as="h4">{name}</Card.Title>
-			<Card.Text>
-				{description}
-			</Card.Text>
-		</Card.Body>
-	</MemberCard>
-	// <ContentHolder>
-	// 	<h2>{name}</h2>
-	// 	<h4>{title}</h4>
-	// 	<MemberImage src={imageSrc} width={250} className="w-auto" />
-	// 	<p>{description}</p>
-	// </ContentHolder>
-);
+				<MemberImage as="div">
+					Image of {name} not yet added
+				</MemberImage>
+			}
+			<Card.Body>
+				<Card.Title as="h5">{title}</Card.Title>
+				<Card.Title as="h4">{name}</Card.Title>
+				<Card.Text>
+					{description}
+				</Card.Text>
+			</Card.Body>
+		</MemberCard>
+		// <ContentHolder>
+		// 	<h2>{name}</h2>
+		// 	<h4>{title}</h4>
+		// 	<MemberImage src={imageSrc} width={250} className="w-auto" />
+		// 	<p>{description}</p>
+		// </ContentHolder>
+	);
+}
 
 export { MemberBox };
 
@@ -82,7 +76,7 @@ const BoardMemberShowcase = ({
 					key={index}
 					name={member.name}
 					title={member.positionTitle}
-					imageFixed={member.image ? member.image.childImageSharp.fixed : null}
+					image={member.image}
 					description={member.description}
 				/>
 			))}
@@ -139,9 +133,7 @@ BoardMemberShowcase.propTypes = {
 		name: PropTypes.string,
 		positionTitle: PropTypes.string,
 		image: PropTypes.shape({
-			childImageSharp: PropTypes.shape({
-				fixed: PropTypes.object.isRequired,
-			}).isRequired,
+			childImageSharp: PropTypes.object.isRequired,
 		}),
 		description: PropTypes.string,
 	})),

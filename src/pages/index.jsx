@@ -1,20 +1,19 @@
 import React from "react";
 import { graphql } from "gatsby";
-
-import IndexTemplate from "../templates/index-page"
+import IndexTemplate from "../templates/indexTemplate"
 import Layout from "../components/layout";
 import Head from "../components/head"
 
 
 export default function Home({ data }) {
-	let markdown = data.markdownRemark.frontmatter;
+	let frontmatter = data.markdownRemark.frontmatter;
 	return (
 		<Layout stickyFooter={false}>
 			<Head title="Home" />
 			<IndexTemplate
-				title={markdown.title}
-				description={markdown.description}
-				projects={markdown.projects}
+				title={frontmatter.title}
+				description={frontmatter.description}
+				projects={frontmatter.projects}
 			>
 			</IndexTemplate>
 		</Layout>
@@ -32,9 +31,7 @@ export const query = graphql`
 					title
 					image {
 						childImageSharp {
-							fluid(maxWidth: 500, maxHeight: 300) {
-								...GatsbyImageSharpFluid_withWebp
-							}
+							gatsbyImageData(width: 500, height: 300)
 						}
 					}
 				}

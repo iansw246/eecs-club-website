@@ -73,6 +73,7 @@ export const IndexTemplate = ({
 					<CoverLogo src={logo} alt="EECS Club logo"></CoverLogo>
 					<h1 style={{fontSize: "2.6rem"}}>{title}</h1>
 					{
+						// Bad workaround for how newlines don't create separate paragraphs
 						description.split("\n").map((line, index) => (
 							line ? 
 								<p key={index}>{line}</p>

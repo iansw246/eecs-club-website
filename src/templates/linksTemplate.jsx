@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components"
 import { Container, Card } from "react-bootstrap";
-import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import PropTypes from "prop-types"
 
 import CenteredContainer from "../components/centeredContainer"
@@ -42,14 +42,14 @@ const imageRoundedBorderCSS = css`
 	border-radius: calc(0.25rem - 1px);
 `;
 
-const CardImage = styled(Img)`
+const CardImage = styled(GatsbyImage)`
 	${imageRoundedBorderCSS}
 	width: ${imageWidth}px;
 	height: ${imageHeight}px;
 `;
 
 //const MISSING_IMAGE_THUMBNAIL = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cg opacity='.75'%3E%3Cpath d='M19.188 12.001c0 1.1-.891 2.015-1.988 2.015l-4.195-.015c.538 1.088.963 1.999 1.997 1.999h3C19.658 16 21 13.657 21 12s-1.342-4-2.998-4h-3c-1.034 0-1.459.911-1.998 1.999l4.195-.015c1.098 0 1.989.917 1.989 2.017z'/%3E%3Cpath d='M8 12c0 .535.42 1 .938 1h6.109c.518 0 .938-.465.938-1 0-.534-.42-1-.938-1H8.938C8.42 11 8 11.466 8 12z'/%3E%3Cpath d='M4.816 11.999c0-1.1.891-2.015 1.988-2.015L11 9.999C10.461 8.911 10.036 8 9.002 8h-3c-1.656 0-2.998 2.343-2.998 4s1.342 4 2.998 4h3c1.034 0 1.459-.911 1.998-1.999l-4.195.015c-1.098 0-1.989-.917-1.989-2.017z'/%3E%3C/g%3E%3C/svg%3E";
-const MISSING_IMAGE_THUMBNAIL = "/img/Icon-Link.svg";
+/* const MISSING_IMAGE_THUMBNAIL = "/img/Icon-Link.svg";
 
 const CardImageMissing = styled.img.attrs(() => ({
 	alt: "Link icon for link missing a thumbnail",
@@ -60,7 +60,7 @@ const CardImageMissing = styled.img.attrs(() => ({
 	width: 200px;
 	height: 100px;
 	margin: auto;
-`;
+`; */
 
 export const LinksTemplate = ({
 	links
@@ -78,7 +78,7 @@ export const LinksTemplate = ({
 								linkPost.thumbnail ? 
 								(
 									linkPost.thumbnail.childImageSharp ?
-									<CardImage fixed={linkPost.thumbnail.childImageSharp.fixed} alt={`${linkPost.linkText} thumbnail`}/>
+									<CardImage image={getImage(linkPost.thumbnail)} alt={`${linkPost.linkText} thumbnail`}/>
 									:
 									// But not an image sharp (svgs, for example, don't generate image sharp
 									// Show image directly with simple img tag

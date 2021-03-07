@@ -1,9 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby"
-
 import Layout from "../components/layout"
 import Head from "../components/head"
-import LinksTemplate from "../templates/links-page"
+import LinksTemplate from "../templates/linksTemplate"
 
 export default function Links({ data }) {
 	return (
@@ -25,10 +24,12 @@ export const query = graphql`
 					url
 					thumbnail {
 						childImageSharp {
-							# Equivalent to background #000000, transparent background
-							fixed (width: 200, height: 150, fit: CONTAIN, background: "#0000") {
-								...GatsbyImageSharpFixed_withWebp
-							}
+							gatsbyImageData(
+								backgroundColor: "#0000"
+								width: 200
+								height: 150
+								layout: FIXED
+							)
 						}
 						publicURL
 					}

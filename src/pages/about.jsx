@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Head from "../components/head"
 
 import Layout from "../components/layout"
-import AboutTemplate from "../templates/about-page"
+import AboutTemplate from "../templates/aboutTemplate"
 export default function About({ data }) {
 
 	return (
@@ -23,6 +23,7 @@ export default function About({ data }) {
 export const query = graphql`
 	{
 		markdownRemark(fileAbsolutePath: {regex: "/.*pages/about.md$/"}) {
+			html
 			frontmatter {
 				title
 				boardMembers {
@@ -31,14 +32,11 @@ export const query = graphql`
 					description
 					image {
 						childImageSharp {
-							fixed(width: 250, height: 325, cropFocus: ATTENTION, quality: 75) {
-								...GatsbyImageSharpFixed_withWebp
-							}
+							gatsbyImageData(width: 250, height: 325)
 						}
 					}
 				}
 			}
-			html
 		}
 	}
 `;
