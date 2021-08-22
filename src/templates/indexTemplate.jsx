@@ -99,6 +99,9 @@ export const IndexTemplate = ({
 						border-top: 2px solid ${darkTheme.accentColor};
 						width: 80%;
 						margin-bottom: 2rem;
+						opacity: 100%;
+						margin-left: auto;
+						margin-right: auto;
 					`}
 				/>
 				<ProjectsShowcase projects={projects}/>

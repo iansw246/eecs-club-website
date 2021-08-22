@@ -9,7 +9,7 @@ links:
     url: https://forms.gle/LJbq8R8sUqff4QFRA
     thumbnail: ../../src/images/links-page/merch preference form.jpg
   - linkText: Sign Up Form
-    url: https://forms.gle/UA73L98bqFRzx9ws9
+    url: https://forms.gle/TVLJWxDLry2zzGRR8
     thumbnail: ../../src/images/links-page/signup.svg
   - linkText: Serial Monitor Arduino Project
     url: https://www.tinkercad.com/things/5CEtEo2LpIp-serial-monitor

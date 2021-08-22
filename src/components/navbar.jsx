@@ -13,7 +13,7 @@ const NavbarStyled = styled(Navbar).attrs((props) => ({
 	className: "shadow-sm position-fixed w-100 font-weight-bold",
 }))`
 	z-index: 2;
-	background-color: ${(props) => (props.$coloredNavbar ? "var(--primary)" : darkTheme.bodyBackground)};
+	background-color: ${(props) => (props.$coloredNavbar ? "var(--primary)" : darkTheme.bodyBackground)};;
 `;
 
 const NavRouterLink = (props) => (
@@ -41,7 +41,7 @@ const Logo = styled.img`
 `;
 
 /* Ideally, would use sticky, but my Android has some glitches while scrolling. Assumming others have this minor yet annoying issue*/
-export default function({coloredNavbar}) {
+export default function MyNavbar({coloredNavbar}) {
 	return (
 		// The prop starting with $ is a transient prop that doesn't get passed by styled-components to deeper components
 		// see https://stackoverflow.com/questions/58094415/styling-react-router-dom-link-using-styled-components-getting-warning-when-passi

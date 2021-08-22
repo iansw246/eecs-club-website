@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { Container } from "react-bootstrap";
 
-import Navbar from "./navbar"
+import MyNavbar from "./navbar"
 import Footer from "./footer"
 import { darkTheme } from "./theme"
 
@@ -56,7 +56,7 @@ const PageContainer = styled(Container).attrs(() => ({
 export default function Layout({ children, stickyFooter = true}) {
 	return (
 		<PageContainer>
-			<Navbar coloredNavbar={true}/>
+			<MyNavbar coloredNavbar={true}/>
 
 			<MainContentSpacer />
 

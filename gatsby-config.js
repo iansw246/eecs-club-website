@@ -19,7 +19,7 @@ module.exports = {
 			instagram: `https://www.instagram.com/lowelleecs/`,
 			instagramUsername: `@lowelleecs`,
 			email: `lowelleecs@gmail.com`,
-			signUpForm: `https://forms.gle/UA73L98bqFRzx9ws9`,
+			signUpForm: `https://forms.gle/TVLJWxDLry2zzGRR8`,
 			github: `https://github.com/ianjazz246/eecs-club-website`,
 		},
 	},
@@ -80,7 +80,7 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-sitemap`,
 			options: {
-				exclude: [`/success`, `/workshops/dummy`, `/admin`]
+				excludes: [`/success`, `/workshops/dummy`, `/admin`]
 			}
 		},
 		{

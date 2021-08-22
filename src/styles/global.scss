@@ -12,7 +12,7 @@ $h6-font-size: $font-size-base !default;
 $primary: #0d47a1; //#00438a;
 //$secondary: #0056b3;
 
-//$body-bg: #121212;
+$body-bg: #121212;
 //$light: #00eeff; // May want to make text slightly darker to reduce constrast
 
 $link-color: lighten($primary, 40%);
@@ -26,12 +26,13 @@ $navbar-dark-hover-color: rgba(#ffffff, 0.9);
 // 	color: $link-visited-color;
 // }
 
-// :root {
-// 	--body-bg: #{$body-bg};
-// }
+:root {
+	--body-bg: #{$body-bg};
+	--primary: #{$primary};
+}
 
 body {
 	min-height: 100vh;
 }
 
-@import "~bootstrap/scss/bootstrap";
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";

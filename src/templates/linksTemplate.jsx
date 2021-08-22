@@ -72,7 +72,7 @@ export const LinksTemplate = ({
 			<LinksContainer>
 				{links.map((linkPost, index) => {
 					return (
-						<LinkCard>
+						<LinkCard key={index}>
 							{
 								// If post has thumbnail
 								linkPost.thumbnail ? 
