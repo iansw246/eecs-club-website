@@ -13,21 +13,20 @@ boardMembers:
     image: ../../src/images/about-page/Ian Wong.jpg
     description: null
   - positionTitle: Vice President of Public Relations
-    name: Katie Ho
-    image: ../../src/images/about-page/Katie Ho.jpg
+    name: Marvin Chen
+    image: ../../src/images/about-page/Marvin Chen.jpg
     description: null
   - positionTitle: Project Leader
     name: Alyssa Wu
     image: ../../src/images/about-page/Alyssa Wu.jpg
     description: null
   - positionTitle: Project Leader
-    name: Marvin Chen
-    image: ../../src/images/about-page/Marvin Chen.jpg
-    description: null
-  - positionTitle: Project Leader
     name: Liam Giraldo
     image: ../../src/images/about-page/Liam Giraldo.jpg
     description: null
+  - positionTitle: Project Leader
+    name: Gui Yang
+    description: ""
 ---
 Lowell Electrical Engineering & Computer Science (EECS) Club is a student-run club at Lowell High School in San Francisco, California. Our goal is to inspire students' interest in EECS by providng them exposure to the field.
 

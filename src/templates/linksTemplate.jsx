@@ -103,7 +103,7 @@ export const LinksTemplate = ({
 LinksTemplate.propTypes = {
 	links: PropTypes.arrayOf(PropTypes.shape({
 		thumbnail: PropTypes.object.isRequired,
-		text: PropTypes.string.isRequired,
+		linkText: PropTypes.string.isRequired,
 		url: PropTypes.string.isRequired
 	})).isRequired
 }

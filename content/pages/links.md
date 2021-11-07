@@ -2,12 +2,12 @@
 title: Links
 description: Links to projects and announcements.
 links:
+  - linkText: Sign Out Form
+    url: https://forms.gle/KQkCDWd3bW31rUodA
+    thumbnail: ../../src/images/links-page/signup.svg
   - linkText: Github With Project Code
     url: https://github.com/LowellEECS/EECS-Project-Code
     thumbnail: ../../src/images/links-page/github-logo.png
-  - linkText: Merch Preference Form
-    url: https://forms.gle/LJbq8R8sUqff4QFRA
-    thumbnail: ../../src/images/links-page/merch preference form.jpg
   - linkText: Sign Up Form
     url: https://forms.gle/TVLJWxDLry2zzGRR8
     thumbnail: ../../src/images/links-page/signup.svg
